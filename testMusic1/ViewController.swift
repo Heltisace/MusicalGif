@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     var shouldChangeGif = false
     var viewWidth: CGFloat = 0.0
     var viewHeight: CGFloat = 0.0
+    var gifViewWidth: CGFloat = 0.0
     
     var normalGifRight: CGFloat = 0.0
     var normalGifBottom: CGFloat = 0.0
@@ -49,6 +50,7 @@ class ViewController: UIViewController {
         //Initialization
         viewWidth = self.view.frame.size.width
         viewHeight = self.view.frame.size.height
+        gifViewWidth = gifView.frame.size.width
         
         normalGifRight = self.gifTrailing.constant
         normalGifBottom = self.gifBottom.constant
@@ -68,7 +70,7 @@ class ViewController: UIViewController {
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         //Counting moving
-        let velocity = gestureRecognizer.velocity(in: self.view)
+        let velocity = gestureRecognizer.velocity(in: self.gifView)
         var deltaX = velocity.x / 30
         
         if (self.gifTrailing.constant - deltaX) < self.normalGifRight{
@@ -83,7 +85,7 @@ class ViewController: UIViewController {
             setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
             self.view.layoutIfNeeded()
         } else if gestureRecognizer.state == .ended {
-            self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.viewWidth / 1.5)
+            self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.gifViewWidth / 2)
     
             //Change or no
             if shouldChangeGif{

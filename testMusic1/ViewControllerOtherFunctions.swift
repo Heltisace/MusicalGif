@@ -13,19 +13,13 @@ import NVActivityIndicatorView
 extension ViewController{
     
     func startTheShow(){
-        self.musicPrepear()
-        
-        DispatchQueue.global().async{
+        OperationQueue().cancelAllOperations()
+        DispatchQueue.global().sync{
+            self.musicPrepear()
             self.theGif.isHidden = true
-        }
-        
-        self.animateGifChanging()
-        
-        DispatchQueue.main.async{
-            OperationQueue().cancelAllOperations()
-            self.loadSpinner()
-            self.loadNewSong()
-            self.startMusicAndGif()
+            self.closeSpinner(spinner: self.indicator)
+            
+            self.animateGifChanging()
         }
     }
     
@@ -39,10 +33,16 @@ extension ViewController{
     //Adds spinner animation
     func loadSpinner(){
         DispatchQueue.global().async{
+            self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.gifView)
+        }
+    }
+    
+    //Close the spinner
+    func closeSpinner(spinner: NVActivityIndicatorView?){
+        DispatchQueue.global().async{
             if self.indicator?.isAnimating == true{
                 self.spinner.hideActivityIndicator(spinner: self.indicator!, gifContainer: self.gifView, gifView: self.theGif)
             }
-            self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.gifView)
         }
     }
     
@@ -64,7 +64,7 @@ extension ViewController{
             synchOperation.synch(closure: self.theGif.sd_setImage(with: URL(string: gifURL)) { (image, error, cacheType, imageURL) in
                 self.musicEngine.playTrack()
                 synchOperation.state = .finished
-                self.spinner.hideActivityIndicator(spinner: self.indicator!, gifContainer: self.gifView, gifView: self.theGif)
+                self.closeSpinner(spinner: self.indicator)
             })
             
             //Creating stream for synch

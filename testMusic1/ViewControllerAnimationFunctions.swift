@@ -32,18 +32,17 @@ extension ViewController{
     func animateGifChanging(){
         removeGifFromView()
         removeLabelFromView()
-        
         sendGifFarAway()
-        
-        returnGifToView()
-        returnLabelToView()
     }
     
     func removeLabelFromView(){
         DispatchQueue.global().sync{
-            UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.songInfoLabel.alpha = 0
                 self.view.layoutIfNeeded()
+            }, completion: { completed in
+                self.returnLabelToView()
+                self.loadNewSong()
             })
         }
     }
@@ -53,6 +52,8 @@ extension ViewController{
             UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.setGifConstraints(left: self.viewWidth, right: self.viewWidth, top: nil, bottom: nil)
                 self.view.layoutIfNeeded()
+            }, completion: { completed in
+                self.loadSpinner()
             })
         }
     }
@@ -62,15 +63,16 @@ extension ViewController{
             UIView.animate(withDuration: 1.0, delay: 1.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.setGifConstraints(left: nil, right: nil, top: self.normalGifTop, bottom: self.normalGifBottom)
                 self.view.layoutIfNeeded()
+            }, completion:{completed in
+                self.startMusicAndGif()
             })
         }
     }
     
     func returnLabelToView(){
         DispatchQueue.global().sync{
-            UIView.animate(withDuration: 1.0, delay: 1.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.songInfoLabel.alpha = 1
-                
                 self.view.layoutIfNeeded()
             })
         }
@@ -79,6 +81,7 @@ extension ViewController{
         DispatchQueue.global().sync{
             self.setGifConstraints(left: self.normalGifLeft, right: self.normalGifRight, top: -self.viewHeight, bottom: self.viewHeight)
             self.view.layoutIfNeeded()
+            self.returnGifToView()
         }
     }
     
