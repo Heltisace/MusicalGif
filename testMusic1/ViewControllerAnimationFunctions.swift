@@ -30,12 +30,13 @@ extension ViewController{
     //Animations if changing
     
     func animateGifChanging(){
-        removeGifFromView()
-        removeLabelFromView()
-        sendGifFarAway()
+        changeGifWithAnimation()
+        changeSongInfoLabel()
+        returnGifToView()
     }
     
-    func removeLabelFromView(){
+    //Set label alpha 0 and start loading new song
+    func changeSongInfoLabel(){
         DispatchQueue.global().sync{
             UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.songInfoLabel.alpha = 0
@@ -47,18 +48,21 @@ extension ViewController{
         }
     }
     
-    func removeGifFromView(){
+    //Move the gif to the left of view and start loading spinner
+    func changeGifWithAnimation(){
         DispatchQueue.global().sync{
             UIView.animate(withDuration: 1.0, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.setGifConstraints(left: self.viewWidth, right: self.viewWidth, top: nil, bottom: nil)
                 self.view.layoutIfNeeded()
             }, completion: { completed in
+                //Strart loading spinner
                 self.loadSpinner()
             })
         }
     }
     
-    func returnGifToView(){
+    //Delete the picture from above to the view
+    func fromTopToDown(){
         DispatchQueue.global().sync{
             UIView.animate(withDuration: 1.0, delay: 1.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.setGifConstraints(left: nil, right: nil, top: self.normalGifTop, bottom: self.normalGifBottom)
@@ -69,6 +73,7 @@ extension ViewController{
         }
     }
     
+    //Change label alpha to 1
     func returnLabelToView(){
         DispatchQueue.global().sync{
             UIView.animate(withDuration: 0.5, delay: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
@@ -77,11 +82,13 @@ extension ViewController{
             })
         }
     }
-    func sendGifFarAway(){
+    
+    //Put the gif under the view
+    func returnGifToView(){
         DispatchQueue.global().sync{
             self.setGifConstraints(left: self.normalGifLeft, right: self.normalGifRight, top: -self.viewHeight, bottom: self.viewHeight)
             self.view.layoutIfNeeded()
-            self.returnGifToView()
+            self.fromTopToDown()
         }
     }
     

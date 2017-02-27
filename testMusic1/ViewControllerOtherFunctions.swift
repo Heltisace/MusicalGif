@@ -15,10 +15,13 @@ extension ViewController{
     func startTheShow(){
         OperationQueue().cancelAllOperations()
         DispatchQueue.global().sync{
+            
+            //Prepear for changing
             self.musicPrepear()
             self.theGif.isHidden = true
             self.closeSpinner(spinner: self.indicator)
             
+            //Let's change
             self.animateGifChanging()
         }
     }
