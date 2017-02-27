@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         
         //Is swipe changed or ended
         if gestureRecognizer.state == .changed {
-            self.setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
+            setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
             self.view.layoutIfNeeded()
         } else if gestureRecognizer.state == .ended {
             self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.viewWidth / 1.5)
@@ -89,7 +89,7 @@ class ViewController: UIViewController {
             if shouldChangeGif{
                 startTheShow()
             }else{
-                self.animateGifNotChanging()
+                animateGifNotChanging()
             }
         }
     }
