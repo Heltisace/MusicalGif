@@ -19,19 +19,10 @@ class RandomGif{
         if let data = try? Data(contentsOf: url!) {
             let tempJson = JSON(data: data)
             
-            //Wait for downloading
-            sleep(UInt32(0.5))
-            
             if let theGif = tempJson["data"]["image_original_url"].string {
                 gif = theGif
-            } else {print("ERROR")}
+            } else {gif = "http://media4.giphy.com/media/xUySTRGWPdx7oxnswU/giphy.gif"}
         }
         return gif
-    }
-    func playRandomGif(gifView: FLAnimatedImageView, randomGifEngine: RandomGif){
-        //Generate a random gif
-        let gif = randomGifEngine.getRandomGif()
-        //Play the random gif
-        gifView.sd_setImage(with: URL(string: gif))
     }
 }

@@ -10,5 +10,6 @@ target 'testMusic1' do
   pod 'SDWebImage/GIF'
   pod 'FLAnimatedImage'
   pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView'
 
 end

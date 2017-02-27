@@ -19,6 +19,10 @@
 		923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DA1E5E56A300D0AD20 /* RandomGif.swift */; };
 		923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */; };
 		923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DE1E5F40C200D0AD20 /* RoundGif.swift */; };
+		923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */; };
+		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
+		926AAB891E62051F00B86EC4 /* SysGifs in Resources */ = {isa = PBXBuildFile; fileRef = 926AAB881E62051F00B86EC4 /* SysGifs */; };
+		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */; };
 		FDD98EC5320BA243220D2165 /* Pods_testMusic1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47045E5989A3DF5EDB1D3CBA /* Pods_testMusic1.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +65,10 @@
 		923A50DA1E5E56A300D0AD20 /* RandomGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGif.swift; sourceTree = "<group>"; };
 		923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		923A50DE1E5F40C200D0AD20 /* RoundGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundGif.swift; sourceTree = "<group>"; };
+		923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		926AAB881E62051F00B86EC4 /* SysGifs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SysGifs; sourceTree = SOURCE_ROOT; };
+		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomSong.swift; sourceTree = "<group>"; };
 		D40D0181E28A8B1A0725A03E /* Pods-testMusic1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testMusic1.release.xcconfig"; path = "Pods/Target Support Files/Pods-testMusic1/Pods-testMusic1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +174,8 @@
 				9211F2BA1E5B48F400A9076C /* MusicEngine.swift */,
 				92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */,
 				923A50DA1E5E56A300D0AD20 /* RandomGif.swift */,
+				923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */,
+				926AAB841E6202E000B86EC4 /* Spinner.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -183,6 +193,7 @@
 		92F66F7C1E5BB755005DCDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				926AAB881E62051F00B86EC4 /* SysGifs */,
 				9211F2931E5B3B9600A9076C /* Assets.xcassets */,
 				9211F2981E5B3B9600A9076C /* Info.plist */,
 			);
@@ -195,6 +206,7 @@
 				9211F2BC1E5B56D400A9076C /* RoundButton.swift */,
 				923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */,
 				923A50DE1E5F40C200D0AD20 /* RoundGif.swift */,
+				926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -318,6 +330,7 @@
 				9211F2971E5B3B9600A9076C /* LaunchScreen.storyboard in Resources */,
 				9211F2941E5B3B9600A9076C /* Assets.xcassets in Resources */,
 				9211F2921E5B3B9600A9076C /* Main.storyboard in Resources */,
+				926AAB891E62051F00B86EC4 /* SysGifs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,9 +404,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */,
+				926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
+				926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */,
 				9211F28D1E5B3B9600A9076C /* AppDelegate.swift in Sources */,
+				923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */,
 				92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */,
 				923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */,
 				923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */,

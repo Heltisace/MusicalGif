@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-testMusic1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0612F172F98EFE91FA6B8019685C38E2</key>
+		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E3FF5A1B54CFF0767BB0EAB7C95D0E2</key>
+		<key>64AF531F517D677ED550C9D837427CDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A28E1E75441CB2F3CAA6797DA543A609</key>
+		<key>C57B48FFCD6D00B0A8669CC0AA2643F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0E1D9296DF864A89F6B5AD43A54DC00</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -22,26 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlM-hX-XEF" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="31" y="457" width="313" height="60"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="jia-RH-NpB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="42"/>
-                                <state key="normal" title="Try">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XHu-kW-hTP"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="21" y="89" width="333" height="343"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3e4-5f-hqC" customClass="RoundLabel" customModule="testMusic1" customModuleProvider="target">
                                 <rect key="frame" x="15" y="542" width="345" height="100"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ARj-BH-nNO"/>
                                 </constraints>
@@ -49,23 +32,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAL-Db-LDR" userLabel="GifView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
+                                <rect key="frame" x="21" y="89" width="333" height="428"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="428"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="XAL-Db-LDR" secondAttribute="top" id="3I0-wQ-Lu7"/>
+                                    <constraint firstItem="LzL-os-5fD" firstAttribute="leading" secondItem="XAL-Db-LDR" secondAttribute="leading" id="pAd-QV-6Pt"/>
+                                    <constraint firstAttribute="trailing" secondItem="LzL-os-5fD" secondAttribute="trailing" id="tyX-5j-gEZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="LzL-os-5fD" secondAttribute="bottom" id="uDE-lg-Ne2"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="zlM-hX-XEF" secondAttribute="trailing" constant="15" id="3d9-i6-QKB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LzL-os-5fD" secondAttribute="trailing" constant="5" id="83b-lo-pYK"/>
-                            <constraint firstItem="3e4-5f-hqC" firstAttribute="top" secondItem="zlM-hX-XEF" secondAttribute="bottom" constant="25" id="JNt-8p-VLc"/>
-                            <constraint firstItem="zlM-hX-XEF" firstAttribute="top" secondItem="LzL-os-5fD" secondAttribute="bottom" constant="25" id="QcD-JZ-TN4"/>
-                            <constraint firstItem="LzL-os-5fD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="R30-ls-jOH"/>
-                            <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="Ums-Tt-guE"/>
+                            <constraint firstItem="3e4-5f-hqC" firstAttribute="top" secondItem="LzL-os-5fD" secondAttribute="bottom" constant="25" id="9hF-gV-1qO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XAL-Db-LDR" secondAttribute="trailing" constant="5" id="R4Q-P8-enZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3e4-5f-hqC" secondAttribute="bottom" constant="25" id="V0e-Co-fK6"/>
+                            <constraint firstItem="XAL-Db-LDR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="Xlf-dF-et1"/>
+                            <constraint firstItem="XAL-Db-LDR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="Zsk-tt-tec"/>
                             <constraint firstAttribute="trailing" secondItem="3e4-5f-hqC" secondAttribute="trailing" constant="15" id="hXS-UC-7Y7"/>
-                            <constraint firstItem="zlM-hX-XEF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="k5g-Bk-3h2"/>
                             <constraint firstItem="3e4-5f-hqC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="zfp-CQ-e9N"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Randomizer" id="GZN-aS-xNt"/>
                     <connections>
+                        <outlet property="gifBottom" destination="9hF-gV-1qO" id="hHe-x1-Uwj"/>
+                        <outlet property="gifLeading" destination="Xlf-dF-et1" id="g5Z-pf-ytC"/>
+                        <outlet property="gifTop" destination="Zsk-tt-tec" id="EQz-Xm-WRn"/>
+                        <outlet property="gifTrailing" destination="R4Q-P8-enZ" id="kd7-D7-qKV"/>
+                        <outlet property="gifView" destination="XAL-Db-LDR" id="j5p-O2-XKy"/>
                         <outlet property="songInfoLabel" destination="3e4-5f-hqC" id="Hxp-26-3Z4"/>
                         <outlet property="theGif" destination="LzL-os-5fD" id="Mkp-bV-IUn"/>
                     </connections>

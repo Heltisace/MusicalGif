@@ -17,7 +17,7 @@ class RandomSong{
         //Array of max offset
         var maxRandom = Array(repeating: 100_000, count: 26)
         
-        maxRandom[6] = 72_303
+        maxRandom[7] = 72_303
         maxRandom[16] = 23_285
         maxRandom[22] = 64_644
         maxRandom[25] = 62_642
@@ -44,7 +44,6 @@ class RandomSong{
             let tempJson = JSON(data: data)
             
             //Wait for downloading
-            sleep(UInt32(0.5))
             songJson = tempJson
         }
         return songJson!
@@ -83,14 +82,19 @@ class RandomSong{
         return artist
     }
     
-    //Play a random song
-    func playRandomSong(musicEngine: MusicEngine, randomSongEngine: RandomSong, infoLabel: UILabel){
+    //Load a random song
+    func loadRandomSong(musicEngine: MusicEngine, randomSongEngine: RandomSong, infoLabel: UILabel){
+        //Stop playing previous song
+        musicEngine.stopPlaying()
+        infoLabel.text! = "Loading..."
+        
         //Generating a random song
         let jsonUrl = randomSongEngine.getJsonUrl()
         let songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
+        let trackURL = randomSongEngine.getSongUrl(data: songJson)
         
         //Playing the random song
-        musicEngine.playSound(soundUrl: randomSongEngine.getSongUrl(data: songJson))
+        musicEngine.loadTrack(soundUrl: trackURL)
         infoLabel.text! = randomSongEngine.getSongName(data: songJson)+" - "+randomSongEngine.getSongArtist(data: songJson)
     }
 }

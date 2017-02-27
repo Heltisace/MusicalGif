@@ -1,5 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
+  - NVActivityIndicatorView (3.5)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -10,15 +11,17 @@ PODS:
 
 DEPENDENCIES:
   - FLAnimatedImage
+  - NVActivityIndicatorView
   - SDWebImage
   - SDWebImage/GIF
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  NVActivityIndicatorView: e5252b082f93885f0bfc24c318719b4eaabcd37b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 0c19133c365fc15444b99832b85edcd1c4166f31
+PODFILE CHECKSUM: 8bd683aee22362a32fcc814ad83bc99883a608f2
 
 COCOAPODS: 1.2.0
