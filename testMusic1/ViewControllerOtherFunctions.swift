@@ -13,13 +13,12 @@ import NVActivityIndicatorView
 extension ViewController{
     
     func startTheShow(){
-        OperationQueue().cancelAllOperations()
         DispatchQueue.global().sync{
             
             //Prepear for changing
             self.musicPrepear()
-            self.theGif.isHidden = true
-            self.closeSpinner(spinner: self.indicator)
+            self.loadSpinner()
+            self.stopPreviousGif()
             
             //Let's change
             self.animateGifChanging()
@@ -33,8 +32,16 @@ extension ViewController{
         }
     }
     
+    func stopPreviousGif(){
+        if operations.count != 0{
+            self.operations[0].cancel()
+            self.operations.removeFirst()
+        }
+    }
+    
     //Adds spinner animation
     func loadSpinner(){
+        self.closeSpinner(spinner: self.indicator)
         DispatchQueue.global().async{
             self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.gifView)
         }
@@ -50,28 +57,42 @@ extension ViewController{
     }
     
     //Load a new song
+    func generateNewSong(){
+        DispatchQueue.global().sync {
+            songURL = self.randomSongEngine.generateRandomSong(musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine, infoLabel: self.songInfoLabel)
+            self.openSongButton.isEnabled = true
+        }
+    }
+    
     func loadNewSong(){
         DispatchQueue.global().sync {
-            self.randomSongEngine.loadRandomSong(musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine, infoLabel: self.songInfoLabel)
+            self.randomSongEngine.loadRandomSong(musicEngine: self.musicEngine)
+        }
+    }
+    
+    func loadSongInfo(){
+        DispatchQueue.global().sync {
+            self.randomSongEngine.loadSongInfo(infoLabel: self.songInfoLabel)
         }
     }
     
     //Show image and play music if image is loaded
     func startMusicAndGif(){
         DispatchQueue.global().sync{
-            let queue = OperationQueue()
-            
             let synchOperation = ConcurrentOperation()
-            let gifURL = self.randomGifEngine.getRandomGif()
+            operations.append(synchOperation)
+            let randomTag = self.randomGifEngine.randomTag()
+            gifURL = randomGifEngine.getGifWithTag(tag: randomTag)
             
-            synchOperation.synch(closure: self.theGif.sd_setImage(with: URL(string: gifURL)) { (image, error, cacheType, imageURL) in
+            openGifButton.isEnabled = true
+            
+            operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image, error, cacheType, imageURL) in
                 self.musicEngine.playTrack()
-                synchOperation.state = .finished
                 self.closeSpinner(spinner: self.indicator)
             })
             
             //Creating stream for synch
-            queue.addOperations([synchOperation], waitUntilFinished: false)
+            queue.addOperations([operations[0]], waitUntilFinished: false)
         }
     }
 }

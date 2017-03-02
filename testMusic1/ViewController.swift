@@ -16,11 +16,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var theGif: FLAnimatedImageView!
     @IBOutlet weak var songInfoLabel: UILabel!
     @IBOutlet weak var gifView: UIView!
+    @IBOutlet weak var openSongButton: UIButton!
+    @IBOutlet weak var openGifButton: UIButton!
+    
     
     @IBOutlet weak var gifLeading: NSLayoutConstraint!
     @IBOutlet weak var gifBottom: NSLayoutConstraint!
     @IBOutlet weak var gifTrailing: NSLayoutConstraint!
     @IBOutlet weak var gifTop: NSLayoutConstraint!
+    @IBOutlet weak var openGifTrailing: NSLayoutConstraint!
+    @IBOutlet weak var openSongLeading: NSLayoutConstraint!
+    @IBOutlet weak var betweenButtons: NSLayoutConstraint!
     
     //Helpers variables
     let musicEngine = MusicEngine()
@@ -31,6 +37,12 @@ class ViewController: UIViewController {
     //Global variables
     var indicator: NVActivityIndicatorView?
     var shouldChangeGif = false
+    var gifURL = ""
+    var songURL = ""
+    
+    let queue = OperationQueue()
+    var operations: [ConcurrentOperation] = []
+    
     var viewWidth: CGFloat = 0.0
     var viewHeight: CGFloat = 0.0
     var gifViewWidth: CGFloat = 0.0
@@ -40,12 +52,18 @@ class ViewController: UIViewController {
     var normalGifLeft: CGFloat = 0.0
     var normalGifTop: CGFloat = 0.0
     
+    var normalLeftButton: CGFloat = 0.0
+    var normalRightButton: CGFloat = 0.0
+    var normalBetweenButtons: CGFloat = 0.0
+    
+    var lastDegree: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //swipeControll
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        self.view.addGestureRecognizer(gestureRecognizer)
+        self.gifView.addGestureRecognizer(gestureRecognizer)
         
         //Initialization
         viewWidth = self.view.frame.size.width
@@ -56,11 +74,13 @@ class ViewController: UIViewController {
         normalGifBottom = self.gifBottom.constant
         normalGifLeft = self.gifLeading.constant
         normalGifTop = self.gifTop.constant
+        normalLeftButton = self.openSongLeading.constant
+        normalRightButton = self.openGifTrailing.constant
+        normalBetweenButtons = self.betweenButtons.constant
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
         
         startTheShow()
@@ -70,19 +90,29 @@ class ViewController: UIViewController {
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         //Counting moving
-        let velocity = gestureRecognizer.velocity(in: self.gifView)
+        let velocity = gestureRecognizer.velocity(in: self.theGif)
         var deltaX = velocity.x / 30
         
         if (self.gifTrailing.constant - deltaX) < self.normalGifRight{
             deltaX = 0
         }
         
+        //Gif way
         let newRightSpace = self.gifTrailing.constant - deltaX
         let newLeftSpace = self.gifLeading.constant + deltaX
+        
+        //Rotate gif
+        let degreeCoef = self.gifViewWidth / 90
+        var newDegree = newLeftSpace / degreeCoef
+        if -newDegree > 45.0{
+            newDegree = lastDegree
+        }
         
         //Is swipe changed or ended
         if gestureRecognizer.state == .changed {
             setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
+            self.gifView.transform = CGAffineTransform(rotationAngle: (newDegree * CGFloat(M_PI)) / 180.0)
+            lastDegree = newDegree
             self.view.layoutIfNeeded()
         } else if gestureRecognizer.state == .ended {
             self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.gifViewWidth / 2)
@@ -95,4 +125,12 @@ class ViewController: UIViewController {
             }
         }
     }
+    @IBAction func openSong(_ sender: UIButton) {
+        UIApplication.shared.openURL(NSURL(string: songURL) as! URL)
+    }
+    
+    @IBAction func openGif(_ sender: UIButton) {
+        UIApplication.shared.openURL(NSURL(string: gifURL) as! URL)
+    }
+    
 }

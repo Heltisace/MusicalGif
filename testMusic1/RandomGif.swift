@@ -11,9 +11,19 @@ import SwiftyJSON
 import SDWebImage
 
 class RandomGif{
+    
+    func randomTag() -> String{
+        var funnyTags: [String] = ["week", "funniest", "animated", "fail", "animation", "whoops", "funny%20videos", "dancing", "music"]
+        
+        let randomIndex = Int(arc4random_uniform(UInt32(funnyTags.count)))
+        let randomTag = String(funnyTags[randomIndex])!
+        print(randomTag)
+        
+        return randomTag
+    }
     //Get some random gif without preferences
-    func getRandomGif() -> String{
-        let url = URL(string: "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC")
+    func getGifWithTag(tag: String) -> String{
+        let url = URL(string: "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=\(tag)")
         var gif = ""
         
         if let data = try? Data(contentsOf: url!) {
@@ -22,7 +32,7 @@ class RandomGif{
             if let theGif = tempJson["data"]["image_original_url"].string {
                 gif = theGif
             } else {gif = "http://media4.giphy.com/media/xUySTRGWPdx7oxnswU/giphy.gif"}
-        }
+        } else {gif = "http://media4.giphy.com/media/xUySTRGWPdx7oxnswU/giphy.gif"}
         return gif
     }
 }
