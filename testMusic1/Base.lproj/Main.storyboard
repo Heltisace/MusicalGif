@@ -59,19 +59,19 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAL-Db-LDR" userLabel="GifView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="21" y="154" width="333" height="413"/>
+                                <rect key="frame" x="21" y="149" width="333" height="423"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="413"/>
+                                        <rect key="frame" x="5" y="5" width="323" height="413"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="XAL-Db-LDR" secondAttribute="top" id="3I0-wQ-Lu7"/>
-                                    <constraint firstItem="LzL-os-5fD" firstAttribute="leading" secondItem="XAL-Db-LDR" secondAttribute="leading" id="pAd-QV-6Pt"/>
-                                    <constraint firstAttribute="trailing" secondItem="LzL-os-5fD" secondAttribute="trailing" id="tyX-5j-gEZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="LzL-os-5fD" secondAttribute="bottom" id="uDE-lg-Ne2"/>
+                                    <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="XAL-Db-LDR" secondAttribute="top" constant="5" id="3I0-wQ-Lu7"/>
+                                    <constraint firstItem="LzL-os-5fD" firstAttribute="leading" secondItem="XAL-Db-LDR" secondAttribute="leading" constant="5" id="pAd-QV-6Pt"/>
+                                    <constraint firstAttribute="trailing" secondItem="LzL-os-5fD" secondAttribute="trailing" constant="5" id="tyX-5j-gEZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="LzL-os-5fD" secondAttribute="bottom" constant="5" id="uDE-lg-Ne2"/>
                                 </constraints>
                             </view>
                         </subviews>

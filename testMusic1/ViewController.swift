@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     let randomSongEngine = RandomSong()
     let randomGifEngine = RandomGif()
     let spinner = Spinner()
+    let colorLayer = ColorLayer()
     
     //Global variables
     var indicator: NVActivityIndicatorView?
@@ -79,6 +80,9 @@ class ViewController: UIViewController {
         normalLeftButton = self.openSongLeading.constant
         normalRightButton = self.openGifTrailing.constant
         normalBetweenButtons = self.betweenButtons.constant
+        
+        colorLayer.setLayer(someView: gifView)
+        gifView.layer.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {

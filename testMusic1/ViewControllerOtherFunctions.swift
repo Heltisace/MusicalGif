@@ -17,6 +17,7 @@ extension ViewController{
             
             //Prepear for changing
             doChangeOperation = false
+            gifView.layer.isHidden = false
             
             self.musicPrepear()
             self.loadSpinner()
