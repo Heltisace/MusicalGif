@@ -32,6 +32,7 @@ extension ViewController{
     func animateGifChanging(){
         buttonsOperation()
         changeGifWithAnimation()
+        stopPreviousGif()
         changeSongInfoLabel()
         returnGifToView()
     }
@@ -43,6 +44,7 @@ extension ViewController{
                 self.songInfoLabel.alpha = 0
                 self.view.layoutIfNeeded()
             }, completion: { completed in
+                self.stopPreviousGif()
                 self.returnLabelToView()
                 self.generateNewSong()
                 self.loadSongInfo()
@@ -58,6 +60,7 @@ extension ViewController{
                 self.view.layoutIfNeeded()
             }, completion: { completed in
                 //Strart loading new song
+                self.stopPreviousGif()
                 self.loadNewSong()
             })
         }

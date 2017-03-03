@@ -16,6 +16,8 @@ extension ViewController{
         DispatchQueue.global().sync{
             
             //Prepear for changing
+            doChangeOperation = false
+            
             self.musicPrepear()
             self.loadSpinner()
             self.stopPreviousGif()
@@ -79,16 +81,21 @@ extension ViewController{
     //Show image and play music if image is loaded
     func startMusicAndGif(){
         DispatchQueue.global().sync{
+            doChangeOperation = true
+            
             let synchOperation = ConcurrentOperation()
             operations.append(synchOperation)
             let randomTag = self.randomGifEngine.randomTag()
             gifURL = randomGifEngine.getGifWithTag(tag: randomTag)
             
             openGifButton.isEnabled = true
+            theGif.sd_cancelCurrentImageLoad()
             
             operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image, error, cacheType, imageURL) in
-                self.musicEngine.playTrack()
-                self.closeSpinner(spinner: self.indicator)
+                if self.doChangeOperation{
+                    self.musicEngine.playTrack()
+                    self.closeSpinner(spinner: self.indicator)
+                }
             })
             
             //Creating stream for synch

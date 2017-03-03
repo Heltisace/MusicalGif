@@ -39,10 +39,8 @@ class ViewController: UIViewController {
     var shouldChangeGif = false
     var gifURL = ""
     var songURL = ""
-    
-    let queue = OperationQueue()
-    var operations: [ConcurrentOperation] = []
-    
+
+    //Variables for animation
     var viewWidth: CGFloat = 0.0
     var viewHeight: CGFloat = 0.0
     var gifViewWidth: CGFloat = 0.0
@@ -55,12 +53,16 @@ class ViewController: UIViewController {
     var normalLeftButton: CGFloat = 0.0
     var normalRightButton: CGFloat = 0.0
     var normalBetweenButtons: CGFloat = 0.0
-    
+
     var lastDegree: CGFloat = 0.0
+    
+    //Variables for changing gif opearation
+    let queue = OperationQueue()
+    var operations: [ConcurrentOperation] = []
+    var doChangeOperation = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //swipeControll
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.gifView.addGestureRecognizer(gestureRecognizer)
@@ -88,7 +90,6 @@ class ViewController: UIViewController {
     
     //Should show another gif?
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
-        
         //Counting moving
         let velocity = gestureRecognizer.velocity(in: self.theGif)
         var deltaX = velocity.x / 30
@@ -126,11 +127,17 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func openSong(_ sender: UIButton) {
-        UIApplication.shared.openURL(NSURL(string: songURL) as! URL)
+        let url = NSURL(string: songURL) as! URL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
     
     @IBAction func openGif(_ sender: UIButton) {
-        UIApplication.shared.openURL(NSURL(string: gifURL) as! URL)
+        
+        let url = NSURL(string: gifURL) as! URL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
-    
 }
