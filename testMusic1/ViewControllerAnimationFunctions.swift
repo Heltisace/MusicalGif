@@ -73,8 +73,8 @@ extension ViewController{
                 self.setGifConstraints(left: nil, right: nil, top: self.normalGifTop, bottom: self.normalGifBottom)
                 self.view.layoutIfNeeded()
             }, completion:{completed in
-                self.startMusicAndGif()
                 self.returnButtons()
+                self.startMusicAndGif()
             })
         }
     }

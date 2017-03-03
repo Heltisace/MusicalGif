@@ -29,6 +29,7 @@ class Spinner{
             
             loadingView.addSubview(spinner)
             gifContainer.addSubview(loadingView)
+            gifContainer.isHidden = false
             spinner.startAnimating()
         }
         return spinner

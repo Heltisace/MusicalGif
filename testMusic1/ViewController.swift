@@ -69,25 +69,15 @@ class ViewController: UIViewController {
         self.gifView.addGestureRecognizer(gestureRecognizer)
         
         //Initialization
-        viewWidth = self.view.frame.size.width
-        viewHeight = self.view.frame.size.height
-        gifViewWidth = gifView.frame.size.width
-        
-        normalGifRight = self.gifTrailing.constant
-        normalGifBottom = self.gifBottom.constant
-        normalGifLeft = self.gifLeading.constant
-        normalGifTop = self.gifTop.constant
-        normalLeftButton = self.openSongLeading.constant
-        normalRightButton = self.openGifTrailing.constant
-        normalBetweenButtons = self.betweenButtons.constant
-        
-        colorLayer.setLayer(someView: gifView)
-        gifView.layer.isHidden = true
+        initialization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
+        //self.openGifButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
+        //self.openSongButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
+        //self.songInfoLabel.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
         
         startTheShow()
     }

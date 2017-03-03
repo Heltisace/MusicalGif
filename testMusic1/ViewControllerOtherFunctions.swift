@@ -17,7 +17,7 @@ extension ViewController{
             
             //Prepear for changing
             doChangeOperation = false
-            gifView.layer.isHidden = false
+            
             
             self.musicPrepear()
             self.loadSpinner()
@@ -45,14 +45,14 @@ extension ViewController{
     //Adds spinner animation
     func loadSpinner(){
         self.closeSpinner(spinner: self.indicator)
-        DispatchQueue.global().async{
+        DispatchQueue.global().sync{
             self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.gifView)
         }
     }
     
     //Close the spinner
     func closeSpinner(spinner: NVActivityIndicatorView?){
-        DispatchQueue.global().async{
+        DispatchQueue.global().sync{
             if self.indicator?.isAnimating == true{
                 self.spinner.hideActivityIndicator(spinner: self.indicator!, gifContainer: self.gifView, gifView: self.theGif)
             }

@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="50" id="Dnj-jg-483"/>
                                 </constraints>
                                 <state key="normal" title="Open song">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="openSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtm-pl-7hE"/>

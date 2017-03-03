@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9203DFFC1E69F91C0005ADD4 /* ColorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */; };
+		9203DFFE1E6A09AF0005ADD4 /* ViewControllerInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */; };
 		9211F28D1E5B3B9600A9076C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F28C1E5B3B9600A9076C /* AppDelegate.swift */; };
 		9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F28E1E5B3B9600A9076C /* ViewController.swift */; };
 		9211F2921E5B3B9600A9076C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9211F2901E5B3B9600A9076C /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		20A2E0C5F8D734AEA4C95DB7 /* Pods-testMusic1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testMusic1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-testMusic1/Pods-testMusic1.debug.xcconfig"; sourceTree = "<group>"; };
 		47045E5989A3DF5EDB1D3CBA /* Pods_testMusic1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testMusic1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLayer.swift; sourceTree = "<group>"; };
+		9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerInitialization.swift; sourceTree = "<group>"; };
 		9211F2891E5B3B9600A9076C /* testMusic1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testMusic1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9211F28C1E5B3B9600A9076C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9211F28E1E5B3B9600A9076C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				9211F28E1E5B3B9600A9076C /* ViewController.swift */,
+				9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */,
 				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
 				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
 				9211F2901E5B3B9600A9076C /* Main.storyboard */,
@@ -424,6 +427,7 @@
 				9203DFFC1E69F91C0005ADD4 /* ColorLayer.swift in Sources */,
 				92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */,
 				923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */,
+				9203DFFE1E6A09AF0005ADD4 /* ViewControllerInitialization.swift in Sources */,
 				923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */,
 				923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */,
 			);
