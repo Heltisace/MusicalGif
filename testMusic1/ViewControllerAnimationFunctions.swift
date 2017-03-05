@@ -81,10 +81,11 @@ extension ViewController{
     //Change label alpha to 1
     func returnLabelToView(){
         DispatchQueue.global().sync{
-            self.returnButtons()
             UIView.animate(withDuration: 0.8, delay: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.songInfoLabel.alpha = 1
                 self.view.layoutIfNeeded()
+            }, completion:{completed in
+                self.returnButtons()
             })
         }
     }
@@ -128,7 +129,7 @@ extension ViewController{
     //Return buttons back
     func returnButtons(){
         DispatchQueue.main.async{
-            UIView.animate(withDuration: 0.2, delay: 1.5, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.1, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.openGifButton.alpha = 1
                 self.openSongButton.alpha = 1
                 
