@@ -73,7 +73,6 @@ extension ViewController{
                 self.setGifConstraints(left: nil, right: nil, top: self.normalGifTop, bottom: self.normalGifBottom)
                 self.view.layoutIfNeeded()
             }, completion:{completed in
-                self.returnButtons()
                 self.startMusicAndGif()
             })
         }
@@ -82,6 +81,7 @@ extension ViewController{
     //Change label alpha to 1
     func returnLabelToView(){
         DispatchQueue.global().sync{
+            self.returnButtons()
             UIView.animate(withDuration: 0.8, delay: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 self.songInfoLabel.alpha = 1
                 self.view.layoutIfNeeded()
@@ -128,7 +128,7 @@ extension ViewController{
     //Return buttons back
     func returnButtons(){
         DispatchQueue.main.async{
-            UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.2, delay: 1.5, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.openGifButton.alpha = 1
                 self.openSongButton.alpha = 1
                 
