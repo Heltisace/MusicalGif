@@ -24,7 +24,6 @@ extension ViewController{
             normalBetweenButtons = self.betweenButtons.constant
             
             colorLayer.setLayer(someView: gifView)
-            gifView.layer.isHidden = true
         }
     }
 }

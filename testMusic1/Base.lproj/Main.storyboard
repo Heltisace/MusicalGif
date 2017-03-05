@@ -61,17 +61,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAL-Db-LDR" userLabel="GifView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
                                 <rect key="frame" x="21" y="149" width="333" height="423"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-2P-jP4" userLabel="ViewInGifView">
                                         <rect key="frame" x="5" y="5" width="323" height="413"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="413"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="LzL-os-5fD" secondAttribute="trailing" id="XE1-FK-qQ0"/>
+                                            <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="4F8-2P-jP4" secondAttribute="top" id="dB3-0r-vQM"/>
+                                            <constraint firstItem="LzL-os-5fD" firstAttribute="leading" secondItem="4F8-2P-jP4" secondAttribute="leading" id="nPs-Mw-EJz"/>
+                                            <constraint firstAttribute="bottom" secondItem="LzL-os-5fD" secondAttribute="bottom" id="wCS-ST-qwm"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="XAL-Db-LDR" secondAttribute="top" constant="5" id="3I0-wQ-Lu7"/>
-                                    <constraint firstItem="LzL-os-5fD" firstAttribute="leading" secondItem="XAL-Db-LDR" secondAttribute="leading" constant="5" id="pAd-QV-6Pt"/>
-                                    <constraint firstAttribute="trailing" secondItem="LzL-os-5fD" secondAttribute="trailing" constant="5" id="tyX-5j-gEZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="LzL-os-5fD" secondAttribute="bottom" constant="5" id="uDE-lg-Ne2"/>
+                                    <constraint firstAttribute="trailing" secondItem="4F8-2P-jP4" secondAttribute="trailing" constant="5" id="5oa-gq-TLf"/>
+                                    <constraint firstItem="4F8-2P-jP4" firstAttribute="leading" secondItem="XAL-Db-LDR" secondAttribute="leading" constant="5" id="Aic-Ey-I4a"/>
+                                    <constraint firstItem="4F8-2P-jP4" firstAttribute="top" secondItem="XAL-Db-LDR" secondAttribute="top" constant="5" id="Xo5-P6-0xx"/>
+                                    <constraint firstAttribute="bottom" secondItem="4F8-2P-jP4" secondAttribute="bottom" constant="5" id="g65-OY-5IW"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -79,15 +91,15 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jrO-MU-ghs" firstAttribute="width" secondItem="S5J-kc-6zV" secondAttribute="width" id="0z3-Of-JBL"/>
-                            <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="90" id="3DG-8N-Lmi"/>
                             <constraint firstItem="S5J-kc-6zV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="4jG-Nw-EL4"/>
-                            <constraint firstItem="3e4-5f-hqC" firstAttribute="top" secondItem="LzL-os-5fD" secondAttribute="bottom" constant="20" id="9hF-gV-1qO"/>
                             <constraint firstItem="jrO-MU-ghs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="FKe-Jk-wcL"/>
                             <constraint firstItem="S5J-kc-6zV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="KpB-2E-D11"/>
+                            <constraint firstItem="3e4-5f-hqC" firstAttribute="top" secondItem="XAL-Db-LDR" secondAttribute="bottom" constant="15" id="L3m-zw-DmT"/>
                             <constraint firstItem="jrO-MU-ghs" firstAttribute="leading" secondItem="S5J-kc-6zV" secondAttribute="trailing" constant="25" id="Lz8-kg-jB5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XAL-Db-LDR" secondAttribute="trailing" constant="5" id="R4Q-P8-enZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3e4-5f-hqC" secondAttribute="bottom" constant="20" id="V0e-Co-fK6"/>
                             <constraint firstItem="XAL-Db-LDR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="Xlf-dF-et1"/>
+                            <constraint firstItem="XAL-Db-LDR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="g1T-dL-zOt"/>
                             <constraint firstAttribute="trailing" secondItem="3e4-5f-hqC" secondAttribute="trailing" constant="15" id="hXS-UC-7Y7"/>
                             <constraint firstItem="S5J-kc-6zV" firstAttribute="height" secondItem="jrO-MU-ghs" secondAttribute="height" id="jVE-dj-o8I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jrO-MU-ghs" secondAttribute="trailing" constant="5" id="lcs-Ng-qeT" userLabel="Open Gif Trailing"/>
@@ -97,9 +109,9 @@
                     <navigationItem key="navigationItem" title="Randomizer" id="GZN-aS-xNt"/>
                     <connections>
                         <outlet property="betweenButtons" destination="Lz8-kg-jB5" id="hbU-Yb-bJK"/>
-                        <outlet property="gifBottom" destination="9hF-gV-1qO" id="hHe-x1-Uwj"/>
+                        <outlet property="gifBottom" destination="L3m-zw-DmT" id="0p1-oB-xeW"/>
                         <outlet property="gifLeading" destination="Xlf-dF-et1" id="g5Z-pf-ytC"/>
-                        <outlet property="gifTop" destination="3DG-8N-Lmi" id="ovN-mm-lt2"/>
+                        <outlet property="gifTop" destination="g1T-dL-zOt" id="IM4-eR-n6W"/>
                         <outlet property="gifTrailing" destination="R4Q-P8-enZ" id="kd7-D7-qKV"/>
                         <outlet property="gifView" destination="XAL-Db-LDR" id="j5p-O2-XKy"/>
                         <outlet property="openGifButton" destination="jrO-MU-ghs" id="uSx-ad-uSq"/>
@@ -108,6 +120,7 @@
                         <outlet property="openSongLeading" destination="KpB-2E-D11" id="PQq-uj-paa"/>
                         <outlet property="songInfoLabel" destination="3e4-5f-hqC" id="Hxp-26-3Z4"/>
                         <outlet property="theGif" destination="LzL-os-5fD" id="Mkp-bV-IUn"/>
+                        <outlet property="viewInGifView" destination="4F8-2P-jP4" id="Pax-N4-6YL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

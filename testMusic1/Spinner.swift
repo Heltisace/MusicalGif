@@ -5,7 +5,6 @@
 //  Created by Heltisace on 25.02.17.
 //  Copyright © 2017 Heltisace. All rights reserved.
 //
-
 import UIKit
 import SDWebImage
 import NVActivityIndicatorView
@@ -15,21 +14,14 @@ class Spinner{
     //Spinner
     
     func showActivityIndicator(gifView: FLAnimatedImageView, gifContainer: UIView) ->  NVActivityIndicatorView{
-        let loadingView = RoundView()
         let spinner = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: 5), color: self.getRandomColor())
-        
         
         DispatchQueue.main.async {
             gifView.isHidden = true
-            loadingView.frame = gifView.frame
-            loadingView.backgroundColor = .white
+            spinner.frame = CGRect(x: 0, y: 0, width: gifContainer.frame.size.width / 2, height: gifContainer.frame.size.height / 2)
+            spinner.center = CGPoint(x:gifContainer.bounds.size.width / 2, y:gifContainer.bounds.size.height / 2)
             
-            spinner.frame = CGRect(x: 0, y: 0, width: loadingView.frame.size.width / 2, height: loadingView.frame.size.height / 2)
-            spinner.center = CGPoint(x:loadingView.bounds.size.width / 2, y:loadingView.bounds.size.height / 2)
-            
-            loadingView.addSubview(spinner)
-            gifContainer.addSubview(loadingView)
-            gifContainer.isHidden = false
+            gifContainer.addSubview(spinner)
             spinner.startAnimating()
         }
         return spinner
@@ -38,7 +30,7 @@ class Spinner{
     func hideActivityIndicator(spinner: NVActivityIndicatorView, gifContainer: UIView,gifView: FLAnimatedImageView) {
         DispatchQueue.main.async {
             spinner.stopAnimating()
-            spinner.superview?.removeFromSuperview()
+            spinner.removeFromSuperview()
             
             gifView.isHidden = false
         }

@@ -46,7 +46,7 @@ extension ViewController{
     func loadSpinner(){
         self.closeSpinner(spinner: self.indicator)
         DispatchQueue.global().sync{
-            self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.gifView)
+            self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.viewInGifView)
         }
     }
     
@@ -54,7 +54,7 @@ extension ViewController{
     func closeSpinner(spinner: NVActivityIndicatorView?){
         DispatchQueue.global().sync{
             if self.indicator?.isAnimating == true{
-                self.spinner.hideActivityIndicator(spinner: self.indicator!, gifContainer: self.gifView, gifView: self.theGif)
+                self.spinner.hideActivityIndicator(spinner: self.indicator!, gifContainer: self.viewInGifView, gifView: self.theGif)
             }
         }
     }
