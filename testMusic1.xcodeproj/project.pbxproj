@@ -23,7 +23,6 @@
 		923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DE1E5F40C200D0AD20 /* RoundGif.swift */; };
 		923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
-		926AAB891E62051F00B86EC4 /* SysGifs in Resources */ = {isa = PBXBuildFile; fileRef = 926AAB881E62051F00B86EC4 /* SysGifs */; };
 		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
 		926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */; };
@@ -73,7 +72,6 @@
 		923A50DE1E5F40C200D0AD20 /* RoundGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundGif.swift; sourceTree = "<group>"; };
 		923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		926AAB881E62051F00B86EC4 /* SysGifs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SysGifs; sourceTree = SOURCE_ROOT; };
 		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
 		926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOtherFunctions.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		92F66F7C1E5BB755005DCDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				926AAB881E62051F00B86EC4 /* SysGifs */,
 				9211F2931E5B3B9600A9076C /* Assets.xcassets */,
 				9211F2981E5B3B9600A9076C /* Info.plist */,
 			);
@@ -342,7 +339,6 @@
 				9211F2971E5B3B9600A9076C /* LaunchScreen.storyboard in Resources */,
 				9211F2941E5B3B9600A9076C /* Assets.xcassets in Resources */,
 				9211F2921E5B3B9600A9076C /* Main.storyboard in Resources */,
-				926AAB891E62051F00B86EC4 /* SysGifs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
