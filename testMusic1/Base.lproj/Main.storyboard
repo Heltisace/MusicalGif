@@ -61,7 +61,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAL-Db-LDR" userLabel="GifView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
                                 <rect key="frame" x="21" y="149" width="333" height="423"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-2P-jP4" userLabel="ViewInGifView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-2P-jP4" userLabel="ViewInGifView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="323" height="413"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">

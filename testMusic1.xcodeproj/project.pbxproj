@@ -585,7 +585,7 @@
 				DEVELOPMENT_TEAM = SK2V8SJ3KP;
 				INFOPLIST_FILE = testMusic1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Heltisace.testMusicSquare;
+				PRODUCT_BUNDLE_IDENTIFIER = Heltisace.testMusicRound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -599,7 +599,7 @@
 				DEVELOPMENT_TEAM = SK2V8SJ3KP;
 				INFOPLIST_FILE = testMusic1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Heltisace.testMusicSquare;
+				PRODUCT_BUNDLE_IDENTIFIER = Heltisace.testMusicRound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
