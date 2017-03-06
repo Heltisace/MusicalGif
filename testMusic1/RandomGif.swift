@@ -13,7 +13,7 @@ import SDWebImage
 class RandomGif{
     
     func randomTag() -> String{
-        var funnyTags: [String] = ["week", "funniest", "animated", "fail", "animation", "whoops", "funny%20videos", "dancing", "music"]
+        var funnyTags: [String] = ["animated", "fail", "animation", "whoops", "funny%20videos", "dancing", "music"]
         
         let randomIndex = Int(arc4random_uniform(UInt32(funnyTags.count)))
         let randomTag = String(funnyTags[randomIndex])!

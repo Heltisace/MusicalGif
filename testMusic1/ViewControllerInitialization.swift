@@ -25,6 +25,7 @@ extension ViewController{
             normalBetweenButtons = self.betweenButtons.constant
             
             colorLayer.setLayer(someView: gifView)
+            colorLayer.setLayer(someView: songInfoView)
         }
     }
 }

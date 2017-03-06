@@ -41,7 +41,7 @@ extension ViewController{
     func changeSongInfoLabel(){
         DispatchQueue.global().sync{
             UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                self.songInfoLabel.alpha = 0
+                self.songInfoView.alpha = 0
                 self.view.layoutIfNeeded()
             }, completion: { completed in
                 self.stopPreviousGif()
@@ -82,7 +82,7 @@ extension ViewController{
     func returnLabelToView(){
         DispatchQueue.global().sync{
             UIView.animate(withDuration: 0.8, delay: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
-                self.songInfoLabel.alpha = 1
+                self.songInfoView.alpha = 1
                 self.view.layoutIfNeeded()
             }, completion:{completed in
                 self.returnButtons()

@@ -13,8 +13,8 @@ class ColorLayer{
         let gradientLayer = CAGradientLayer()
         let width = someView.bounds.size.width
         let height = someView.bounds.size.height
-        let x = someView.bounds.origin.x - 5
-        let y = someView.bounds.origin.y - 5
+        let x = someView.bounds.origin.x
+        let y = someView.bounds.origin.y
         gradientLayer.frame = CGRect(x: x, y: y, width: width, height: height)
         gradientLayer.colors = [cgColorForRed(red: 209.0, green: 0.0, blue: 0.0),
                                 cgColorForRed(red: 255.0, green: 102.0, blue: 34.0),

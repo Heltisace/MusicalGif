@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var openSongButton: PressableButton!
     @IBOutlet weak var openGifButton: PressableButton!
     @IBOutlet weak var viewInGifView: UIView!
+    @IBOutlet weak var songInfoView: UIView!
     
     
     @IBOutlet weak var gifLeading: NSLayoutConstraint!
