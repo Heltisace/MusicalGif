@@ -7,6 +7,7 @@ PODS:
   - SDWebImage/GIF (4.0.0):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
+  - SwiftyButton (0.6.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -14,14 +15,16 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - SDWebImage
   - SDWebImage/GIF
+  - SwiftyButton
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   NVActivityIndicatorView: e5252b082f93885f0bfc24c318719b4eaabcd37b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8bd683aee22362a32fcc814ad83bc99883a608f2
+PODFILE CHECKSUM: cbb94ee5122bdad32c9b742bb6824debc6be9183
 
 COCOAPODS: 1.2.0

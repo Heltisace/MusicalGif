@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import NVActivityIndicatorView
+import SwiftyButton
 
 class ViewController: UIViewController {
     
@@ -16,8 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var theGif: FLAnimatedImageView!
     @IBOutlet weak var songInfoLabel: UILabel!
     @IBOutlet weak var gifView: UIView!
-    @IBOutlet weak var openSongButton: UIButton!
-    @IBOutlet weak var openGifButton: UIButton!
+    @IBOutlet weak var openSongButton: PressableButton!
+    @IBOutlet weak var openGifButton: PressableButton!
     @IBOutlet weak var viewInGifView: UIView!
     
     

@@ -34,12 +34,12 @@
                             </label>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-kc-6zV" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
                                 <rect key="frame" x="21" y="84" width="154" height="50"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dnj-jg-483"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <state key="normal" title="Open song">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="openSong:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gtm-pl-7hE"/>
@@ -51,8 +51,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qfE-k9-fPA"/>
                                 </constraints>
-                                <state key="normal" title="Open GIF">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <state key="normal" title="Open Gif">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="openGif:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YUY-7C-cwf"/>

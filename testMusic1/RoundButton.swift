@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
+import SwiftyButton
 
-class RoundButton: UIButton {
-    convenience init(type: UIButtonType) {
+class RoundButton: PressableButton {
+    convenience init(type: PressableButton) {
         self.init(type: type)
         clipsToBounds = true
     }

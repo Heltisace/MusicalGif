@@ -11,5 +11,6 @@ target 'testMusic1' do
   pod 'FLAnimatedImage'
   pod 'SwiftyJSON'
   pod 'NVActivityIndicatorView'
+  pod 'SwiftyButton'
 
 end
