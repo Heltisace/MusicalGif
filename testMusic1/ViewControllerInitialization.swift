@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyButton
 
 extension ViewController{
     func initialization(){
@@ -24,17 +25,6 @@ extension ViewController{
             normalBetweenButtons = self.betweenButtons.constant
             
             colorLayer.setLayer(someView: gifView)
-            
-            let lightBlue = UIColor(colorLiteralRed: 52 / 255, green: 152 / 255, blue: 219 / 255, alpha: 1)
-            let darkBlue = UIColor(colorLiteralRed: 30 / 255, green: 110 / 255, blue: 170 / 255, alpha: 1)
-            
-            openGifButton.backgroundColor = lightBlue
-            openSongButton.backgroundColor = lightBlue
-            
-            openGifButton.disabledColors = .init(button: lightBlue, shadow: darkBlue)
-            openSongButton.disabledColors = .init(button: lightBlue, shadow: darkBlue)
-            openSongButton.colors = .init(button: lightBlue, shadow: darkBlue)
-            openGifButton.colors = .init(button: lightBlue, shadow: darkBlue)
         }
     }
 }
