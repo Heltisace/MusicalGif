@@ -81,20 +81,20 @@
                                 <rect key="frame" x="21" y="587" width="333" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="3e4-5f-hqC" customClass="RoundLabel" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="5" width="323" height="50"/>
+                                        <rect key="frame" x="3" y="3" width="327" height="54"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="3e4-5f-hqC" secondAttribute="trailing" constant="5" id="EM3-AZ-H78"/>
-                                    <constraint firstItem="3e4-5f-hqC" firstAttribute="top" secondItem="LKG-f3-VzE" secondAttribute="top" constant="5" id="Hxl-8x-zww"/>
+                                    <constraint firstAttribute="trailing" secondItem="3e4-5f-hqC" secondAttribute="trailing" constant="3" id="EM3-AZ-H78"/>
+                                    <constraint firstItem="3e4-5f-hqC" firstAttribute="top" secondItem="LKG-f3-VzE" secondAttribute="top" constant="3" id="Hxl-8x-zww"/>
                                     <constraint firstAttribute="height" constant="60" id="eRG-kG-Fsz"/>
-                                    <constraint firstAttribute="bottom" secondItem="3e4-5f-hqC" secondAttribute="bottom" constant="5" id="sZl-9l-fd8"/>
-                                    <constraint firstItem="3e4-5f-hqC" firstAttribute="leading" secondItem="LKG-f3-VzE" secondAttribute="leading" constant="5" id="tJ1-om-EBC"/>
+                                    <constraint firstAttribute="bottom" secondItem="3e4-5f-hqC" secondAttribute="bottom" constant="3" id="sZl-9l-fd8"/>
+                                    <constraint firstItem="3e4-5f-hqC" firstAttribute="leading" secondItem="LKG-f3-VzE" secondAttribute="leading" constant="3" id="tJ1-om-EBC"/>
                                 </constraints>
                             </view>
                         </subviews>

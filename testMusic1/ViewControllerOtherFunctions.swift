@@ -17,7 +17,7 @@ extension ViewController{
             
             //Prepear for changing
             doChangeOperation = false
-            
+            gestureRecognizer.removeTarget(self, action: #selector(handlePan))
             
             self.musicPrepear()
             self.loadSpinner()

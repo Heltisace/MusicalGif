@@ -21,34 +21,36 @@ class RandomSong{
         var url = ""
         DispatchQueue.global().sync{
             //Generation
-            let random = getRandomGenreAndOffset()
-            url = "https://api.spotify.com/v1/search?type=track&limit=1&offset=\(random[1])&q=genre:%22\(random[0])%22&market=NL"
+            let genre = getRandomGenre()
+            let maxOffset = getMaxOffset(genre: genre)
+            
+            url = "https://api.spotify.com/v1/search?type=track&limit=1&offset=\(maxOffset)&q=genre:%22\(genre)%22&market=NL"
         }
         return url
     }
     
-    func getRandomGenreAndOffset() -> [String]{
+    func getRandomGenre() -> String{
         var filter = ""
-        var offset = 0
         DispatchQueue.global().sync{
             //Array from a to z
             let filterArray: [String] = ["Trance", "Electronic", "Hip%20Hop", "Rap", "Remix", "Pop"]
-            //Array of max offset
-            var maxRandom = Array(repeating: 0, count: filterArray.count)
-            
-            maxRandom[0] = 86783
-            maxRandom[1] = 70956
-            maxRandom[2] = 85152
-            maxRandom[3] = 87863
-            maxRandom[4] = 6189
-            maxRandom[5] = 71500
             
             //Preparation to generate
             let randomIndex = Int(arc4random_uniform(UInt32(filterArray.count)))
             filter = filterArray[randomIndex]
-            offset = Int(arc4random_uniform(UInt32(maxRandom[randomIndex])))
         }
-        return [filter, String(offset)]
+        return filter
+    }
+    
+    func getMaxOffset(genre: String) -> String{
+        var maxOffset = ""
+        DispatchQueue.global().sync{
+            let url = "https://api.spotify.com/v1/search?type=track&limit=1&offset=\(0)&q=genre:%22\(genre)%22&market=NL"
+            let tempData = getSongJson(jsonUrl: url)
+            let tempOffset = getOffset(data: tempData)
+            maxOffset = tempOffset
+        }
+        return maxOffset
     }
     
     //Put json to variable
@@ -98,6 +100,16 @@ class RandomSong{
         } else {print("ERROR")}
         
         return artist
+    }
+    
+    func getOffset(data: JSON) -> String{
+        var offset = "Nill"
+        
+        if let maxOffset = data["tracks"]["offset"].int {
+            offset = String(maxOffset)
+        } else {print("ERROR")}
+        
+        return offset
     }
     
     //Load a random song

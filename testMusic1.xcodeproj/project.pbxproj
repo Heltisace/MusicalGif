@@ -122,6 +122,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9204A9A31E717F1400321FC0 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9211F28E1E5B3B9600A9076C /* ViewController.swift */,
+				9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */,
+				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
+				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
+				9211F2901E5B3B9600A9076C /* Main.storyboard */,
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		9204A9A41E717F6100321FC0 /* FavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FavoriteView;
+			sourceTree = "<group>";
+		};
+		9204A9A51E717F8800321FC0 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SettingsView;
+			sourceTree = "<group>";
+		};
 		9211F2801E5B3B9600A9076C = {
 			isa = PBXGroup;
 			children = (
@@ -189,11 +215,9 @@
 		92F66F7B1E5BB6DC005DCDD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9211F28E1E5B3B9600A9076C /* ViewController.swift */,
-				9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */,
-				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
-				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
-				9211F2901E5B3B9600A9076C /* Main.storyboard */,
+				9204A9A51E717F8800321FC0 /* SettingsView */,
+				9204A9A41E717F6100321FC0 /* FavoriteView */,
+				9204A9A31E717F1400321FC0 /* MainView */,
 				9211F2951E5B3B9600A9076C /* LaunchScreen.storyboard */,
 			);
 			name = View;

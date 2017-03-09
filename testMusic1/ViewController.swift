@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     
     //Global variables
     var indicator: NVActivityIndicatorView?
+    let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
     var shouldChangeGif = false
     var gifURL = ""
     var songURL = ""
@@ -68,11 +69,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //swipeControll
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         self.gifView.addGestureRecognizer(gestureRecognizer)
         
         //Initialization
-        initialization()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,12 +82,14 @@ class ViewController: UIViewController {
         //self.openSongButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
         //self.songInfoLabel.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
         
+        initialization()
         startTheShow()
     }
     
     //Should show another gif?
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         //Counting moving
+        
         let velocity = gestureRecognizer.velocity(in: self.theGif)
         var deltaX = velocity.x / 30
         
