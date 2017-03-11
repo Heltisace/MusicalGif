@@ -109,6 +109,10 @@ class RandomSong{
             offset = String(maxOffset)
         } else {print("ERROR")}
         
+        if Int(offset)! > 100_000 {
+            offset = "100_000"
+        }
+        
         return offset
     }
     

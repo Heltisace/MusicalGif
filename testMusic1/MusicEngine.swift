@@ -31,6 +31,5 @@ class MusicEngine{
     }
     func stopPlaying(){
         player.pause()
-        //player.isMuted = true
     }
 }
