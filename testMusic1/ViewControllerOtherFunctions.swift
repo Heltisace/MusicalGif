@@ -82,22 +82,25 @@ extension ViewController{
     //Show image and play music if image is loaded
     func startMusicAndGif(){
         DispatchQueue.global().sync{
-            doChangeOperation = true
+            self.doChangeOperation = true
             
             let synchOperation = ConcurrentOperation()
-            operations.append(synchOperation)
-            let randomTag = self.randomGifEngine.randomTag()
-            gifURL = randomGifEngine.getGifWithTag(tag: randomTag)
+            self.operations.append(synchOperation)
             
-            openGifButton.isEnabled = true
-            theGif.sd_cancelCurrentImageLoad()
+            self.openGifButton.isEnabled = true
+            self.theGif.sd_cancelCurrentImageLoad()
             
-            operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image, error, cacheType, imageURL) in
-                if self.doChangeOperation{
-                    self.musicEngine.playTrack()
-                    self.closeSpinner(spinner: self.indicator)
-                }
-            })
+            if !isVcClosed{
+                let randomTag = self.randomGifEngine.randomTag()
+                self.gifURL = self.randomGifEngine.getGifWithTag(tag: randomTag)
+                
+                self.operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image, error, cacheType, imageURL) in
+                    if self.doChangeOperation{
+                        self.musicEngine.playTrack()
+                        self.closeSpinner(spinner: self.indicator)
+                    }
+                })
+            }
             
             //Creating stream for synch
             queue.addOperations([operations[0]], waitUntilFinished: false)

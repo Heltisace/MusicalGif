@@ -65,6 +65,7 @@ class ViewController: UIViewController {
     let queue = OperationQueue()
     var operations: [ConcurrentOperation] = []
     var doChangeOperation = true
+    var isVcClosed = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +86,16 @@ class ViewController: UIViewController {
         initialization()
         startTheShow()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isVcClosed = true
+        theGif.sd_cancelCurrentImageLoad()
+        musicEngine.stopPlaying()
+        musicEngine.deletePlayer()
+        stopPreviousGif()
+    }
+
     
     //Should show another gif?
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
@@ -139,4 +150,5 @@ class ViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
+
 }

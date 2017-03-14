@@ -47,7 +47,6 @@ extension ViewController{
                 self.view.layoutIfNeeded()
             }, completion: { completed in
                 //7
-                self.stopPreviousGif()
                 self.returnLabelToView()
                 self.generateNewSong()
                 self.loadSongInfo()
@@ -65,7 +64,6 @@ extension ViewController{
             }, completion: { completed in
                 //Strart loading new song
                 //10
-                self.stopPreviousGif()
                 self.loadNewSong()
             })
         }

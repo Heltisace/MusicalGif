@@ -22,6 +22,8 @@
 		923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */; };
 		923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DE1E5F40C200D0AD20 /* RoundGif.swift */; };
 		923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */; };
+		925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69841E78215B0063BDAC /* SettingsVC.swift */; };
+		925D69881E7822870063BDAC /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69871E7822870063BDAC /* MenuVC.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
 		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
@@ -71,6 +73,8 @@
 		923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		923A50DE1E5F40C200D0AD20 /* RoundGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundGif.swift; sourceTree = "<group>"; };
 		923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
+		925D69841E78215B0063BDAC /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		925D69871E7822870063BDAC /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
@@ -122,30 +126,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9204A9A31E717F1400321FC0 /* MainView */ = {
+		9204A9A31E717F1400321FC0 /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
 				9211F28E1E5B3B9600A9076C /* ViewController.swift */,
 				9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */,
 				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
 				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
-				9211F2901E5B3B9600A9076C /* Main.storyboard */,
 			);
-			name = MainView;
+			name = MainViewController;
 			sourceTree = "<group>";
 		};
-		9204A9A41E717F6100321FC0 /* FavoriteView */ = {
+		9204A9A41E717F6100321FC0 /* FavoriteViewController */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = FavoriteView;
+			name = FavoriteViewController;
 			sourceTree = "<group>";
 		};
-		9204A9A51E717F8800321FC0 /* SettingsView */ = {
+		9204A9A51E717F8800321FC0 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				925D69841E78215B0063BDAC /* SettingsVC.swift */,
 			);
-			name = SettingsView;
+			name = SettingsViewController;
 			sourceTree = "<group>";
 		};
 		9211F2801E5B3B9600A9076C = {
@@ -174,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9211F28C1E5B3B9600A9076C /* AppDelegate.swift */,
-				92F66F7B1E5BB6DC005DCDD1 /* View */,
+				92F66F7B1E5BB6DC005DCDD1 /* ViewControllers */,
 				92F66F7A1E5BB6D1005DCDD1 /* Helpers */,
 				92F66F7D1E5BB796005DCDD1 /* Models */,
 				92F66F7C1E5BB755005DCDD1 /* Resources */,
@@ -200,6 +204,14 @@
 			path = testMusic1UITests;
 			sourceTree = "<group>";
 		};
+		925D69861E7822710063BDAC /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				925D69871E7822870063BDAC /* MenuVC.swift */,
+			);
+			name = MenuViewController;
+			sourceTree = "<group>";
+		};
 		92F66F7A1E5BB6D1005DCDD1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,15 +224,17 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		92F66F7B1E5BB6DC005DCDD1 /* View */ = {
+		92F66F7B1E5BB6DC005DCDD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9204A9A51E717F8800321FC0 /* SettingsView */,
-				9204A9A41E717F6100321FC0 /* FavoriteView */,
-				9204A9A31E717F1400321FC0 /* MainView */,
+				925D69861E7822710063BDAC /* MenuViewController */,
+				9204A9A51E717F8800321FC0 /* SettingsViewController */,
+				9204A9A41E717F6100321FC0 /* FavoriteViewController */,
+				9204A9A31E717F1400321FC0 /* MainViewController */,
 				9211F2951E5B3B9600A9076C /* LaunchScreen.storyboard */,
+				9211F2901E5B3B9600A9076C /* Main.storyboard */,
 			);
-			name = View;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		92F66F7C1E5BB755005DCDD1 /* Resources */ = {
@@ -436,10 +450,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */,
+				925D69881E7822870063BDAC /* MenuVC.swift in Sources */,
 				926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,
+				925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */,
 				926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */,
 				9211F28D1E5B3B9600A9076C /* AppDelegate.swift in Sources */,
 				926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */,
