@@ -73,17 +73,13 @@ class ViewController: UIViewController {
         self.gifView.addGestureRecognizer(gestureRecognizer)
         
         //Initialization
-        
+        initialization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
-        //self.openGifButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
-        //self.openSongButton.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
-        //self.songInfoLabel.backgroundColor = UIColor(patternImage: UIImage(named: "blue_texture")!)
         
-        initialization()
         startTheShow()
     }
     
