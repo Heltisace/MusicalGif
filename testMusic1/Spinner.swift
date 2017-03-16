@@ -9,11 +9,9 @@ import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 
-class Spinner{
-    
+class Spinner {
     //Spinner
-    
-    func showActivityIndicator(gifView: FLAnimatedImageView, gifContainer: UIView) ->  NVActivityIndicatorView{
+    func showActivityIndicator(gifView: FLAnimatedImageView, gifContainer: UIView) -> NVActivityIndicatorView {
         let spinner = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: 5), color: self.getRandomColor())
         
         DispatchQueue.main.async {
@@ -26,8 +24,7 @@ class Spinner{
         }
         return spinner
     }
-    
-    func hideActivityIndicator(spinner: NVActivityIndicatorView, gifContainer: UIView,gifView: FLAnimatedImageView) {
+    func hideActivityIndicator(spinner: NVActivityIndicatorView, gifContainer: UIView, gifView: FLAnimatedImageView) {
         DispatchQueue.main.async {
             spinner.stopAnimating()
             spinner.removeFromSuperview()
@@ -36,10 +33,10 @@ class Spinner{
         }
     }
     
-    func getRandomColor() -> UIColor{
-        let randomRed:CGFloat = CGFloat(drand48())
-        let randomGreen:CGFloat = CGFloat(drand48())
-        let randomBlue:CGFloat = CGFloat(drand48())
+    func getRandomColor() -> UIColor {
+        let randomRed = CGFloat(drand48())
+        let randomGreen = CGFloat(drand48())
+        let randomBlue = CGFloat(drand48())
         
         return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }

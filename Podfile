@@ -12,5 +12,7 @@ target 'testMusic1' do
   pod 'SwiftyJSON'
   pod 'NVActivityIndicatorView'
   pod 'SwiftyButton'
+  pod 'DropDown'
+  pod 'SwiftLint'
 
 end

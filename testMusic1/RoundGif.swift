@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import FLAnimatedImage
 
-class RoundGif: FLAnimatedImageView{
+class RoundGif: FLAnimatedImageView {
     convenience init(type: FLAnimatedImageView) {
         self.init(type: type)
         clipsToBounds = true

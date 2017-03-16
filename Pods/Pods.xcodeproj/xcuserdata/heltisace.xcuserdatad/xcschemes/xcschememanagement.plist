@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FLAnimatedImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05DC82526E4171AA8B6DB3B510FC6399</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>276B98AEF701C2693189597245C5B8F4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>3EDFE4052B5DE7D509935AC0774CB135</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4D51DDB1D47EA52C71CF39183345DAE0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5168099F2EBFC99A707C03C9EADE01A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7F3AD484DBB031A38858AA7E4838F1F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D0BC88E30C463C14DBBBC4637DE18619</key>
+		<key>D993D66900D8C12F8659F2CD1EC992A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBF940C7871383246B16DEF365D9820D</key>
+		<key>FD6503E053FE300350A8991919F283F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

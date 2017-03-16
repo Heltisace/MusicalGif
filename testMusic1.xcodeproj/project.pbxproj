@@ -24,6 +24,7 @@
 		923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */; };
 		925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69841E78215B0063BDAC /* SettingsVC.swift */; };
 		925D69881E7822870063BDAC /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69871E7822870063BDAC /* MenuVC.swift */; };
+		925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
 		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
@@ -75,6 +76,7 @@
 		923A50E01E5F9DAA00D0AD20 /* ConcurrentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentOperation.swift; sourceTree = "<group>"; };
 		925D69841E78215B0063BDAC /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		925D69871E7822870063BDAC /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCFunctions.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				925D69841E78215B0063BDAC /* SettingsVC.swift */,
+				925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */,
 			);
 			name = SettingsViewController;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				9211F2871E5B3B9600A9076C /* Resources */,
 				B1CF73BDFD10C0A407867D3A /* [CP] Embed Pods Frameworks */,
 				B45804D26C9EE750C8EE797A /* [CP] Copy Pods Resources */,
+				925D698B1E79B4160063BDAC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -412,6 +416,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		925D698B1E79B4160063BDAC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		B1CF73BDFD10C0A407867D3A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +469,7 @@
 				9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */,
 				925D69881E7822870063BDAC /* MenuVC.swift in Sources */,
 				926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */,
+				925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,

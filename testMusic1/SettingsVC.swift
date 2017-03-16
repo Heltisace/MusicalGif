@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import DropDown
 
 class SettingsVC: UIViewController {
+    
+    @IBOutlet weak var genreDropButton: UIButton!
+    @IBOutlet weak var gifDropButton: UIButton!
+    @IBOutlet weak var iterationDropButton: UIButton!
+    
+    let genreDown = DropDown()
+    let gifDown = DropDown()
+    let iterationDown = DropDown()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        initialization()
     }
     @IBAction func goToMainVC(_ sender: UIButton) {
         UIView.animate(withDuration: 0.75, animations: { () -> Void in
@@ -23,7 +33,16 @@ class SettingsVC: UIViewController {
             self.navigationController?.pushViewController(vc, animated: false)
             //self.navigationController?.present(vc, animated: false, completion: nil)
             
-            UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
+            UIView.setAnimationTransition(UIViewAnimationTransition.curlDown, for: self.navigationController!.view!, cache: false)
         })
+    }
+    @IBAction func showGenreDropDown(_ sender: UIButton) {
+        genreDown.show()
+    }
+    @IBAction func showGifDropDown(_ sender: UIButton) {
+        gifDown.show()
+    }
+    @IBAction func showIterationDropDown(_ sender: UIButton) {
+        iterationDown.show()
     }
 }

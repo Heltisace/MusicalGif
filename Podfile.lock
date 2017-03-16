@@ -1,4 +1,5 @@
 PODS:
+  - DropDown (2)
   - FLAnimatedImage (1.0.12)
   - NVActivityIndicatorView (3.5)
   - SDWebImage (4.0.0):
@@ -7,24 +8,29 @@ PODS:
   - SDWebImage/GIF (4.0.0):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
+  - SwiftLint (0.16.1)
   - SwiftyButton (0.6.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - DropDown
   - FLAnimatedImage
   - NVActivityIndicatorView
   - SDWebImage
   - SDWebImage/GIF
+  - SwiftLint
   - SwiftyButton
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   NVActivityIndicatorView: e5252b082f93885f0bfc24c318719b4eaabcd37b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: cbb94ee5122bdad32c9b742bb6824debc6be9183
+PODFILE CHECKSUM: d149f6b1f7505526b15887c852a08539f00cce42
 
 COCOAPODS: 1.2.0

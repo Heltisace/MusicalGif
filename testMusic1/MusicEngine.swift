@@ -9,20 +9,19 @@
 import UIKit
 import AVFoundation
 
-class MusicEngine{
+class MusicEngine {
     var player: AVPlayer?
     init() {
         player = AVPlayer()
     }
     
-    func loadTrack(soundUrl: String){
+    func loadTrack(soundUrl: String) {
         if let url = NSURL(string: soundUrl) {
             player = AVPlayer(url: url as URL)
             player?.volume = 1.0
         }
     }
-    
-    func playTrack(){
+    func playTrack() {
         player?.play()
         //Loop
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil, using: { (_) in
@@ -33,12 +32,12 @@ class MusicEngine{
         })
     }
     
-    func stopPlaying(){
+    func stopPlaying() {
         player?.pause()
         player?.cancelPendingPrerolls()
     }
     
-    func deletePlayer(){
+    func deletePlayer() {
         player = nil
     }
     

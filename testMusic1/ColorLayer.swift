@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ColorLayer{
-    func setLayer(someView: UIView){
+class ColorLayer {
+    func setLayer(someView: UIView) {
         let gradientLayer = CAGradientLayer()
         let width = someView.bounds.size.width
         let height = someView.bounds.size.height

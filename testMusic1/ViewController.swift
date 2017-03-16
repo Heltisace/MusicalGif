@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var viewInGifView: UIView!
     @IBOutlet weak var songInfoView: UIView!
     
-    
     @IBOutlet weak var gifLeading: NSLayoutConstraint!
     @IBOutlet weak var gifBottom: NSLayoutConstraint!
     @IBOutlet weak var gifTrailing: NSLayoutConstraint!
@@ -75,35 +74,34 @@ class ViewController: UIViewController {
         //Initialization
         initialization()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
         
         startTheShow()
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         isVcClosed = true
         theGif.sd_cancelCurrentImageLoad()
         musicEngine.stopPlaying()
         musicEngine.deletePlayer()
         stopPreviousGif()
+        
+        self.openGifButton.isHidden = true
+        self.openSongButton.isHidden = true
+        self.gifView.isHidden = true
     }
-
-    
     //Should show another gif?
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         //Counting moving
-        
         let velocity = gestureRecognizer.velocity(in: self.theGif)
         var deltaX = velocity.x / 30
         
-        if (self.gifTrailing.constant - deltaX) < self.normalGifRight{
+        if (self.gifTrailing.constant - deltaX) < self.normalGifRight {
             deltaX = 0
         }
-        
         //Gif way
         let newRightSpace = self.gifTrailing.constant - deltaX
         let newLeftSpace = self.gifLeading.constant + deltaX
@@ -114,7 +112,6 @@ class ViewController: UIViewController {
         if -newDegree > 45.0{
             newDegree = lastDegree
         }
-        
         //Is swipe changed or ended
         if gestureRecognizer.state == .changed {
             setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
@@ -125,9 +122,9 @@ class ViewController: UIViewController {
             self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.gifViewWidth / 2)
     
             //Change or no
-            if shouldChangeGif{
+            if shouldChangeGif {
                 startTheShow()
-            }else{
+            } else {
                 animateGifNotChanging()
             }
         }
@@ -138,13 +135,10 @@ class ViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
-    
     @IBAction func openGif(_ sender: UIButton) {
-        
         let url = NSURL(string: gifURL) as! URL
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.openURL(url)
         }
     }
-
 }

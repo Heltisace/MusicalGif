@@ -10,11 +10,9 @@ import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 
-extension ViewController{
-    
-    func startTheShow(){
-        DispatchQueue.global().sync{
-            
+extension ViewController {
+    func startTheShow() {
+        DispatchQueue.global().sync {
             //Prepear for changing
             doChangeOperation = false
             gestureRecognizer.removeTarget(self, action: #selector(handlePan))
@@ -27,61 +25,53 @@ extension ViewController{
             self.animateGifChanging()
         }
     }
-    
     //Stop previous song
-    func musicPrepear(){
+    func musicPrepear() {
         DispatchQueue.global().sync {
             self.musicEngine.stopPlaying()
         }
     }
-    
-    func stopPreviousGif(){
-        if operations.count != 0{
+    func stopPreviousGif() {
+        if operations.count != 0 {
             self.operations[0].cancel()
             self.operations.removeFirst()
         }
     }
-    
     //Adds spinner animation
-    func loadSpinner(){
+    func loadSpinner() {
         self.closeSpinner(spinner: self.indicator)
-        DispatchQueue.global().sync{
+        DispatchQueue.global().sync {
             self.indicator = self.spinner.showActivityIndicator(gifView: self.theGif, gifContainer: self.viewInGifView)
         }
     }
-    
     //Close the spinner
-    func closeSpinner(spinner: NVActivityIndicatorView?){
-        DispatchQueue.global().sync{
-            if self.indicator?.isAnimating == true{
+    func closeSpinner(spinner: NVActivityIndicatorView?) {
+        DispatchQueue.global().sync {
+            if self.indicator?.isAnimating == true {
                 self.spinner.hideActivityIndicator(spinner: self.indicator!, gifContainer: self.viewInGifView, gifView: self.theGif)
             }
         }
     }
-    
     //Load a new song
-    func generateNewSong(){
+    func generateNewSong() {
         DispatchQueue.global().sync {
             songURL = self.randomSongEngine.generateRandomSong(musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine, infoLabel: self.songInfoLabel)
             self.openSongButton.isEnabled = true
         }
     }
-    
-    func loadNewSong(){
+    func loadNewSong() {
         DispatchQueue.global().sync {
             self.randomSongEngine.loadRandomSong(musicEngine: self.musicEngine)
         }
     }
-    
-    func loadSongInfo(){
+    func loadSongInfo() {
         DispatchQueue.global().sync {
             self.randomSongEngine.loadSongInfo(infoLabel: self.songInfoLabel)
         }
     }
-    
     //Show image and play music if image is loaded
-    func startMusicAndGif(){
-        DispatchQueue.global().sync{
+    func startMusicAndGif() {
+        DispatchQueue.global().sync {
             self.doChangeOperation = true
             
             let synchOperation = ConcurrentOperation()
@@ -90,18 +80,17 @@ extension ViewController{
             self.openGifButton.isEnabled = true
             self.theGif.sd_cancelCurrentImageLoad()
             
-            if !isVcClosed{
+            if !isVcClosed {
                 let randomTag = self.randomGifEngine.randomTag()
                 self.gifURL = self.randomGifEngine.getGifWithTag(tag: randomTag)
                 
-                self.operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image, error, cacheType, imageURL) in
-                    if self.doChangeOperation{
+                self.operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { _ in
+                    if self.doChangeOperation {
                         self.musicEngine.playTrack()
                         self.closeSpinner(spinner: self.indicator)
                     }
                 })
             }
-            
             //Creating stream for synch
             queue.addOperations([operations[0]], waitUntilFinished: false)
         }

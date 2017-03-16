@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyButton
 
-extension ViewController{
-    func initialization(){
-        DispatchQueue.global().sync{
+extension ViewController {
+    func initialization() {
+        DispatchQueue.global().sync {
             viewWidth = self.view.frame.size.width
             viewHeight = self.view.frame.size.height
             gifViewWidth = gifView.frame.size.width

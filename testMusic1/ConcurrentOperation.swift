@@ -10,9 +10,7 @@ import Foundation
 import SDWebImage
 
 class ConcurrentOperation: Operation {
-    
     // MARK: Enums
-    
     enum State {
         case ready, executing, finished
         var keyPath: String {
@@ -26,9 +24,7 @@ class ConcurrentOperation: Operation {
             }
         }
     }
-    
     // MARK: Properties
-    
     var state = State.ready {
         willSet {
             willChangeValue(forKey: newValue.keyPath)
@@ -39,25 +35,18 @@ class ConcurrentOperation: Operation {
             didChangeValue(forKey: state.keyPath)
         }
     }
-    
     // MARK: Virtual functions
-    
     override var isReady: Bool {
         return super.isReady && state == .ready
     }
-    
     override var isExecuting: Bool {
         return state == .executing
     }
-    
     override var isFinished: Bool {
         return state == .finished
     }
-    
     override var isAsynchronous: Bool {
         return true
     }
-    
-    func synch(closure: ()){}
-
+    func synch(closure: ()) {}
 }
