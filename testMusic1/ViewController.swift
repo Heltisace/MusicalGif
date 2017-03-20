@@ -68,6 +68,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Don't use swipe back gesture
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         //swipeControll
         self.gifView.addGestureRecognizer(gestureRecognizer)
         

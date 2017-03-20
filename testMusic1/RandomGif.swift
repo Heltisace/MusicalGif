@@ -30,8 +30,8 @@ class RandomGif {
             
             if let theGif = tempJson["data"]["image_original_url"].string {
                 gif = theGif
-            } else {gif = "http://media4.giphy.com/media/xUySTRGWPdx7oxnswU/giphy.gif"}
-        } else {gif = "http://media4.giphy.com/media/xUySTRGWPdx7oxnswU/giphy.gif"}
+            } else {gif = "Error"}
+        } else {gif = "Error"}
         return gif
     }
 }
