@@ -43,6 +43,11 @@ class ViewController: UIViewController {
     var shouldChangeGif = false
     var gifURL = ""
     var songURL = ""
+    
+    //Search settings
+    var preSetGenre = "The Best"
+    var preSetGifTag = "The Best"
+    var preSetIteration = "Yes"
 
     //Variables for animation
     var viewWidth: CGFloat = 0.0
@@ -65,6 +70,7 @@ class ViewController: UIViewController {
     var operations: [ConcurrentOperation] = []
     var doChangeOperation = true
     var isVcClosed = false
+    var processIsWorking = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +82,14 @@ class ViewController: UIViewController {
         //Initialization
         initialization()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
         
         startTheShow()
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -95,6 +103,7 @@ class ViewController: UIViewController {
         self.openSongButton.isHidden = true
         self.gifView.isHidden = true
     }
+    
     //Should show another gif?
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         //Counting moving
@@ -131,12 +140,14 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func openSong(_ sender: UIButton) {
         let url = NSURL(string: songURL) as! URL
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.openURL(url)
         }
     }
+    
     @IBAction func openGif(_ sender: UIButton) {
         let url = NSURL(string: gifURL) as! URL
         if UIApplication.shared.canOpenURL(url) {

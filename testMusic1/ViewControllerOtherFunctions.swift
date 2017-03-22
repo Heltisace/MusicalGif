@@ -16,6 +16,7 @@ extension ViewController {
             //Prepear for changing
             doChangeOperation = false
             gestureRecognizer.removeTarget(self, action: #selector(handlePan))
+            processIsWorking = true
             
             self.musicPrepear()
             self.loadSpinner()
@@ -55,7 +56,16 @@ extension ViewController {
     //Load a new song
     func generateNewSong() {
         DispatchQueue.global().sync {
-            songURL = self.randomSongEngine.generateRandomSong(musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine, infoLabel: self.songInfoLabel)
+            var genre = ""
+            if preSetGenre == "The Best" {
+                genre = self.randomSongEngine.getRandomGenre()
+            } else if preSetGenre != "Full random" {
+                genre = preSetGenre
+            }
+            songURL = self.randomSongEngine.generateRandomSong(
+                musicEngine: self.musicEngine,
+                randomSongEngine: self.randomSongEngine,
+                    infoLabel: self.songInfoLabel, genre: genre)
             self.openSongButton.isEnabled = true
         }
     }
@@ -81,13 +91,19 @@ extension ViewController {
             self.theGif.sd_cancelCurrentImageLoad()
             
             if !isVcClosed {
-                let randomTag = self.randomGifEngine.randomTag()
-                self.gifURL = self.randomGifEngine.getGifWithTag(tag: randomTag)
+                var gifTag = ""
+                if preSetGifTag == "The Best" {
+                    gifTag = self.randomGifEngine.randomTag()
+                } else if preSetGifTag != "Full random" {
+                    gifTag = preSetGifTag
+                }
+                self.gifURL = self.randomGifEngine.getGifWithTag(tag: gifTag)
                 
                 self.operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { _ in
                     if self.doChangeOperation {
-                        self.musicEngine.playTrack()
+                        self.musicEngine.playTrack(viewController: self)
                         self.closeSpinner(spinner: self.indicator)
+                        self.processIsWorking = false
                     }
                 })
             }

@@ -21,13 +21,22 @@ class MusicEngine {
             player?.volume = 1.0
         }
     }
-    func playTrack() {
+    
+    func playTrack(viewController: ViewController) {
         player?.play()
-        //Loop
+        //Loop or next
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil, using: { (_) in
             DispatchQueue.main.async {
-                self.player?.seek(to: kCMTimeZero)
-                self.player?.play()
+                if viewController.preSetIteration == "Yes" {
+                    //Loop
+                    self.player?.seek(to: kCMTimeZero)
+                    self.player?.play()
+                } else {
+                    if !viewController.processIsWorking {
+                        //Next set
+                        viewController.startTheShow()
+                    }
+                }
             }
         })
     }
@@ -40,5 +49,4 @@ class MusicEngine {
     func deletePlayer() {
         player = nil
     }
-    
 }

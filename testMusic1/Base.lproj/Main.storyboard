@@ -155,18 +155,18 @@
                                 <rect key="frame" x="31" y="79" width="313" height="443"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BO-Cq-V4j" userLabel="Gif view">
-                                        <rect key="frame" x="0.0" y="0.0" width="313" height="147.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="148"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7F-RG-KI1" userLabel="GifTag">
-                                                <rect key="frame" x="15" y="62.5" width="283" height="70"/>
+                                                <rect key="frame" x="15" y="63" width="283" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Demonstation"/>
+                                                <state key="normal" title="The Best"/>
                                                 <connections>
                                                     <action selector="showGifDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="xfn-la-g9R"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gif settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9f-DB-gqg">
-                                                <rect key="frame" x="15" y="15" width="283" height="27.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gif Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9f-DB-gqg">
+                                                <rect key="frame" x="15" y="15" width="283" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -184,18 +184,18 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYs-M8-Bks" userLabel="Music view">
-                                        <rect key="frame" x="0.0" y="147.5" width="313" height="148"/>
+                                        <rect key="frame" x="0.0" y="148" width="313" height="147"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsO-la-Vdx">
-                                                <rect key="frame" x="15" y="15" width="283" height="27.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsO-la-Vdx">
+                                                <rect key="frame" x="15" y="15" width="283" height="28"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-BN-W2b" userLabel="GenreDropDown">
-                                                <rect key="frame" x="15" y="62.5" width="283" height="70.5"/>
+                                                <rect key="frame" x="15" y="63" width="283" height="69"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Demonstration"/>
+                                                <state key="normal" title="The Best"/>
                                                 <connections>
                                                     <action selector="showGenreDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="l7N-8h-TKE"/>
                                                 </connections>
@@ -213,10 +213,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecQ-eS-26h" userLabel="Iteration view">
-                                        <rect key="frame" x="0.0" y="295.5" width="313" height="147.5"/>
+                                        <rect key="frame" x="0.0" y="295" width="313" height="148"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-tG-eye">
-                                                <rect key="frame" x="15" y="62.5" width="283" height="70"/>
+                                                <rect key="frame" x="15" y="63" width="283" height="70"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Yes"/>
                                                 <connections>
@@ -224,7 +224,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilx-Qf-Ke1">
-                                                <rect key="frame" x="15" y="15" width="283" height="27.5"/>
+                                                <rect key="frame" x="15" y="15" width="283" height="28"/>
                                                 <string key="text">Music iteration
 </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
@@ -267,15 +267,15 @@
                                 <rect key="frame" x="26" y="294" width="323" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6A-Mr-yxP">
-                                        <rect key="frame" x="7" y="80" width="129.5" height="38"/>
+                                        <rect key="frame" x="7" y="80" width="130" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Accept"/>
                                         <connections>
-                                            <action selector="getGifTag:" destination="WZw-5E-ArK" eventType="touchUpInside" id="ivG-fB-SH6"/>
+                                            <action selector="getAnswer:" destination="WZw-5E-ArK" eventType="touchUpInside" id="q58-xz-TGW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cib-5H-t35">
-                                        <rect key="frame" x="186.5" y="80" width="129.5" height="38"/>
+                                        <rect key="frame" x="187" y="80" width="129" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
@@ -283,7 +283,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your gif tag here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oft-Av-Jhd">
-                                        <rect key="frame" x="7.5" y="20" width="308" height="45"/>
+                                        <rect key="frame" x="7" y="20" width="309" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="lNB-Pm-Bdi"/>
                                         </constraints>
@@ -329,6 +329,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="640-g4-aRg"/>
                     <connections>
+                        <outlet property="answerTextField" destination="Oft-Av-Jhd" id="Qew-7l-Yew"/>
                         <outlet property="genreDropButton" destination="KVQ-BN-W2b" id="JDG-wW-FAC"/>
                         <outlet property="gifDropButton" destination="v7F-RG-KI1" id="YuY-lc-cne"/>
                         <outlet property="iterationDropButton" destination="I5g-tG-eye" id="cqR-SX-Loq"/>
@@ -338,7 +339,6 @@
                         <outlet property="popUpRight" destination="J9f-O7-r7L" id="5J9-rQ-nj5"/>
                         <outlet property="popUpTop" destination="IbY-3O-KsP" id="Xjr-yZ-em6"/>
                         <outlet property="popUpView" destination="ebF-1j-NaM" id="Eqt-eN-0Xb"/>
-                        <outlet property="tagTextField" destination="Oft-Av-Jhd" id="B86-ev-crY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEK-QW-78Y" userLabel="First Responder" sceneMemberID="firstResponder"/>

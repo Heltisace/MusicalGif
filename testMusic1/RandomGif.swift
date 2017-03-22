@@ -22,16 +22,19 @@ class RandomGif {
     }
     //Get some random gif without preferences
     func getGifWithTag(tag: String) -> String {
-        let url = URL(string: "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=\(tag)")
+        let stringUrl = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=\(tag)"
         var gif = ""
         
-        if let data = try? Data(contentsOf: url!) {
-            let tempJson = JSON(data: data)
-            
-            if let theGif = tempJson["data"]["image_original_url"].string {
-                gif = theGif
+        if let url = URL(string: stringUrl) {
+            if let data = try? Data(contentsOf: url) {
+                let tempJson = JSON(data: data)
+                
+                if let theGif = tempJson["data"]["image_original_url"].string {
+                    gif = theGif
+                } else {gif = "Error"}
             } else {gif = "Error"}
         } else {gif = "Error"}
+        
         return gif
     }
 }
