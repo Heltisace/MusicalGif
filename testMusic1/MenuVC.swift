@@ -7,10 +7,45 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import CoreData
 
 class MenuVC: UIViewController {
+    
+    let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "User")
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func logOutAction(_ sender: RoundButton) {
+        if FIRAuth.auth()?.currentUser != nil {
+            do {
+                try FIRAuth.auth()?.signOut()
+                
+                guard let appDelegate =
+                    UIApplication.shared.delegate as? AppDelegate else {
+                        return
+                }
+                let results = try context.fetch(fetchRequest)
+                if let result = results.first {
+                    context.delete(result)
+                    appDelegate.saveContext()
+                }
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                self.present(vc!, animated: true, completion: nil)
+            } catch let error as NSError {
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                present(alertController, animated: true, completion: nil)
+            }
+        }
     }
 }

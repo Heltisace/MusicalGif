@@ -15,6 +15,7 @@ extension ViewController {
         DispatchQueue.global().sync {
             //Prepear for changing
             doChangeOperation = false
+            likeTheSet.isEnabled = false
             gestureRecognizer.removeTarget(self, action: #selector(handlePan))
             processIsWorking = true
             

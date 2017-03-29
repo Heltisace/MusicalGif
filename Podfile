@@ -6,13 +6,30 @@ target 'testMusic1' do
   use_frameworks!
 
   # Pods for testMusic1
+  #Gif
   pod 'SDWebImage'
   pod 'SDWebImage/GIF'
   pod 'FLAnimatedImage'
+  
+  #JSON
   pod 'SwiftyJSON'
+  
+  #Indicator
   pod 'NVActivityIndicatorView'
+  pod 'SwiftSpinner'
+  
+  #Pressable buttons
   pod 'SwiftyButton'
+  
+  #Drop down list
   pod 'DropDown'
+  
+  #Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  
+  #Other
   pod 'SwiftLint'
 
 end

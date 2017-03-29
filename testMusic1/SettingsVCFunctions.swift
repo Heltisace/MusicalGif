@@ -59,7 +59,7 @@ extension SettingsVC {
             self.popUpTop.constant = self.view.frame.height / 3.6
             self.popUpRight.constant = self.view.frame.width / 100
             self.popUpBottom.constant = self.view.frame.height / 2.6
-            self.popUpLeft = self.popUpRight
+            self.popUpLeft.constant = self.view.frame.width / 100
             self.answerTextField.placeholder! = placeholder
             self.answerTextField.text! = ""
             

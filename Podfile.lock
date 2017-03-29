@@ -1,6 +1,39 @@
 PODS:
   - DropDown (2)
+  - Firebase/Auth (3.15.0):
+    - Firebase/Core
+    - FirebaseAuth (= 3.1.1)
+  - Firebase/Core (3.15.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.2)
+  - Firebase/Database (3.15.0):
+    - Firebase/Core
+    - FirebaseDatabase (= 3.1.2)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseAuth (3.1.1):
+    - FirebaseAnalytics (~> 3.7)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (3.5.2):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (3.1.2):
+    - FirebaseAnalytics (~> 3.7)
+  - FirebaseInstanceID (1.0.9)
   - FLAnimatedImage (1.0.12)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMSessionFetcher/Core (1.1.9)
   - NVActivityIndicatorView (3.5)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -9,28 +42,42 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - SwiftLint (0.16.1)
+  - SwiftSpinner (1.2.0)
   - SwiftyButton (0.6.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - DropDown
+  - Firebase/Auth
+  - Firebase/Core
+  - Firebase/Database
   - FLAnimatedImage
   - NVActivityIndicatorView
   - SDWebImage
   - SDWebImage/GIF
   - SwiftLint
+  - SwiftSpinner
   - SwiftyButton
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   DropDown: 744784d9c9aa505100e942c16acd05430cbb2f0a
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   NVActivityIndicatorView: e5252b082f93885f0bfc24c318719b4eaabcd37b
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
+  SwiftSpinner: 6892642232471da581ecb020a9150e07d17a954b
   SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d149f6b1f7505526b15887c852a08539f00cce42
+PODFILE CHECKSUM: 131b83d84766afdd412e14f4efff1a4b48a7699d
 
 COCOAPODS: 1.2.0

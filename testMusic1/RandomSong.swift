@@ -141,6 +141,7 @@ class RandomSong{
         }
         songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
         trackURL = randomSongEngine.getSongUrl(data: songJson!)
+        print(trackURL)
         songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
         return trackURL
     }

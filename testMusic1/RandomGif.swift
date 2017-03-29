@@ -34,6 +34,7 @@ class RandomGif {
                 } else {gif = "Error"}
             } else {gif = "Error"}
         } else {gif = "Error"}
+        print(gif)
         
         return gif
     }

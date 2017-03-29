@@ -10,8 +10,9 @@ import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 import SwiftyButton
+import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     //UI variables
     @IBOutlet weak var theGif: FLAnimatedImageView!
@@ -21,14 +22,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var openGifButton: PressableButton!
     @IBOutlet weak var viewInGifView: UIView!
     @IBOutlet weak var songInfoView: UIView!
+    @IBOutlet weak var likeTheSet: UIBarButtonItem!
     
+    //Gif Constraintns
     @IBOutlet weak var gifLeading: NSLayoutConstraint!
     @IBOutlet weak var gifBottom: NSLayoutConstraint!
     @IBOutlet weak var gifTrailing: NSLayoutConstraint!
     @IBOutlet weak var gifTop: NSLayoutConstraint!
+    //Buttons Constraintns
     @IBOutlet weak var openGifTrailing: NSLayoutConstraint!
     @IBOutlet weak var openSongLeading: NSLayoutConstraint!
     @IBOutlet weak var betweenButtons: NSLayoutConstraint!
+    
+    //Pop up view
+    //UI variables
+    
+    @IBOutlet weak var popUpView: RoundView!
+    @IBOutlet weak var popUpBackground: UIView!
+    @IBOutlet weak var answerTextField: UITextField!
+    
+    //Pop up Constraintns
+    @IBOutlet weak var popUpTop: NSLayoutConstraint!
+    @IBOutlet weak var popUpLeft: NSLayoutConstraint!
+    @IBOutlet weak var popUpRight: NSLayoutConstraint!
+    @IBOutlet weak var popUpBottom: NSLayoutConstraint!
+    
+    //Firebase
+    var ref: FIRDatabaseReference!
+    var userID: String?
+    var theSetID = ""
     
     //Helpers variables
     let musicEngine = MusicEngine()
@@ -78,6 +100,18 @@ class ViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         //swipeControll
         self.gifView.addGestureRecognizer(gestureRecognizer)
+        
+        //Gesture recognizer to close the view after click on background
+        let gesture = UITapGestureRecognizer(target: self, action: #selector (closePopUpWithTap))
+        self.popUpBackground.addGestureRecognizer(gesture)
+        
+        //Pop up view
+        answerTextField.delegate = self
+        popUpPreSet()
+        
+        //Firebase
+        ref = FIRDatabase.database().reference()
+        userID = FIRAuth.auth()?.currentUser?.uid
         
         //Initialization
         initialization()
@@ -154,4 +188,51 @@ class ViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
+    
+    //Function that close pop up view if tapped on background
+    func closePopUpWithTap(_ sender:UITapGestureRecognizer) {
+        closePopUpView()
+        self.likeTheSet.image = UIImage(named: "thumb-down")
+    }
+    
+    //Close keyboard if return was tapped
+    func textFieldShouldReturn(_ answerTextField: UITextField) -> Bool {
+        answerTextField.resignFirstResponder()
+        return true
+    }
+    
+    //Pop up view cancel button
+    @IBAction func cancelPopUpAction(_ sender: UIButton) {
+        closePopUpView()
+        self.likeTheSet.image = UIImage(named: "thumb-down")
+    }
+    
+    //Pop up view accept button
+    @IBAction func acceptPopUpAction(_ sender: UIButton?) {
+        let answer = answerTextField.text!
+        if answer != "" {
+            //Add to the favorite list
+            addToFavoriteList(name: answer)
+            
+            //Green animation
+            allIsGoodAnimation()
+        } else {
+            //If smth bad - red animation
+            smthWrongAnimation()
+        }
+    }
+    @IBAction func likeTheSetAction(_ sender: UIBarButtonItem) {
+        likeTheSet.isEnabled = false
+        if self.likeTheSet.image == UIImage(named: "thumb-down") {
+            self.likeTheSet.image = UIImage(named: "thumb-up")
+            openPopViewIfNeeded()
+        } else {
+            removeFromFavoriteList()
+            
+            self.likeTheSet.image = UIImage(named: "thumb-down")
+            likeTheSet.isEnabled = true
+        }
+        
+    }
+    
 }

@@ -29,6 +29,13 @@
 		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
 		926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */; };
+		92E2CDFC1E8A94AA00F5623E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */; };
+		92E2CDFE1E8A94C200F5623E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFD1E8A94C200F5623E /* LoginVC.swift */; };
+		92E2CE001E8A94DF00F5623E /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */; };
+		92E2CE021E8A9C2400F5623E /* SimpleRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */; };
+		92E2CE041E8AA62500F5623E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */; };
+		92E2CE071E8B00AF00F5623E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */; };
+		92E2CE091E8BE83500F5623E /* FavoriteCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE081E8BE83500F5623E /* FavoriteCreator.swift */; };
 		92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */; };
 		FDD98EC5320BA243220D2165 /* Pods_testMusic1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47045E5989A3DF5EDB1D3CBA /* Pods_testMusic1.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +88,13 @@
 		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
 		926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOtherFunctions.swift; sourceTree = "<group>"; };
+		92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		92E2CDFD1E8A94C200F5623E /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRoundButton.swift; sourceTree = "<group>"; };
+		92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92E2CE061E8B00AF00F5623E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		92E2CE081E8BE83500F5623E /* FavoriteCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCreator.swift; sourceTree = "<group>"; };
 		92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomSong.swift; sourceTree = "<group>"; };
 		D40D0181E28A8B1A0725A03E /* Pods-testMusic1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testMusic1.release.xcconfig"; path = "Pods/Target Support Files/Pods-testMusic1/Pods-testMusic1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +149,7 @@
 				9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */,
 				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
 				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
+				92E2CE081E8BE83500F5623E /* FavoriteCreator.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -181,6 +196,8 @@
 			isa = PBXGroup;
 			children = (
 				9211F28C1E5B3B9600A9076C /* AppDelegate.swift */,
+				9211F2901E5B3B9600A9076C /* Main.storyboard */,
+				9211F2951E5B3B9600A9076C /* LaunchScreen.storyboard */,
 				92F66F7B1E5BB6DC005DCDD1 /* ViewControllers */,
 				92F66F7A1E5BB6D1005DCDD1 /* Helpers */,
 				92F66F7D1E5BB796005DCDD1 /* Models */,
@@ -215,6 +232,16 @@
 			name = MenuViewController;
 			sourceTree = "<group>";
 		};
+		92E2CDFA1E8A8EA900F5623E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				92E2CDFD1E8A94C200F5623E /* LoginVC.swift */,
+				92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */,
+				92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
 		92F66F7A1E5BB6D1005DCDD1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +257,11 @@
 		92F66F7B1E5BB6DC005DCDD1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				92E2CDFA1E8A8EA900F5623E /* Authorization */,
 				925D69861E7822710063BDAC /* MenuViewController */,
 				9204A9A51E717F8800321FC0 /* SettingsViewController */,
 				9204A9A41E717F6100321FC0 /* FavoriteViewController */,
 				9204A9A31E717F1400321FC0 /* MainViewController */,
-				9211F2951E5B3B9600A9076C /* LaunchScreen.storyboard */,
-				9211F2901E5B3B9600A9076C /* Main.storyboard */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -243,7 +269,9 @@
 		92F66F7C1E5BB755005DCDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */,
 				9211F2931E5B3B9600A9076C /* Assets.xcassets */,
+				92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */,
 				9211F2981E5B3B9600A9076C /* Info.plist */,
 			);
 			name = Resources;
@@ -257,6 +285,7 @@
 				923A50DE1E5F40C200D0AD20 /* RoundGif.swift */,
 				926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */,
 				9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */,
+				92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -379,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9211F2971E5B3B9600A9076C /* LaunchScreen.storyboard in Resources */,
+				92E2CE041E8AA62500F5623E /* GoogleService-Info.plist in Resources */,
 				9211F2941E5B3B9600A9076C /* Assets.xcassets in Resources */,
 				9211F2921E5B3B9600A9076C /* Main.storyboard in Resources */,
 			);
@@ -470,13 +500,19 @@
 				925D69881E7822870063BDAC /* MenuVC.swift in Sources */,
 				926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */,
 				925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */,
+				92E2CE021E8A9C2400F5623E /* SimpleRoundButton.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,
+				92E2CE091E8BE83500F5623E /* FavoriteCreator.swift in Sources */,
+				92E2CDFC1E8A94AA00F5623E /* SignUpVC.swift in Sources */,
+				92E2CDFE1E8A94C200F5623E /* LoginVC.swift in Sources */,
 				925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */,
 				926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */,
 				9211F28D1E5B3B9600A9076C /* AppDelegate.swift in Sources */,
+				92E2CE001E8A94DF00F5623E /* ResetPasswordVC.swift in Sources */,
 				926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */,
+				92E2CE071E8B00AF00F5623E /* CoreData.xcdatamodeld in Sources */,
 				923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */,
 				9203DFFC1E69F91C0005ADD4 /* ColorLayer.swift in Sources */,
 				92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */,
@@ -639,7 +675,7 @@
 				DEVELOPMENT_TEAM = SK2V8SJ3KP;
 				INFOPLIST_FILE = testMusic1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Heltisace.testMusicRound;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Heltisace.MusicalGif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -653,7 +689,7 @@
 				DEVELOPMENT_TEAM = SK2V8SJ3KP;
 				INFOPLIST_FILE = testMusic1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Heltisace.testMusicRound;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Heltisace.MusicalGif;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -753,6 +789,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92E2CE061E8B00AF00F5623E /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 92E2CE061E8B00AF00F5623E /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9211F2811E5B3B9600A9076C /* Project object */;
 }

@@ -89,12 +89,12 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
         iterationDown.show()
     }
     
-    func textFieldShouldReturn(_ tagTextField: UITextField) -> Bool {
-        tagTextField.resignFirstResponder()
+    func textFieldShouldReturn(_ answerTextField: UITextField) -> Bool {
+        answerTextField.resignFirstResponder()
         return true
     }
     
-    @IBAction func getAnswer(_ sender: UIButton) {
+    @IBAction func getAnswer(_ sender: UIButton?) {
         //Is field empty?
         if answerTextField.text! != "" {
             //Replace or delete all spaces
@@ -141,7 +141,7 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
         }
     }
     
-    @IBAction func cancelGifTag(_ sender: UIButton) {
+    @IBAction func cancelPopUp(_ sender: UIButton) {
         closePopUpView()
     }
 }
