@@ -102,7 +102,7 @@ extension ViewController {
     
     //Add the set to favorite
     func addToFavoriteList(name: String) {
-        ref.child("Users").child(userID!).child(theSetID).setValue(name)
+        ref.child("Users").child(userID!).child(tempSetID).setValue(name)
     }
     
     //Remove the set from favorite

@@ -49,6 +49,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var ref: FIRDatabaseReference!
     var userID: String?
     var theSetID = ""
+    var tempSetID = ""
     
     //Helpers variables
     let musicEngine = MusicEngine()
@@ -236,12 +237,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         likeTheSet.isEnabled = false
         if self.likeTheSet.image == UIImage(named: "thumb-down") {
             self.likeTheSet.image = UIImage(named: "thumb-up")
+            
+            tempSetID = theSetID
             openPopViewIfNeeded()
         } else {
-            removeFromFavoriteList()
-            
             self.likeTheSet.image = UIImage(named: "thumb-down")
             likeTheSet.isEnabled = true
+            
+            removeFromFavoriteList()
         }
         
     }

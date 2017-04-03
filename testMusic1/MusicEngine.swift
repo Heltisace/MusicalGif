@@ -17,7 +17,6 @@ class MusicEngine {
     
     func loadTrack(soundUrl: String) {
         if let url = NSURL(string: soundUrl) {
-            print(soundUrl)
             player = AVPlayer(url: url as URL)
             player?.volume = 1.0
         }

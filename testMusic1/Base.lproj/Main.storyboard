@@ -239,120 +239,173 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gBy-id-Kwb">
-                                <rect key="frame" x="31" y="79" width="313" height="443"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tla-G2-pqv" userLabel="Container">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BO-Cq-V4j" userLabel="Gif view">
-                                        <rect key="frame" x="0.0" y="0.0" width="313" height="147.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-SG-zQs" userLabel="Gif view" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="5" width="365" height="105"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7F-RG-KI1" userLabel="GifTag">
-                                                <rect key="frame" x="15" y="62.5" width="283" height="70"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c4-32-pwQ" userLabel="GifDropDown" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="60" width="335" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="6Yx-M4-KOZ"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="The Best"/>
+                                                <state key="normal" title="The Best">
+                                                    <color key="titleColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="showGifDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="xfn-la-g9R"/>
+                                                    <action selector="showGifDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="ixk-BK-Lpi"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gif Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9f-DB-gqg">
-                                                <rect key="frame" x="15" y="15" width="283" height="27.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gif Tag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZX-a6-ujI">
+                                                <rect key="frame" x="15" y="10" width="335" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="EPe-QP-lmM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="m9f-DB-gqg" firstAttribute="top" secondItem="1BO-Cq-V4j" secondAttribute="top" constant="15" id="2Sh-dq-0Wt"/>
-                                            <constraint firstItem="v7F-RG-KI1" firstAttribute="leading" secondItem="1BO-Cq-V4j" secondAttribute="leading" constant="15" id="5XN-4V-LMh"/>
-                                            <constraint firstItem="m9f-DB-gqg" firstAttribute="leading" secondItem="1BO-Cq-V4j" secondAttribute="leading" constant="15" id="7b4-S8-3pS"/>
-                                            <constraint firstAttribute="trailing" secondItem="v7F-RG-KI1" secondAttribute="trailing" constant="15" id="G4H-pn-VVk"/>
-                                            <constraint firstAttribute="bottom" secondItem="v7F-RG-KI1" secondAttribute="bottom" constant="15" id="Opd-9B-wty"/>
-                                            <constraint firstItem="v7F-RG-KI1" firstAttribute="top" secondItem="m9f-DB-gqg" secondAttribute="bottom" constant="20" id="PlO-oq-ane"/>
-                                            <constraint firstAttribute="trailing" secondItem="m9f-DB-gqg" secondAttribute="trailing" constant="15" id="feN-bM-n0D"/>
+                                            <constraint firstItem="0ZX-a6-ujI" firstAttribute="leading" secondItem="oAu-SG-zQs" secondAttribute="leading" constant="15" id="BSf-vG-fwa"/>
+                                            <constraint firstAttribute="trailing" secondItem="0ZX-a6-ujI" secondAttribute="trailing" constant="15" id="Ely-sa-OTU"/>
+                                            <constraint firstAttribute="bottom" secondItem="0c4-32-pwQ" secondAttribute="bottom" constant="5" id="LbL-tj-H9A"/>
+                                            <constraint firstAttribute="trailing" secondItem="0c4-32-pwQ" secondAttribute="trailing" constant="15" id="SB0-lp-fHN"/>
+                                            <constraint firstItem="0ZX-a6-ujI" firstAttribute="top" secondItem="oAu-SG-zQs" secondAttribute="top" constant="10" id="dLY-eg-S3e"/>
+                                            <constraint firstItem="0c4-32-pwQ" firstAttribute="leading" secondItem="oAu-SG-zQs" secondAttribute="leading" constant="15" id="gET-nU-w5l"/>
+                                            <constraint firstItem="0c4-32-pwQ" firstAttribute="top" secondItem="0ZX-a6-ujI" secondAttribute="bottom" constant="10" id="oQQ-0E-Nzz"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYs-M8-Bks" userLabel="Music view">
-                                        <rect key="frame" x="0.0" y="147.5" width="313" height="148"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NtP-UF-NQO" userLabel="Music view" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="115" width="365" height="105"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsO-la-Vdx">
-                                                <rect key="frame" x="15" y="15" width="283" height="27.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5m-PC-IjA">
+                                                <rect key="frame" x="15" y="10" width="335" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="713-Ym-7CQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-BN-W2b" userLabel="GenreDropDown">
-                                                <rect key="frame" x="15" y="62.5" width="283" height="70.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-3X-ZA5" userLabel="GenreDropDown" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="60" width="335" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="kyb-PE-lkX"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="The Best"/>
+                                                <state key="normal" title="The Best">
+                                                    <color key="titleColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="showGenreDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="l7N-8h-TKE"/>
+                                                    <action selector="showGenreDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="dHb-RE-ogy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="jsO-la-Vdx" secondAttribute="trailing" constant="15" id="0pI-zd-QnX"/>
-                                            <constraint firstItem="KVQ-BN-W2b" firstAttribute="leading" secondItem="PYs-M8-Bks" secondAttribute="leading" constant="15" id="HOp-se-unC"/>
-                                            <constraint firstAttribute="bottom" secondItem="KVQ-BN-W2b" secondAttribute="bottom" constant="15" id="Qug-Xm-Oyr"/>
-                                            <constraint firstItem="jsO-la-Vdx" firstAttribute="top" secondItem="PYs-M8-Bks" secondAttribute="top" constant="15" id="SpG-TV-7MM"/>
-                                            <constraint firstItem="KVQ-BN-W2b" firstAttribute="top" secondItem="jsO-la-Vdx" secondAttribute="bottom" constant="20" id="Uwe-Jf-IRF"/>
-                                            <constraint firstAttribute="trailing" secondItem="KVQ-BN-W2b" secondAttribute="trailing" constant="15" id="a5Q-HU-95b"/>
-                                            <constraint firstItem="jsO-la-Vdx" firstAttribute="leading" secondItem="PYs-M8-Bks" secondAttribute="leading" constant="15" id="t0Y-GS-T48"/>
+                                            <constraint firstItem="b5I-3X-ZA5" firstAttribute="leading" secondItem="NtP-UF-NQO" secondAttribute="leading" constant="15" id="JCh-Vj-Ffd"/>
+                                            <constraint firstAttribute="trailing" secondItem="b5I-3X-ZA5" secondAttribute="trailing" constant="15" id="LO1-BS-8hR"/>
+                                            <constraint firstAttribute="bottom" secondItem="b5I-3X-ZA5" secondAttribute="bottom" constant="5" id="QGv-wu-0zK"/>
+                                            <constraint firstItem="b5I-3X-ZA5" firstAttribute="top" secondItem="n5m-PC-IjA" secondAttribute="bottom" constant="10" id="T1M-gT-7iR"/>
+                                            <constraint firstAttribute="trailing" secondItem="n5m-PC-IjA" secondAttribute="trailing" constant="15" id="VS4-Gu-nLj"/>
+                                            <constraint firstItem="n5m-PC-IjA" firstAttribute="leading" secondItem="NtP-UF-NQO" secondAttribute="leading" constant="15" id="nE9-GI-q5z"/>
+                                            <constraint firstItem="n5m-PC-IjA" firstAttribute="top" secondItem="NtP-UF-NQO" secondAttribute="top" constant="10" id="nnm-GN-KOP"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecQ-eS-26h" userLabel="Iteration view">
-                                        <rect key="frame" x="0.0" y="295.5" width="313" height="147.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mlr-i9-nX3" userLabel="Iteration view" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="225" width="365" height="105"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5g-tG-eye">
-                                                <rect key="frame" x="15" y="62.5" width="283" height="70"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4p-cG-bO7" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="60" width="335" height="40"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ie0-xv-mid"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Yes"/>
+                                                <state key="normal" title="Yes">
+                                                    <color key="titleColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="showIterationDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="dLk-nY-krE"/>
+                                                    <action selector="showIterationDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="BUB-tR-P7Z"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilx-Qf-Ke1">
-                                                <rect key="frame" x="15" y="15" width="283" height="27.5"/>
-                                                <string key="text">Music iteration
-</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Iteration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVy-QZ-cDl">
+                                                <rect key="frame" x="15" y="10" width="335" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="9pQ-bd-9r2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="I5g-tG-eye" firstAttribute="leading" secondItem="ecQ-eS-26h" secondAttribute="leading" constant="15" id="7jl-rY-fkO"/>
-                                            <constraint firstItem="I5g-tG-eye" firstAttribute="top" secondItem="ilx-Qf-Ke1" secondAttribute="bottom" constant="20" id="Js3-R6-L1J"/>
-                                            <constraint firstItem="ilx-Qf-Ke1" firstAttribute="top" secondItem="ecQ-eS-26h" secondAttribute="top" constant="15" id="K8e-Zm-V8C"/>
-                                            <constraint firstItem="ilx-Qf-Ke1" firstAttribute="leading" secondItem="ecQ-eS-26h" secondAttribute="leading" constant="15" id="kNO-Dt-s7n"/>
-                                            <constraint firstAttribute="trailing" secondItem="ilx-Qf-Ke1" secondAttribute="trailing" constant="15" id="pqU-lj-miU"/>
-                                            <constraint firstAttribute="trailing" secondItem="I5g-tG-eye" secondAttribute="trailing" constant="15" id="qMz-Cb-LaW"/>
-                                            <constraint firstAttribute="bottom" secondItem="I5g-tG-eye" secondAttribute="bottom" constant="15" id="qXy-V5-Uzm"/>
+                                            <constraint firstItem="N4p-cG-bO7" firstAttribute="top" secondItem="NVy-QZ-cDl" secondAttribute="bottom" constant="10" id="A4m-ib-aO0"/>
+                                            <constraint firstItem="NVy-QZ-cDl" firstAttribute="top" secondItem="Mlr-i9-nX3" secondAttribute="top" constant="10" id="OvA-oL-5JM"/>
+                                            <constraint firstItem="NVy-QZ-cDl" firstAttribute="leading" secondItem="Mlr-i9-nX3" secondAttribute="leading" constant="15" id="PG6-XW-04y"/>
+                                            <constraint firstAttribute="trailing" secondItem="NVy-QZ-cDl" secondAttribute="trailing" constant="15" id="fVi-Pu-T45"/>
+                                            <constraint firstItem="N4p-cG-bO7" firstAttribute="leading" secondItem="Mlr-i9-nX3" secondAttribute="leading" constant="15" id="h6B-Vb-9bv"/>
+                                            <constraint firstAttribute="bottom" secondItem="N4p-cG-bO7" secondAttribute="bottom" constant="5" id="ukz-hA-wFU"/>
+                                            <constraint firstAttribute="trailing" secondItem="N4p-cG-bO7" secondAttribute="trailing" constant="15" id="yxX-oc-LMb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KcP-eY-aEj" userLabel="Continue view" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="335" width="365" height="263"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWK-wK-rO8" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="25" y="91.5" width="315" height="80"/>
+                                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="mTo-K2-58y"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                                <state key="normal" title="Continue">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goToMainVC:" destination="WZw-5E-ArK" eventType="touchUpInside" id="NOv-6Z-jbM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="gWK-wK-rO8" firstAttribute="centerY" secondItem="KcP-eY-aEj" secondAttribute="centerY" id="FRi-fp-tfd"/>
+                                            <constraint firstAttribute="trailing" secondItem="gWK-wK-rO8" secondAttribute="trailing" constant="25" id="eAO-BI-c18"/>
+                                            <constraint firstItem="gWK-wK-rO8" firstAttribute="centerX" secondItem="KcP-eY-aEj" secondAttribute="centerX" id="q7p-Xs-MMd"/>
+                                            <constraint firstItem="gWK-wK-rO8" firstAttribute="leading" secondItem="KcP-eY-aEj" secondAttribute="leading" constant="25" id="xxm-fS-08J"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWK-wK-rO8" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="66" y="537" width="243" height="80"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="mTo-K2-58y"/>
+                                    <constraint firstAttribute="trailing" secondItem="NtP-UF-NQO" secondAttribute="trailing" constant="5" id="09R-5e-ghs"/>
+                                    <constraint firstItem="oAu-SG-zQs" firstAttribute="leading" secondItem="Tla-G2-pqv" secondAttribute="leading" constant="5" id="0QH-Wl-jDG"/>
+                                    <constraint firstItem="KcP-eY-aEj" firstAttribute="top" secondItem="Mlr-i9-nX3" secondAttribute="bottom" constant="5" id="3x2-Cl-hjZ"/>
+                                    <constraint firstItem="oAu-SG-zQs" firstAttribute="top" secondItem="Tla-G2-pqv" secondAttribute="top" constant="5" id="FDW-ae-U7Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="KcP-eY-aEj" secondAttribute="trailing" constant="5" id="Fba-9q-709"/>
+                                    <constraint firstItem="NtP-UF-NQO" firstAttribute="leading" secondItem="Tla-G2-pqv" secondAttribute="leading" constant="5" id="JDs-Wd-1BS"/>
+                                    <constraint firstItem="KcP-eY-aEj" firstAttribute="leading" secondItem="Tla-G2-pqv" secondAttribute="leading" constant="5" id="QVC-I8-wD2"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mlr-i9-nX3" secondAttribute="trailing" constant="5" id="XCP-kJ-CiW"/>
+                                    <constraint firstAttribute="bottom" secondItem="KcP-eY-aEj" secondAttribute="bottom" constant="5" id="cWT-bu-SGm"/>
+                                    <constraint firstItem="NtP-UF-NQO" firstAttribute="top" secondItem="oAu-SG-zQs" secondAttribute="bottom" constant="5" id="fXt-cg-tZc"/>
+                                    <constraint firstAttribute="trailing" secondItem="oAu-SG-zQs" secondAttribute="trailing" constant="5" id="g51-1w-IF2"/>
+                                    <constraint firstItem="Mlr-i9-nX3" firstAttribute="top" secondItem="NtP-UF-NQO" secondAttribute="bottom" constant="5" id="iL2-2L-vlw"/>
+                                    <constraint firstItem="Mlr-i9-nX3" firstAttribute="leading" secondItem="Tla-G2-pqv" secondAttribute="leading" constant="5" id="nkG-tf-ah6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToMainVC:" destination="WZw-5E-ArK" eventType="touchUpInside" id="NOv-6Z-jbM"/>
-                                </connections>
-                            </button>
+                            </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="StU-qC-vcB" userLabel="PopUpBackground">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-1j-NaM" userLabel="PopUpView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="26" y="269.5" width="323" height="128"/>
+                                <rect key="frame" x="26" y="269" width="323" height="128"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6A-Mr-yxP">
                                         <rect key="frame" x="0.0" y="80" width="161" height="48"/>
@@ -417,34 +470,37 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ebF-1j-NaM" firstAttribute="centerY" secondItem="XSj-qY-OCC" secondAttribute="centerY" id="0BS-ZF-DTv"/>
                             <constraint firstItem="StU-qC-vcB" firstAttribute="leading" secondItem="XSj-qY-OCC" secondAttribute="leadingMargin" constant="-16" id="1uO-ZD-yVK"/>
                             <constraint firstItem="NZy-jh-RA3" firstAttribute="top" secondItem="StU-qC-vcB" secondAttribute="bottom" id="3kf-6i-nJ7"/>
                             <constraint firstItem="ebF-1j-NaM" firstAttribute="leading" secondItem="XSj-qY-OCC" secondAttribute="leadingMargin" constant="10" id="59C-qq-iKZ"/>
-                            <constraint firstItem="NZy-jh-RA3" firstAttribute="top" secondItem="gWK-wK-rO8" secondAttribute="bottom" constant="50" id="5oe-KW-Bwi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gWK-wK-rO8" secondAttribute="trailing" constant="50" id="9gJ-Nh-7pl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gBy-id-Kwb" secondAttribute="trailing" constant="15" id="DFa-zU-Za4"/>
+                            <constraint firstItem="NZy-jh-RA3" firstAttribute="top" secondItem="Tla-G2-pqv" secondAttribute="bottom" id="IMd-Ld-Rpm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ebF-1j-NaM" secondAttribute="trailing" constant="10" id="J9f-O7-r7L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="StU-qC-vcB" secondAttribute="trailing" constant="-16" id="L9K-ab-mnN"/>
                             <constraint firstItem="StU-qC-vcB" firstAttribute="top" secondItem="xKv-wc-pco" secondAttribute="bottom" id="Zdi-br-SI6"/>
-                            <constraint firstItem="gWK-wK-rO8" firstAttribute="top" secondItem="gBy-id-Kwb" secondAttribute="bottom" constant="15" id="bsB-KW-wix"/>
-                            <constraint firstItem="gBy-id-Kwb" firstAttribute="leading" secondItem="XSj-qY-OCC" secondAttribute="leadingMargin" constant="15" id="oKJ-IN-arE"/>
-                            <constraint firstItem="gWK-wK-rO8" firstAttribute="leading" secondItem="XSj-qY-OCC" secondAttribute="leadingMargin" constant="50" id="ubK-kF-NNO"/>
-                            <constraint firstItem="gBy-id-Kwb" firstAttribute="top" secondItem="xKv-wc-pco" secondAttribute="bottom" constant="15" id="zLU-IF-0F5"/>
+                            <constraint firstItem="Tla-G2-pqv" firstAttribute="top" secondItem="xKv-wc-pco" secondAttribute="bottom" id="eTY-v1-zEw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tla-G2-pqv" secondAttribute="trailing" constant="-16" id="mPi-Dm-RNh"/>
+                            <constraint firstItem="Tla-G2-pqv" firstAttribute="leading" secondItem="XSj-qY-OCC" secondAttribute="leadingMargin" constant="-16" id="osr-A5-Qd2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="640-g4-aRg"/>
                     <connections>
                         <outlet property="answerTextField" destination="Oft-Av-Jhd" id="Qew-7l-Yew"/>
-                        <outlet property="genreDropButton" destination="KVQ-BN-W2b" id="JDG-wW-FAC"/>
-                        <outlet property="gifDropButton" destination="v7F-RG-KI1" id="YuY-lc-cne"/>
-                        <outlet property="iterationDropButton" destination="I5g-tG-eye" id="cqR-SX-Loq"/>
+                        <outlet property="continueButton" destination="gWK-wK-rO8" id="lCC-KN-pjB"/>
+                        <outlet property="continueInputView" destination="KcP-eY-aEj" id="iJN-7Z-gBV"/>
+                        <outlet property="genreDropButton" destination="b5I-3X-ZA5" id="FSx-x8-Qbp"/>
+                        <outlet property="gifDropButton" destination="0c4-32-pwQ" id="fQn-cT-4nm"/>
+                        <outlet property="gifInputView" destination="oAu-SG-zQs" id="qyP-DD-6B6"/>
+                        <outlet property="iterationDropButton" destination="N4p-cG-bO7" id="LFq-8h-dxn"/>
+                        <outlet property="iterationInputView" destination="Mlr-i9-nX3" id="FQG-xJ-R8C"/>
+                        <outlet property="musicInputView" destination="NtP-UF-NQO" id="xUX-LQ-dRv"/>
                         <outlet property="popUpBackground" destination="StU-qC-vcB" id="Met-re-BW2"/>
                         <outlet property="popUpLeft" destination="59C-qq-iKZ" id="w5r-Qy-QRw"/>
                         <outlet property="popUpRight" destination="J9f-O7-r7L" id="5J9-rQ-nj5"/>
                         <outlet property="popUpView" destination="ebF-1j-NaM" id="Eqt-eN-0Xb"/>
+                        <outlet property="viewContainer" destination="Tla-G2-pqv" id="E4N-T0-LHX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEK-QW-78Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -463,43 +519,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93G-zE-WHI" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="16" y="150" width="270" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="RandomSet">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="WZw-5E-ArK" kind="show" id="TEP-oc-VFk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulj-sj-i5j" userLabel="Log Out" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="16" y="419" width="270" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Log Out">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logOutAction:" destination="wSv-UD-h9G" eventType="touchUpInside" id="2Z9-pp-Yop"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wp-jz-TRa" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                <rect key="frame" x="16" y="277" width="270" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Favorite">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToFavoriteTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="5Jk-B3-U1D"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="h45-lI-oVe">
+                                <rect key="frame" x="21" y="193.5" width="333" height="280"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93G-zE-WHI" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="80"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                        <state key="normal" title="Random Set">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="WZw-5E-ArK" kind="show" id="TEP-oc-VFk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wp-jz-TRa" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="333" height="80"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                        <state key="normal" title="Favorite">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToFavoriteTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="5Jk-B3-U1D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulj-sj-i5j" userLabel="Log Out" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="200" width="333" height="80"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                        <state key="normal" title="Log Out">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logOutAction:" destination="wSv-UD-h9G" eventType="touchUpInside" id="2Z9-pp-Yop"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="Vya-Zf-c3J"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h45-lI-oVe" firstAttribute="centerX" secondItem="cp7-he-3Ak" secondAttribute="centerX" id="0cn-02-07X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h45-lI-oVe" secondAttribute="trailing" constant="5" id="2Pp-E7-BCS"/>
+                            <constraint firstItem="h45-lI-oVe" firstAttribute="centerY" secondItem="cp7-he-3Ak" secondAttribute="centerY" id="fcM-RN-jHQ"/>
+                            <constraint firstItem="h45-lI-oVe" firstAttribute="leading" secondItem="cp7-he-3Ak" secondAttribute="leadingMargin" constant="5" id="iW1-VW-hos"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="fBu-1U-uHS"/>
+                    <connections>
+                        <outlet property="favoriteButton" destination="4wp-jz-TRa" id="V0y-Qf-FwU"/>
+                        <outlet property="logOutButton" destination="Ulj-sj-i5j" id="CJc-pV-7u6"/>
+                        <outlet property="randomSetButton" destination="93G-zE-WHI" id="abW-cf-jXq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3l-3S-v6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -812,7 +887,9 @@
                                     <constraint firstAttribute="width" constant="80" id="EqW-Vb-PAq"/>
                                     <constraint firstAttribute="height" constant="35" id="jDC-J5-4iw"/>
                                 </constraints>
-                                <state key="normal" title="Reset"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="resetPasswordAction:" destination="Q8s-4H-3Y8" eventType="touchUpInside" id="k7C-a4-g3V"/>
                                 </connections>

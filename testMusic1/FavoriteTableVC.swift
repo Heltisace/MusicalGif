@@ -68,8 +68,8 @@ class FavoriteTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
             self.cellIsEditing = true
-            
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: index) as! FavoriteTableViewCell
+            
             cell.editTextField.alpha = 1
             cell.editTextField.becomeFirstResponder()
             cell.editTextField.text = self.names[index.row]
@@ -87,7 +87,9 @@ class FavoriteTableVC: UITableViewController {
             
             tableView.reloadRows(at: [index], with: .none)
         }
-        edit.backgroundColor = UIColor.blue
+        
+        let lightBlue = UIColor(colorLiteralRed: 52 / 255, green: 152 / 255, blue: 230 / 255, alpha: 1)
+        edit.backgroundColor = lightBlue
         
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             let theSetID = self.theSetIDs.remove(at: index.row)
@@ -95,6 +97,7 @@ class FavoriteTableVC: UITableViewController {
             self.ref.child("Users").child(self.userID!).child(theSetID).removeValue()
             tableView.reloadData()
         }
+        
         delete.backgroundColor = .red
         
         return [delete, edit]
@@ -113,48 +116,4 @@ class FavoriteTableVC: UITableViewController {
             cellIsEditing = false
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }*/
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
- 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.tableView.reloadData()
-    }
-    
-    */
 }

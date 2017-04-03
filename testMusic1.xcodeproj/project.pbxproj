@@ -287,11 +287,11 @@
 			isa = PBXGroup;
 			children = (
 				9211F2BC1E5B56D400A9076C /* RoundButton.swift */,
+				92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */,
 				923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */,
 				923A50DE1E5F40C200D0AD20 /* RoundGif.swift */,
 				926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */,
 				9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */,
-				92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";

@@ -12,6 +12,9 @@ import FirebaseAuth
 import CoreData
 
 class MenuVC: UIViewController {
+    @IBOutlet weak var randomSetButton: RoundButton!
+    @IBOutlet weak var favoriteButton: RoundButton!
+    @IBOutlet weak var logOutButton: RoundButton!
     
     let fetchRequest =
         NSFetchRequest<NSManagedObject>(entityName: "User")
@@ -20,6 +23,12 @@ class MenuVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Background
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
+        
+        //Configure button
+        logOutButton.makeTheButtonRed()
+        randomSetButton.makeTheButtonGreen()
     }
     
     func deleteUser() {

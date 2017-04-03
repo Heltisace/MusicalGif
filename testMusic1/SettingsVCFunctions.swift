@@ -55,10 +55,6 @@ extension SettingsVC {
     //Function to open pop up if it is needed or just select item of drop down list
     func openPopViewIfNeeded(item: String, index: Int, button: UIButton, placeholder: String) {
         if item == "Custom" {
-            //Prepear for pop up
-            self.popUpRight.constant = self.view.frame.width / 100
-            self.popUpLeft.constant = self.view.frame.width / 100
-            
             self.answerTextField.placeholder! = placeholder
             self.answerTextField.text! = ""
             

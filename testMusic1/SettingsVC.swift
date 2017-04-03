@@ -14,14 +14,19 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var genreDropButton: UIButton!
     @IBOutlet weak var gifDropButton: UIButton!
     @IBOutlet weak var iterationDropButton: UIButton!
+    @IBOutlet weak var continueButton: RoundButton!
     
     //Constratints of pop up view
     
     @IBOutlet weak var popUpRight: NSLayoutConstraint!
-    
     @IBOutlet weak var popUpLeft: NSLayoutConstraint!
     
     //Views
+    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var gifInputView: UIView!
+    @IBOutlet weak var iterationInputView: UIView!
+    @IBOutlet weak var continueInputView: RoundView!
+    @IBOutlet weak var musicInputView: UIView!
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var popUpBackground: UIView!
     
@@ -42,6 +47,9 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
     var musicGenre = "The Best"
     var musicIteration = "Yes"
     
+    //Other
+    let colorLayer = ColorLayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,9 +62,33 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
         createGenreDown()
         createIterationDown()
         
+        //Prepear for pop up
+        popUpRight.constant = self.view.frame.width / 100
+        popUpLeft.constant = self.view.frame.width / 100
+        
         //Delegate
         answerTextField.delegate = self
+        
+        //Background
+        gifInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
+        musicInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
+        iterationInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
+        continueInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
+        
+        //Configure the continue button
+        continueButton.makeTheButtonGreen()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        colorLayer.setLayer(someView: viewContainer)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        closePopUpView()
+    }
+    
     @IBAction func goToMainVC(_ sender: UIButton) {
         //Animation of push ViewController
         UIView.animate(withDuration: 0.75, animations: { () -> Void in
@@ -103,7 +135,6 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
                 tempAnswer.remove(at: tempAnswer.index(before: tempAnswer.endIndex))
             }
             tempAnswer = tempAnswer.replacingOccurrences(of: " ", with: "%20")
-            print(tempAnswer)
             
             //Working with gif or music?
             if answerTextField.placeholder! == "Enter your gif tag here" {

@@ -42,7 +42,7 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - SwiftLint (0.17.0)
-  - SwiftSpinner (1.2.0)
+  - SwiftSpinner (1.2.1)
   - SwiftyButton (0.6.0)
   - SwiftyJSON (3.1.4)
 
@@ -74,7 +74,7 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: c7c1c4300b418bd9ed06459e78d4df859ddbe31f
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
-  SwiftSpinner: 6892642232471da581ecb020a9150e07d17a954b
+  SwiftSpinner: 62a28bbb4035f252a1e91b0e17fc40bdbbfa0aab
   SwiftyButton: 4c9b61c499f172971a1b8c2eebbbdc20a26d8a08
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 

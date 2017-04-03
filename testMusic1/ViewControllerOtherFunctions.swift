@@ -34,7 +34,7 @@ extension ViewController {
         }
     }
     func stopPreviousGif() {
-        if operations.count != 0 {
+        if operations.count > 0 {
             self.operations[0].cancel()
             self.operations.removeFirst()
         }
