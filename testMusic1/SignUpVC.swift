@@ -13,6 +13,7 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
     
     var isWorking = false
     
@@ -21,6 +22,7 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -30,7 +32,7 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
         if isWorking == false{
             isWorking = true
             
-            if emailTextField.text == "" || self.passwordTextField.text == "" {
+            if emailTextField.text == "" || passwordTextField.text == "" {
                 //Show error
                 let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -40,6 +42,15 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
                     self.isWorking = false
                 })
                 
+            } else if passwordTextField.text != confirmPasswordTextField.text{
+                //Show error
+                let alertController = UIAlertController(title: "Error", message: "The entered passwords do not match.", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                present(alertController, animated: true, completion: {
+                    self.isWorking = false
+                })
             } else {
                 //Trying to create user
                 FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
@@ -82,8 +93,9 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            confirmPasswordTextField.becomeFirstResponder()
         } else {
-            self.view.endEditing(true)
             signUpAction(nil)
         }
         return false

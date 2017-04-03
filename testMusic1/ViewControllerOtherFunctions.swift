@@ -57,27 +57,35 @@ extension ViewController {
     //Load a new song
     func generateNewSong() {
         DispatchQueue.global().sync {
-            var genre = ""
-            if preSetGenre == "The Best" {
-                genre = self.randomSongEngine.getRandomGenre()
-            } else if preSetGenre != "Full random" {
-                genre = preSetGenre
+            if !ifFromFavoriteTable {
+                var genre = ""
+                if preSetGenre == "The Best" {
+                    genre = self.randomSongEngine.getRandomGenre()
+                } else if preSetGenre != "Full random" {
+                    genre = preSetGenre
+                }
+                let answer = self.randomSongEngine.generateRandomSong(
+                    musicEngine: self.musicEngine,
+                    randomSongEngine: self.randomSongEngine, genre: genre)
+                songURL = answer.first!
+                jsonSongURL = answer.last!
+                self.openSongButton.isEnabled = true
+            } else {
+                songURL = self.randomSongEngine.generateSong(jsonUrl: jsonSongURL, musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine)
+                self.openSongButton.isEnabled = true
             }
-            songURL = self.randomSongEngine.generateRandomSong(
-                musicEngine: self.musicEngine,
-                randomSongEngine: self.randomSongEngine,
-                    infoLabel: self.songInfoLabel, genre: genre)
-            self.openSongButton.isEnabled = true
         }
     }
+    
     func loadNewSong() {
         DispatchQueue.global().sync {
             self.randomSongEngine.loadRandomSong(musicEngine: self.musicEngine)
         }
     }
+    
     func loadSongInfo() {
         DispatchQueue.global().sync {
-            self.randomSongEngine.loadSongInfo(infoLabel: self.songInfoLabel)
+            self.randomSongEngine.setSongInfo(infoLabel: self.songInfoLabel)
         }
     }
     //Show image and play music if image is loaded
@@ -92,13 +100,15 @@ extension ViewController {
             self.theGif.sd_cancelCurrentImageLoad()
             
             if !isVcClosed {
-                var gifTag = ""
-                if preSetGifTag == "The Best" {
-                    gifTag = self.randomGifEngine.randomTag()
-                } else if preSetGifTag != "Full random" {
-                    gifTag = preSetGifTag
+                if !ifFromFavoriteTable {
+                    var gifTag = ""
+                    if preSetGifTag == "The Best" {
+                        gifTag = self.randomGifEngine.randomTag()
+                    } else if preSetGifTag != "Full random" {
+                        gifTag = preSetGifTag
+                    }
+                    self.gifURL = self.randomGifEngine.getGifWithTag(tag: gifTag)
                 }
-                self.gifURL = self.randomGifEngine.getGifWithTag(tag: gifTag)
                 
                 self.operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { _ in
                     if self.doChangeOperation {

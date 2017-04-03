@@ -12,7 +12,7 @@ import NVActivityIndicatorView
 class Spinner {
     //Spinner
     func showActivityIndicator(gifView: FLAnimatedImageView, gifContainer: UIView) -> NVActivityIndicatorView {
-        let spinner = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: 5), color: self.getRandomColor())
+        let spinner = NVActivityIndicatorView(frame: CGRect(), type: NVActivityIndicatorType(rawValue: 6), color: self.getRandomColor())
         
         DispatchQueue.main.async {
             gifView.isHidden = true

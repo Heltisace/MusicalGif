@@ -31,9 +31,7 @@ extension ViewController {
     }
     
     func popUpPreSet() {
-        self.popUpTop.constant = self.view.frame.height / 3.6
         self.popUpRight.constant = self.view.frame.width / 100
-        self.popUpBottom.constant = self.view.frame.height / 2.6
         self.popUpLeft.constant = self.view.frame.width / 100
     }
     
@@ -85,11 +83,14 @@ extension ViewController {
     
     //Check the set for existing in favorites
     func checkForExisting() {
-        generateSetID()
+        if !ifFromFavoriteTable {
+            generateSetID()
+        }
         
-        ref.child("Users").child(userID!).child(theSetID).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            if value != nil {
+        ref.child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            
+            if postDict.keys.contains(self.theSetID) {
                 self.likeTheSet.image = UIImage(named: "thumb-up")
                 self.likeTheSet.isEnabled = true
             } else {
@@ -135,21 +136,39 @@ extension ViewController {
         let gifID = gifURL[firstIndex...secondIndex]
         
         //Getting song ID
-        firstIndex = songURL.startIndex
-        secondIndex = songURL.index(before: songURL.endIndex)
+        firstIndex = jsonSongURL.startIndex
+        secondIndex = jsonSongURL.index(before: jsonSongURL.endIndex)
         
-        for index in songURL.characters.indices {
-            if songURL[index] == "/" {
-                firstIndex = songURL.index(index, offsetBy: 1)
+        for index in jsonSongURL.characters.indices {
+            if jsonSongURL[index] == "/" {
+                firstIndex = jsonSongURL.index(index, offsetBy: 1)
             }
         }
-        let songPreviewID = songURL[firstIndex...secondIndex]
+        let songJsonID = jsonSongURL[firstIndex...secondIndex]
         
         //Generating the set ID
-        theSetID = mediaNumber + "|" + gifID + "|" + songPreviewID
+        theSetID = mediaNumber + "|" + gifID + "|" + songJsonID
     }
     
     func createUrlsWithSetID(){
-        //TO DO
+        var arrayOfGifUrlSlashes: [String.Index] = []
+        
+        for index in theSetID.characters.indices {
+            if theSetID[index] == "|" {
+                arrayOfGifUrlSlashes.append(index)
+            }
+        }
+        var firstIndex = theSetID.index(arrayOfGifUrlSlashes[0], offsetBy: 1)
+        var secondIndex = theSetID.index(arrayOfGifUrlSlashes[1], offsetBy: -1)
+        
+        let gifMedia = Int(String(theSetID[theSetID.startIndex]))!
+        let gifID = theSetID[firstIndex...secondIndex]
+        gifURL = "http://media\(gifMedia).giphy.com/media/\(gifID)/giphy.gif"
+        
+        firstIndex = theSetID.index(arrayOfGifUrlSlashes[1], offsetBy: 1)
+        secondIndex = theSetID.index(theSetID.endIndex, offsetBy: -1)
+        
+        let songID = theSetID[firstIndex...secondIndex]
+        jsonSongURL = "https://api.spotify.com/v1/\(songID)"
     }
 }

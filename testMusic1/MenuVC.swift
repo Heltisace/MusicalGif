@@ -22,20 +22,28 @@ class MenuVC: UIViewController {
         
     }
     
-    @IBAction func logOutAction(_ sender: RoundButton) {
+    func deleteUser() {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        do {
+            let results = try context.fetch(fetchRequest)
+            for result in results {
+                context.delete(result)
+            }
+            appDelegate.saveContext()
+        } catch {
+            print("error")
+        }
+    }
+    
+    @IBAction func logOutAction(_ sender: RoundButton?) {
         if FIRAuth.auth()?.currentUser != nil {
             do {
                 try FIRAuth.auth()?.signOut()
                 
-                guard let appDelegate =
-                    UIApplication.shared.delegate as? AppDelegate else {
-                        return
-                }
-                let results = try context.fetch(fetchRequest)
-                if let result = results.first {
-                    context.delete(result)
-                    appDelegate.saveContext()
-                }
+                deleteUser()
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                 self.present(vc!, animated: true, completion: nil)
@@ -47,5 +55,10 @@ class MenuVC: UIViewController {
                 present(alertController, animated: true, completion: nil)
             }
         }
+    }
+    
+    @IBAction func goToFavoriteTable(_ sender: RoundButton) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
+        self.show(vc!, sender: self)
     }
 }

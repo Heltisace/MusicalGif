@@ -47,6 +47,7 @@ extension ViewController {
                 //7
                 self.returnLabelToView()
                 self.generateNewSong()
+                self.loadNewSong()
                 self.loadSongInfo()
             })
         }
@@ -58,10 +59,6 @@ extension ViewController {
                 //3
                 self.setGifConstraints(left: self.viewWidth, right: self.viewWidth, top: nil, bottom: nil)
                 self.view.layoutIfNeeded()
-            }, completion: { _ in
-                //Strart loading new song
-                //10
-                self.loadNewSong()
             })
         }
     }

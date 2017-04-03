@@ -56,10 +56,9 @@ extension SettingsVC {
     func openPopViewIfNeeded(item: String, index: Int, button: UIButton, placeholder: String) {
         if item == "Custom" {
             //Prepear for pop up
-            self.popUpTop.constant = self.view.frame.height / 3.6
             self.popUpRight.constant = self.view.frame.width / 100
-            self.popUpBottom.constant = self.view.frame.height / 2.6
             self.popUpLeft.constant = self.view.frame.width / 100
+            
             self.answerTextField.placeholder! = placeholder
             self.answerTextField.text! = ""
             

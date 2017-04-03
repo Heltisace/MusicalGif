@@ -42,10 +42,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var answerTextField: UITextField!
     
     //Pop up Constraintns
-    @IBOutlet weak var popUpTop: NSLayoutConstraint!
     @IBOutlet weak var popUpLeft: NSLayoutConstraint!
     @IBOutlet weak var popUpRight: NSLayoutConstraint!
-    @IBOutlet weak var popUpBottom: NSLayoutConstraint!
     
     //Firebase
     var ref: FIRDatabaseReference!
@@ -65,6 +63,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var shouldChangeGif = false
     var gifURL = ""
     var songURL = ""
+    var jsonSongURL = ""
+    var ifFromFavoriteTable = false
     
     //Search settings
     var preSetGenre = "The Best"
@@ -96,10 +96,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if theSetID == "" {
+            //swipeControll
+            self.gifView.addGestureRecognizer(gestureRecognizer)
+        } else {
+            createUrlsWithSetID()
+        }
+        
         //Don't use swipe back gesture
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        //swipeControll
-        self.gifView.addGestureRecognizer(gestureRecognizer)
+        
         
         //Gesture recognizer to close the view after click on background
         let gesture = UITapGestureRecognizer(target: self, action: #selector (closePopUpWithTap))
@@ -160,7 +167,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Is swipe changed or ended
         if gestureRecognizer.state == .changed {
             setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
-            self.gifView.transform = CGAffineTransform(rotationAngle: (newDegree * CGFloat(M_PI)) / 180.0)
+            self.gifView.transform = CGAffineTransform(rotationAngle: (newDegree * CGFloat(Double.pi)) / 180.0)
             lastDegree = newDegree
             self.view.layoutIfNeeded()
         } else if gestureRecognizer.state == .ended {
@@ -175,18 +182,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func openSong(_ sender: UIButton) {
-        let url = NSURL(string: songURL) as! URL
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.openURL(url)
+    func open(scheme: String) {
+        if let url = URL(string: scheme) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:],completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
     }
     
+    @IBAction func openSong(_ sender: UIButton) {
+        open(scheme: songURL)
+    }
+    
     @IBAction func openGif(_ sender: UIButton) {
-        let url = NSURL(string: gifURL) as! URL
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.openURL(url)
-        }
+        open(scheme: gifURL)
     }
     
     //Function that close pop up view if tapped on background

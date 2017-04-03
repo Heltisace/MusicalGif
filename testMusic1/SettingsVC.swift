@@ -16,9 +16,9 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var iterationDropButton: UIButton!
     
     //Constratints of pop up view
-    @IBOutlet weak var popUpBottom: NSLayoutConstraint!
+    
     @IBOutlet weak var popUpRight: NSLayoutConstraint!
-    @IBOutlet weak var popUpTop: NSLayoutConstraint!
+    
     @IBOutlet weak var popUpLeft: NSLayoutConstraint!
     
     //Views

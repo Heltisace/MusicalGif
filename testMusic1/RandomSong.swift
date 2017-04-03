@@ -90,6 +90,21 @@ class RandomSong{
         return songJson
     }
     
+    //Put json to variable 2
+    func getSongJsonWithID(songID: String) -> JSON? {
+        var songJson: JSON?
+        let jsonUrl = "https://api.spotify.com/v1/tracks/\(songID)"
+        //Get the song url
+        if let url = URL(string: jsonUrl) {
+            if let data = try? Data(contentsOf: url) {
+                let tempJson = JSON(data: data)
+                //Wait for downloading
+                songJson = tempJson
+            }
+        }
+        return songJson
+    }
+    
     //Get the song url
     func getSongUrl(data: JSON) -> String {
         var trackUrl = "Nill"
@@ -130,7 +145,7 @@ class RandomSong{
     }
     
     //Load a random song
-    func generateRandomSong(musicEngine: MusicEngine, randomSongEngine: RandomSong, infoLabel: UILabel, genre: String) -> String {
+    func generateRandomSong(musicEngine: MusicEngine, randomSongEngine: RandomSong, genre: String) -> [String] {
         //Stop playing previous song
         musicEngine.stopPlaying()
         //Generating a random song
@@ -142,7 +157,20 @@ class RandomSong{
         songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
         trackURL = randomSongEngine.getSongUrl(data: songJson!)
         print(trackURL)
+        
         songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
+        
+        return [trackURL,jsonUrl]
+    }
+    
+    func generateSong(jsonUrl: String, musicEngine: MusicEngine, randomSongEngine: RandomSong) -> String {
+        //Stop playing previous song
+        musicEngine.stopPlaying()
+        
+        songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
+        trackURL = randomSongEngine.getSongUrl(data: songJson!)
+        songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
+        
         return trackURL
     }
     
@@ -151,7 +179,7 @@ class RandomSong{
         musicEngine.loadTrack(soundUrl: trackURL)
     }
     
-    func loadSongInfo(infoLabel: UILabel) {
+    func setSongInfo(infoLabel: UILabel) {
         //Set new song info
         infoLabel.text! = songInfo
     }

@@ -42,13 +42,17 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                     if error == nil {
                         //Go to menu and close spinner
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
-                        self.present(vc!, animated: true, completion: {
+                        let nc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
+                        self.present(nc!, animated: true, completion: {
                             SwiftSpinner.hide()
                         })
                     } else {
-                        //Show error and close spinner
+                        //Show error, delete user data and close spinner
                         SwiftSpinner.hide()
+                        
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+                        vc.deleteUser()
+                        
                         let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                         alertController.addAction(defaultAction)

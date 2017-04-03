@@ -25,6 +25,8 @@
 		925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69841E78215B0063BDAC /* SettingsVC.swift */; };
 		925D69881E7822870063BDAC /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69871E7822870063BDAC /* MenuVC.swift */; };
 		925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */; };
+		9267793F1E8D6248003D24F3 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */; };
+		926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926779401E8D6688003D24F3 /* FavoriteTableVC.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
 		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
@@ -84,6 +86,8 @@
 		925D69841E78215B0063BDAC /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		925D69871E7822870063BDAC /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCFunctions.swift; sourceTree = "<group>"; };
+		9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		926779401E8D6688003D24F3 /* FavoriteTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableVC.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
@@ -154,11 +158,13 @@
 			name = MainViewController;
 			sourceTree = "<group>";
 		};
-		9204A9A41E717F6100321FC0 /* FavoriteViewController */ = {
+		9204A9A41E717F6100321FC0 /* Table of favorites */ = {
 			isa = PBXGroup;
 			children = (
+				9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */,
+				926779401E8D6688003D24F3 /* FavoriteTableVC.swift */,
 			);
-			name = FavoriteViewController;
+			name = "Table of favorites";
 			sourceTree = "<group>";
 		};
 		9204A9A51E717F8800321FC0 /* SettingsViewController */ = {
@@ -260,7 +266,7 @@
 				92E2CDFA1E8A8EA900F5623E /* Authorization */,
 				925D69861E7822710063BDAC /* MenuViewController */,
 				9204A9A51E717F8800321FC0 /* SettingsViewController */,
-				9204A9A41E717F6100321FC0 /* FavoriteViewController */,
+				9204A9A41E717F6100321FC0 /* Table of favorites */,
 				9204A9A31E717F1400321FC0 /* MainViewController */,
 			);
 			name = ViewControllers;
@@ -503,6 +509,7 @@
 				92E2CE021E8A9C2400F5623E /* SimpleRoundButton.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
+				926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,
 				92E2CE091E8BE83500F5623E /* FavoriteCreator.swift in Sources */,
 				92E2CDFC1E8A94AA00F5623E /* SignUpVC.swift in Sources */,
@@ -515,6 +522,7 @@
 				92E2CE071E8B00AF00F5623E /* CoreData.xcdatamodeld in Sources */,
 				923A50E11E5F9DAA00D0AD20 /* ConcurrentOperation.swift in Sources */,
 				9203DFFC1E69F91C0005ADD4 /* ColorLayer.swift in Sources */,
+				9267793F1E8D6248003D24F3 /* FavoriteTableViewCell.swift in Sources */,
 				92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */,
 				923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */,
 				9203DFFE1E6A09AF0005ADD4 /* ViewControllerInitialization.swift in Sources */,
