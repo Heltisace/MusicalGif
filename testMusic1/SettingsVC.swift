@@ -86,7 +86,9 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        closePopUpView()
+        gifDown.hide()
+        iterationDown.hide()
+        genreDown.hide()
     }
     
     @IBAction func goToMainVC(_ sender: UIButton) {

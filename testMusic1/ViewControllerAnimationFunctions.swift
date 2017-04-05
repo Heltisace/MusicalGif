@@ -32,7 +32,6 @@ extension ViewController {
         //1
         buttonsOperation()
         changeGifWithAnimation()
-        stopPreviousGif()
         changeSongInfoLabel()
         returnGifToView()
     }
@@ -170,7 +169,6 @@ extension ViewController {
                 self.betweenButtons.constant = self.normalBetweenButtons
                 self.view.layoutIfNeeded()
             }, completion: { _ in
-                self.checkForExisting()
                 self.gestureRecognizer.addTarget(self, action: #selector(self.handlePan))
             })
         }

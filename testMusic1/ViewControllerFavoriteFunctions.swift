@@ -91,10 +91,10 @@ extension ViewController {
             let postDict = snapshot.value as? [String : AnyObject] ?? [:]
             
             if postDict.keys.contains(self.theSetID) {
-                self.likeTheSet.image = UIImage(named: "thumb-up")
+                self.likeTheSet.image = UIImage(named: "liked")
                 self.likeTheSet.isEnabled = true
             } else {
-                self.likeTheSet.image = UIImage(named: "thumb-down")
+                self.likeTheSet.image = UIImage(named: "unliked")
                 self.likeTheSet.isEnabled = true
             }
         })
@@ -111,46 +111,48 @@ extension ViewController {
     }
     
     //To generate the set ID with it's unique parts of urls
-    func generateSetID(){
-        //Getting the number of gif media
-        var mediaNumber = ""
-        
-        for index in gifURL.characters.indices {
-            if mediaNumber == "" {
-                if let number = Int(String(gifURL[index])) {
-                    mediaNumber = String(number)
+    func generateSetID() {
+        if gifURL != "Error" && songURL != "Error" {
+            //Getting the number of gif media
+            var mediaNumber = ""
+            
+            for index in gifURL.characters.indices {
+                if mediaNumber == "" {
+                    if let number = Int(String(gifURL[index])) {
+                        mediaNumber = String(number)
+                    }
                 }
             }
-        }
-        
-        //Getting the gif ID
-        var arrayOfGifUrlSlashes: [String.Index] = []
-        
-        for index in gifURL.characters.indices {
-            if gifURL[index] == "/" {
-                arrayOfGifUrlSlashes.append(index)
+            
+            //Getting the gif ID
+            var arrayOfGifUrlSlashes: [String.Index] = []
+            
+            for index in gifURL.characters.indices {
+                if gifURL[index] == "/" {
+                    arrayOfGifUrlSlashes.append(index)
+                }
             }
-        }
-        var firstIndex = gifURL.index(arrayOfGifUrlSlashes[3], offsetBy: 1)
-        var secondIndex = gifURL.index(arrayOfGifUrlSlashes[4], offsetBy: -1)
-        let gifID = gifURL[firstIndex...secondIndex]
-        
-        //Getting song ID
-        firstIndex = jsonSongURL.startIndex
-        secondIndex = jsonSongURL.index(before: jsonSongURL.endIndex)
-        
-        for index in jsonSongURL.characters.indices {
-            if jsonSongURL[index] == "/" {
-                firstIndex = jsonSongURL.index(index, offsetBy: 1)
+            var firstIndex = gifURL.index(arrayOfGifUrlSlashes[3], offsetBy: 1)
+            var secondIndex = gifURL.index(arrayOfGifUrlSlashes[4], offsetBy: -1)
+            let gifID = gifURL[firstIndex...secondIndex]
+            
+            //Getting song ID
+            firstIndex = jsonSongURL.startIndex
+            secondIndex = jsonSongURL.index(before: jsonSongURL.endIndex)
+            
+            for index in jsonSongURL.characters.indices {
+                if jsonSongURL[index] == "/" {
+                    firstIndex = jsonSongURL.index(index, offsetBy: 1)
+                }
             }
+            let songJsonID = jsonSongURL[firstIndex...secondIndex]
+            
+            //Generating the set ID
+            theSetID = mediaNumber + "|" + gifID + "|" + songJsonID
         }
-        let songJsonID = jsonSongURL[firstIndex...secondIndex]
-        
-        //Generating the set ID
-        theSetID = mediaNumber + "|" + gifID + "|" + songJsonID
     }
     
-    func createUrlsWithSetID(){
+    func createUrlsWithSetID() {
         var arrayOfGifUrlSlashes: [String.Index] = []
         
         for index in theSetID.characters.indices {

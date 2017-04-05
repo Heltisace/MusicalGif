@@ -193,8 +193,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Randomizer" id="GZN-aS-xNt">
-                        <barButtonItem key="rightBarButtonItem" image="thumb-down" id="fYV-oi-Ehu">
-                            <inset key="imageInsets" minX="0.0" minY="5" maxX="-5" maxY="5"/>
+                        <barButtonItem key="rightBarButtonItem" image="unliked" id="fYV-oi-Ehu">
+                            <inset key="imageInsets" minX="-19" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <action selector="likeTheSetAction:" destination="BYZ-38-t0r" id="yhd-BT-MMB"/>
                             </connections>
@@ -335,7 +335,7 @@
                                                     <action selector="showIterationDropDown:" destination="WZw-5E-ArK" eventType="touchUpInside" id="BUB-tR-P7Z"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Iteration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVy-QZ-cDl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Looping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVy-QZ-cDl">
                                                 <rect key="frame" x="15" y="10" width="335" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="9pQ-bd-9r2"/>
@@ -640,6 +640,7 @@
         <!--Navigation Controller-->
         <scene sceneID="UrS-WW-dPS">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ke3-93-P0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l83-Ge-1Fz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UJZ-eX-7JL">
@@ -651,7 +652,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HYs-fB-NAg"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ke3-93-P0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="346" y="805"/>
         </scene>
@@ -962,6 +962,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="thumb-down" width="45" height="45"/>
+        <image name="unliked" width="37" height="37"/>
     </resources>
 </document>

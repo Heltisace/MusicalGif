@@ -50,9 +50,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         //Show error, delete user data and close spinner
                         SwiftSpinner.hide()
                         
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-                        vc.deleteUser()
-                        
                         let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                         alertController.addAction(defaultAction)
@@ -91,8 +88,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 
                 //Trying to auth
                 FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
-                    
                     if error == nil {
+                        //Delete users
+                        let menuVc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+                        menuVc.deleteUser()
+                        
                         guard let appDelegate =
                             UIApplication.shared.delegate as? AppDelegate else {
                                 return

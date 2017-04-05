@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import CoreData
+import SwiftSpinner
 
 class MenuVC: UIViewController {
     @IBOutlet weak var randomSetButton: RoundButton!
@@ -29,6 +30,9 @@ class MenuVC: UIViewController {
         //Configure button
         logOutButton.makeTheButtonRed()
         randomSetButton.makeTheButtonGreen()
+        
+        //If user's connetion is bad
+        badConnection()
     }
     
     func deleteUser() {
@@ -69,5 +73,17 @@ class MenuVC: UIViewController {
     @IBAction func goToFavoriteTable(_ sender: RoundButton) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
         self.show(vc!, sender: self)
+    }
+    
+    func badConnection() {
+        //If bad connection is using
+        if CheckConnection().connectionStatus().description.contains("WWAN") {
+            let error = "Your internet connection is slow. We recommend you to use a faster one."
+            let alertController = UIAlertController(title: "Warning", message: error, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }

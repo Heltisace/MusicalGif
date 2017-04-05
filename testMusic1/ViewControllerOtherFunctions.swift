@@ -21,9 +21,7 @@ extension ViewController {
             
             self.musicPrepear()
             self.loadSpinner()
-            self.stopPreviousGif()
             
-            //Let's change
             self.animateGifChanging()
         }
     }
@@ -31,12 +29,6 @@ extension ViewController {
     func musicPrepear() {
         DispatchQueue.global().sync {
             self.musicEngine.stopPlaying()
-        }
-    }
-    func stopPreviousGif() {
-        if operations.count > 0 {
-            self.operations[0].cancel()
-            self.operations.removeFirst()
         }
     }
     //Adds spinner animation
@@ -72,7 +64,9 @@ extension ViewController {
                 self.openSongButton.isEnabled = true
             } else {
                 songURL = self.randomSongEngine.generateSong(jsonUrl: jsonSongURL, musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine)
-                self.openSongButton.isEnabled = true
+                if songURL != "" {
+                    self.openSongButton.isEnabled = true
+                }
             }
         }
     }
@@ -92,11 +86,6 @@ extension ViewController {
     func startMusicAndGif() {
         DispatchQueue.global().sync {
             self.doChangeOperation = true
-            
-            let synchOperation = ConcurrentOperation()
-            self.operations.append(synchOperation)
-            
-            self.openGifButton.isEnabled = true
             self.theGif.sd_cancelCurrentImageLoad()
             
             if !isVcClosed {
@@ -108,18 +97,22 @@ extension ViewController {
                         gifTag = preSetGifTag
                     }
                     self.gifURL = self.randomGifEngine.getGifWithTag(tag: gifTag)
-                }
-                
-                self.operations[0].synch(closure: self.theGif.sd_setImage(with: URL(string: self.gifURL)) { _ in
-                    if self.doChangeOperation {
-                        self.musicEngine.playTrack(viewController: self)
-                        self.closeSpinner(spinner: self.indicator)
-                        self.processIsWorking = false
+                    if self.gifURL != "" {
+                        self.openGifButton.isEnabled = true
                     }
-                })
+                }
             }
+                
+            self.checkForExisting()
+                
             //Creating stream for synch
-            queue.addOperations([operations[0]], waitUntilFinished: false)
+            self.theGif.sd_setImage(with: URL(string: self.gifURL)) { _ in
+                if self.doChangeOperation {
+                    self.musicEngine.playTrack(viewController: self)
+                    self.closeSpinner(spinner: self.indicator)
+                    self.processIsWorking = false
+                }
+            }
         }
     }
 }

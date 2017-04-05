@@ -46,6 +46,11 @@ class FavoriteTableVC: UITableViewController {
             self.tableView.reloadData()
         })
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        ref.child("Users").child(userID!).removeAllObservers()
+    }
 
     // MARK: - Table view data source
 

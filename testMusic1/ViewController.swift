@@ -89,8 +89,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var lastDegree: CGFloat = 0.0
     
     //Variables for changing gif opearation
-    let queue = OperationQueue()
-    var operations: [ConcurrentOperation] = []
     var doChangeOperation = true
     var isVcClosed = false
     var processIsWorking = false
@@ -108,7 +106,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //Don't use swipe back gesture
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
-        
         //Gesture recognizer to close the view after click on background
         let gesture = UITapGestureRecognizer(target: self, action: #selector (closePopUpWithTap))
         self.popUpBackground.addGestureRecognizer(gesture)
@@ -123,6 +120,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Initialization
         initialization()
+        
+        //If bad internet connection
+        loopCheck()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +139,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         theGif.sd_cancelCurrentImageLoad()
         musicEngine.stopPlaying()
         musicEngine.deletePlayer()
-        stopPreviousGif()
         
         self.openGifButton.isHidden = true
         self.openSongButton.isHidden = true
@@ -204,7 +203,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //Function that close pop up view if tapped on background
     func closePopUpWithTap(_ sender:UITapGestureRecognizer) {
         closePopUpView()
-        self.likeTheSet.image = UIImage(named: "thumb-down")
+        self.likeTheSet.image = UIImage(named: "unliked")
     }
     
     //Close keyboard if return was tapped
@@ -216,7 +215,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //Pop up view cancel button
     @IBAction func cancelPopUpAction(_ sender: UIButton) {
         closePopUpView()
-        self.likeTheSet.image = UIImage(named: "thumb-down")
+        self.likeTheSet.image = UIImage(named: "unliked")
     }
     
     //Pop up view accept button
@@ -235,13 +234,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func likeTheSetAction(_ sender: UIBarButtonItem) {
         likeTheSet.isEnabled = false
-        if self.likeTheSet.image == UIImage(named: "thumb-down") {
-            self.likeTheSet.image = UIImage(named: "thumb-up")
+        if self.likeTheSet.image == UIImage(named: "unliked") {
+            self.likeTheSet.image = UIImage(named: "liked")
             
             tempSetID = theSetID
             openPopViewIfNeeded()
         } else {
-            self.likeTheSet.image = UIImage(named: "thumb-down")
+            self.likeTheSet.image = UIImage(named: "unliked")
             likeTheSet.isEnabled = true
             
             removeFromFavoriteList()

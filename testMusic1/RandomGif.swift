@@ -27,10 +27,13 @@ class RandomGif {
         if let url = URL(string: stringUrl) {
             if let data = try? Data(contentsOf: url) {
                 let tempJson = JSON(data: data)
-                
-                if let theGif = tempJson["data"]["image_original_url"].string {
-                    gif = theGif
-                } else {gif = "Error"}
+                if tempJson != JSON.null {
+                    if let theGif = tempJson["data"]["image_original_url"].string {
+                        gif = theGif
+                    } else {gif = "Error"}
+                } else {
+                    gif = "Error" 
+                }
             } else {gif = "Error"}
         } else {gif = "Error"}
         

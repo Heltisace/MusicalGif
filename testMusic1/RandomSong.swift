@@ -107,7 +107,7 @@ class RandomSong{
     
     //Get the song url
     func getSongUrl(data: JSON) -> String {
-        var trackUrl = "Nill"
+        var trackUrl = ""
         
         if let songUrl = data["tracks"]["items"][0]["preview_url"].string {
             trackUrl = songUrl
@@ -117,7 +117,7 @@ class RandomSong{
     
     //Get the song name
     func getSongName(data: JSON) -> String {
-        var name = "Nill"
+        var name = ""
         if let songName = data["tracks"]["items"][0]["name"].string {
             name = songName
         } else {print("ERROR")}
@@ -126,7 +126,7 @@ class RandomSong{
     
     //Get the song artist
     func getSongArtist(data: JSON) -> String {
-        var artist = "Nill"
+        var artist = ""
         if let songArtist = data["tracks"]["items"][0]["artists"][0]["name"].string {
             artist = songArtist
         } else {print("ERROR")}
@@ -155,9 +155,14 @@ class RandomSong{
             jsonUrl = randomSongEngine.getJsonUrlWithABC()
         }
         songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
-        trackURL = randomSongEngine.getSongUrl(data: songJson!)
+        if songJson != nil {
+            trackURL = randomSongEngine.getSongUrl(data: songJson!)
+            songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
+        } else {
+            songInfo = "Error - Error"
+            trackURL = "Error"
+        }
         
-        songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
         
         return [trackURL,jsonUrl]
     }
@@ -167,9 +172,16 @@ class RandomSong{
         musicEngine.stopPlaying()
         
         songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
-        trackURL = randomSongEngine.getSongUrl(data: songJson!)
-        songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
-        
+        if songJson != nil {
+            trackURL = randomSongEngine.getSongUrl(data: songJson!)
+            print(trackURL)
+            songInfo = randomSongEngine.getSongName(data: songJson!)+" - "+randomSongEngine.getSongArtist(data: songJson!)
+            print(songInfo)
+        } else {
+            songInfo = "Error - Error"
+            trackURL = "Error"
+        }
+
         return trackURL
     }
     
