@@ -30,7 +30,8 @@ class ResetPasswordVC: UIViewController, UITextFieldDelegate {
             
             if self.emailTextField.text == "" {
                 //Show error
-                let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Oops!", message:
+                    "Please enter an email.", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 

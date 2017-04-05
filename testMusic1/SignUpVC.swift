@@ -29,12 +29,13 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpAction(_ sender: UIButton?) {
-        if isWorking == false{
+        if isWorking == false {
             isWorking = true
             
             if emailTextField.text == "" || passwordTextField.text == "" {
                 //Show error
-                let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
+                let alertController = UIAlertController(title:
+                    "Error", message: "Please enter your email and password", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 
@@ -42,9 +43,10 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
                     self.isWorking = false
                 })
                 
-            } else if passwordTextField.text != confirmPasswordTextField.text{
+            } else if passwordTextField.text != confirmPasswordTextField.text {
                 //Show error
-                let alertController = UIAlertController(title: "Error", message: "The entered passwords do not match.", preferredStyle: .alert)
+                let alertController = UIAlertController(title:
+                    "Error", message: "The entered passwords do not match.", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 
@@ -53,7 +55,8 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
                 })
             } else {
                 //Trying to create user
-                FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+                FIRAuth.auth()?.createUser(withEmail:emailTextField.text!, password:
+                passwordTextField.text!) { (_, error) in
                     
                     if error == nil {
                         //Sign out of user and go to login

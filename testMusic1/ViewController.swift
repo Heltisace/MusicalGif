@@ -62,9 +62,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var indicator: NVActivityIndicatorView?
     let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
     var shouldChangeGif = false
-    var gifURL = ""
-    var songURL = ""
-    var jsonSongURL = ""
+    var gifURL = "Error"
+    var songURL = "Error"
+    var jsonSongURL = "Error"
     var ifFromFavoriteTable = false
     
     //Search settings

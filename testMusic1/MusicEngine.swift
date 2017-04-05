@@ -25,7 +25,8 @@ class MusicEngine {
     func playTrack(viewController: ViewController) {
         player?.play()
         //Loop or next
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil, using: { (_) in
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object:
+            self.player?.currentItem, queue: nil, using: { (_) in
             DispatchQueue.main.async {
                 if viewController.preSetIteration == "Yes" {
                     //Loop

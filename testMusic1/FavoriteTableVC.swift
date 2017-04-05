@@ -96,7 +96,8 @@ class FavoriteTableVC: UITableViewController {
         let lightBlue = UIColor(colorLiteralRed: 52 / 255, green: 152 / 255, blue: 230 / 255, alpha: 1)
         edit.backgroundColor = lightBlue
         
-        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+        let delete = UITableViewRowAction(style: .normal, title:
+        "Delete") { _, index in
             let theSetID = self.theSetIDs.remove(at: index.row)
             self.names.remove(at: index.row)
             self.ref.child("Users").child(self.userID!).child(theSetID).removeValue()

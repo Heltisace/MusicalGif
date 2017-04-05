@@ -15,7 +15,8 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         DropDown.startListeningToKeyboard()
@@ -46,15 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask(rawValue: UInt(checkOrientation(viewController: self.window?.rootViewController)))
+    func application(_ application: UIApplication,
+                     supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask(rawValue: UInt(checkOrientation(viewController:
+            self.window?.rootViewController)))
     }
     
     func checkOrientation(viewController:UIViewController?) -> Int {
         if viewController == nil {
-            return Int(UIInterfaceOrientationMask.all.rawValue) //All means all orientation
+            return Int(UIInterfaceOrientationMask.all.rawValue)
         } else if viewController != nil {
-            return Int(UIInterfaceOrientationMask.portrait.rawValue) //This is sign in view controller that i only want to set this to portrait mode only
+            return Int(UIInterfaceOrientationMask.portrait.rawValue)
         } else {
             return checkOrientation(viewController: viewController!.presentedViewController)
         }
@@ -70,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
          */
         let container = NSPersistentContainer(name: "CoreData")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

@@ -50,7 +50,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         //Show error, delete user data and close spinner
                         SwiftSpinner.hide()
                         
-                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        let alertController = UIAlertController(title:
+                            "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                         alertController.addAction(defaultAction)
                         
@@ -75,7 +76,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             
             if self.emailTextField.text == "" || self.passwordTextField.text == "" {
                 //Show error
-                let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+                let alertController = UIAlertController(title:
+                    "Error", message: "Please enter an email and password.", preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(defaultAction)
                 
@@ -87,7 +89,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 let password = self.passwordTextField.text!
                 
                 //Trying to auth
-                FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+                FIRAuth.auth()?.signIn(withEmail: email, password: password) { (_, error) in
                     if error == nil {
                         //Delete users
                         let menuVc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
@@ -114,7 +116,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         
                     } else {
                         //Show error
-                        let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                        let alertController = UIAlertController(title:
+                            "Error", message: error?.localizedDescription, preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                         alertController.addAction(defaultAction)
                         

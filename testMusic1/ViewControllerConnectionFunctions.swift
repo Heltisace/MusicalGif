@@ -10,7 +10,9 @@ import UIKit
 
 extension ViewController {
     func loopCheck() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusChanged(_:)), name: NSNotification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(self.networkStatusChanged(_:)), name:
+            NSNotification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
         CheckConnection().monitorReachabilityChanges()
     }
     
@@ -19,10 +21,11 @@ extension ViewController {
         switch status {
         case .unknown, .offline:
             //Show error
-            let error = "Network error (such as timeout, interrupted connection or unreachable host) has occurred." 
+            let error = "Network error (such as timeout, interrupted" +
+            "connection or unreachable host) has occurred."
             let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "Try again", style: .cancel, handler: {
-                (alert: UIAlertAction!) in
+            let defaultAction = UIAlertAction(title: "Try again", style:
+                .cancel, handler: { (_: UIAlertAction!) in
                 self.startTheShow()
                 self.networkStatusChanged(notification)
             })

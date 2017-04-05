@@ -149,8 +149,12 @@ extension ViewController {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.1, delay: 0.01, usingSpringWithDamping: 0.1, initialSpringVelocity: 10, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 //14
-                self.openGifButton.bounds = CGRect(x: openGifBounds.origin.x + 15, y: openGifBounds.origin.y, width: openGifBounds.size.width - 10, height: openGifBounds.size.height)
-                self.openSongButton.bounds = CGRect(x: openSongBounds.origin.x + 15, y: openSongBounds.origin.y, width: openSongBounds.size.width - 10, height: openSongBounds.size.height)
+                self.openGifButton.bounds = CGRect(x:
+                    openGifBounds.origin.x + 15, y: openGifBounds.origin.y, width:
+                    openGifBounds.size.width - 10, height: openGifBounds.size.height)
+                self.openSongButton.bounds = CGRect(x:
+                    openSongBounds.origin.x + 15, y: openSongBounds.origin.y, width:
+                    openSongBounds.size.width - 10, height: openSongBounds.size.height)
                 
                 self.view.layoutIfNeeded()
             }, completion: { _ in
