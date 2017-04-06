@@ -39,6 +39,8 @@
 		92E2CE041E8AA62500F5623E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */; };
 		92E2CE071E8B00AF00F5623E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */; };
 		92E2CE091E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */; };
+		92E976F51E95B1F0004F3B73 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E976F41E95B1F0004F3B73 /* HistoryTableViewCell.swift */; };
+		92E976F71E95B22E004F3B73 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E976F61E95B22E004F3B73 /* HistoryTableVC.swift */; };
 		92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */; };
 		FDD98EC5320BA243220D2165 /* Pods_testMusic1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47045E5989A3DF5EDB1D3CBA /* Pods_testMusic1.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +103,8 @@
 		92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92E2CE061E8B00AF00F5623E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFavoriteFunctions.swift; sourceTree = "<group>"; };
+		92E976F41E95B1F0004F3B73 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		92E976F61E95B22E004F3B73 /* HistoryTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
 		92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomSong.swift; sourceTree = "<group>"; };
 		D40D0181E28A8B1A0725A03E /* Pods-testMusic1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testMusic1.release.xcconfig"; path = "Pods/Target Support Files/Pods-testMusic1/Pods-testMusic1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +255,15 @@
 			name = Authorization;
 			sourceTree = "<group>";
 		};
+		92E976F11E95B184004F3B73 /* History table */ = {
+			isa = PBXGroup;
+			children = (
+				92E976F61E95B22E004F3B73 /* HistoryTableVC.swift */,
+				92E976F41E95B1F0004F3B73 /* HistoryTableViewCell.swift */,
+			);
+			name = "History table";
+			sourceTree = "<group>";
+		};
 		92F66F7A1E5BB6D1005DCDD1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +282,7 @@
 				92E2CDFA1E8A8EA900F5623E /* Authorization */,
 				925D69861E7822710063BDAC /* MenuViewController */,
 				9204A9A51E717F8800321FC0 /* SettingsViewController */,
+				92E976F11E95B184004F3B73 /* History table */,
 				9204A9A41E717F6100321FC0 /* Table of favorites */,
 				9204A9A31E717F1400321FC0 /* MainViewController */,
 			);
@@ -508,11 +522,13 @@
 			files = (
 				9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */,
 				925D69881E7822870063BDAC /* MenuVC.swift in Sources */,
+				92E976F71E95B22E004F3B73 /* HistoryTableVC.swift in Sources */,
 				926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */,
 				925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */,
 				92E2CE021E8A9C2400F5623E /* SimpleRoundButton.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
+				92E976F51E95B1F0004F3B73 /* HistoryTableViewCell.swift in Sources */,
 				926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,
 				92E2CE091E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift in Sources */,

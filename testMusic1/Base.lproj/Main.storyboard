@@ -55,11 +55,11 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4F8-2P-jP4" userLabel="ViewInGifView" customClass="RoundView" customModule="testMusic1" customModuleProvider="target">
                                         <rect key="frame" x="5" y="5" width="323" height="413"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LzL-os-5fD" customClass="RoundGif" customModule="testMusic1" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="413"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="LzL-os-5fD" secondAttribute="trailing" id="XE1-FK-qQ0"/>
                                             <constraint firstItem="LzL-os-5fD" firstAttribute="top" secondItem="4F8-2P-jP4" secondAttribute="top" id="dB3-0r-vQM"/>
@@ -194,7 +194,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Randomizer" id="GZN-aS-xNt">
                         <barButtonItem key="rightBarButtonItem" image="unliked" id="fYV-oi-Ehu">
-                            <inset key="imageInsets" minX="-19" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <action selector="likeTheSetAction:" destination="BYZ-38-t0r" id="yhd-BT-MMB"/>
                             </connections>
@@ -208,6 +208,9 @@
                         <outlet property="gifTop" destination="g1T-dL-zOt" id="IM4-eR-n6W"/>
                         <outlet property="gifTrailing" destination="R4Q-P8-enZ" id="kd7-D7-qKV"/>
                         <outlet property="gifView" destination="XAL-Db-LDR" id="j5p-O2-XKy"/>
+                        <outlet property="insideGifBottom" destination="wCS-ST-qwm" id="D55-gM-ap4"/>
+                        <outlet property="insideGifTop" destination="dB3-0r-vQM" id="Kwn-sU-g24"/>
+                        <outlet property="insideGifView" destination="4F8-2P-jP4" id="AtA-e4-O7p"/>
                         <outlet property="likeTheSet" destination="fYV-oi-Ehu" id="Js4-5C-TYY"/>
                         <outlet property="openGifButton" destination="jrO-MU-ghs" id="uSx-ad-uSq"/>
                         <outlet property="openGifTrailing" destination="lcs-Ng-qeT" id="7Do-GA-jjL"/>
@@ -523,7 +526,7 @@
                                 <rect key="frame" x="21" y="193.5" width="333" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93G-zE-WHI" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="55"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                         <state key="normal" title="Random Set">
@@ -534,7 +537,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wp-jz-TRa" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="100" width="333" height="80"/>
+                                        <rect key="frame" x="0.0" y="75" width="333" height="55"/>
                                         <color key="backgroundColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                         <state key="normal" title="Favorite">
@@ -544,8 +547,19 @@
                                             <action selector="goToFavoriteTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="5Jk-B3-U1D"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ka-Uy-h1o" userLabel="History" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="150" width="333" height="55"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
+                                        <state key="normal" title="History">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToHistoryTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="jCi-4x-tLC"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulj-sj-i5j" userLabel="Log Out" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="200" width="333" height="80"/>
+                                        <rect key="frame" x="0.0" y="225" width="333" height="55"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                                         <state key="normal" title="Log Out">
@@ -637,10 +651,55 @@
             </objects>
             <point key="canvasLocation" x="-524" y="1492.8035982008996"/>
         </scene>
+        <!--History-->
+        <scene sceneID="ERY-Et-oly">
+            <objects>
+                <tableViewController storyboardIdentifier="HistoryVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1z2-if-pML" customClass="HistoryTableVC" customModule="testMusic1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hxC-NV-Psh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryTableViewCell" id="OzP-ey-Xpj" customClass="HistoryTableViewCell" customModule="testMusic1" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OzP-ey-Xpj" id="VWq-8a-Oif">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR1-Rb-0J2">
+                                            <rect key="frame" x="33" y="8" width="309" height="27.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="lR1-Rb-0J2" firstAttribute="top" secondItem="VWq-8a-Oif" secondAttribute="topMargin" id="9be-AM-zj1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="lR1-Rb-0J2" secondAttribute="bottom" id="Xqt-oj-A4o"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="lR1-Rb-0J2" secondAttribute="trailing" constant="25" id="cGf-2o-Jwd"/>
+                                        <constraint firstItem="lR1-Rb-0J2" firstAttribute="leading" secondItem="VWq-8a-Oif" secondAttribute="leadingMargin" constant="25" id="u5c-MZ-4Xd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="historyLabel" destination="lR1-Rb-0J2" id="LMo-H2-igk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1z2-if-pML" id="eEo-ma-yOT"/>
+                            <outlet property="delegate" destination="1z2-if-pML" id="zvE-t8-aCl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="uUv-o5-8Rf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vg9-KL-ywV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="2164"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="UrS-WW-dPS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ke3-93-P0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l83-Ge-1Fz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UJZ-eX-7JL">
@@ -652,6 +711,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HYs-fB-NAg"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ke3-93-P0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="346" y="805"/>
         </scene>
@@ -959,6 +1019,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3h-4A-dVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1359" y="1493"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KcL-Wa-Hcq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ziS-F5-OsW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wh3-Pm-VMQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1z2-if-pML" kind="relationship" relationship="rootViewController" id="Ado-CC-BaV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9s-xX-rfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1359" y="2164"/>
         </scene>
     </scenes>
     <resources>

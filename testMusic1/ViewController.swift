@@ -11,6 +11,7 @@ import SDWebImage
 import NVActivityIndicatorView
 import SwiftyButton
 import Firebase
+import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -18,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var theGif: FLAnimatedImageView!
     @IBOutlet weak var songInfoLabel: UILabel!
     @IBOutlet weak var gifView: UIView!
+    @IBOutlet weak var insideGifView: RoundView!
     @IBOutlet weak var openSongButton: PressableButton!
     @IBOutlet weak var openGifButton: PressableButton!
     @IBOutlet weak var viewInGifView: UIView!
@@ -29,6 +31,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var gifBottom: NSLayoutConstraint!
     @IBOutlet weak var gifTrailing: NSLayoutConstraint!
     @IBOutlet weak var gifTop: NSLayoutConstraint!
+    @IBOutlet weak var insideGifTop: NSLayoutConstraint!
+    @IBOutlet weak var insideGifBottom: NSLayoutConstraint!
     //Buttons Constraintns
     @IBOutlet weak var openGifTrailing: NSLayoutConstraint!
     @IBOutlet weak var openSongLeading: NSLayoutConstraint!
@@ -93,12 +97,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var isVcClosed = false
     var processIsWorking = false
     
+    //Core data
+    let fetchRequest =
+        NSFetchRequest<NSManagedObject>(entityName: "History")
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if theSetID == "" {
             //swipeControll
-            self.gifView.addGestureRecognizer(gestureRecognizer)
+            gifView.addGestureRecognizer(gestureRecognizer)
         } else {
             createUrlsWithSetID()
         }
@@ -234,18 +243,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     @IBAction func likeTheSetAction(_ sender: UIBarButtonItem) {
         likeTheSet.isEnabled = false
-        if self.likeTheSet.image == UIImage(named: "unliked") {
-            self.likeTheSet.image = UIImage(named: "liked")
+        if likeTheSet.image == UIImage(named: "unliked") {
+            likeTheSet.image = UIImage(named: "liked")
             
             tempSetID = theSetID
             openPopViewIfNeeded()
         } else {
-            self.likeTheSet.image = UIImage(named: "unliked")
+            likeTheSet.image = UIImage(named: "unliked")
             likeTheSet.isEnabled = true
             
             removeFromFavoriteList()
         }
         
     }
-    
 }

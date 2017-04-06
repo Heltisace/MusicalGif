@@ -104,9 +104,9 @@ extension ViewController {
             }
                 
             self.checkForExisting()
-                
+            
             //Creating stream for synch
-            self.theGif.sd_setImage(with: URL(string: self.gifURL)) { _ in
+            self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image) in
                 if self.doChangeOperation {
                     self.musicEngine.playTrack(viewController: self)
                     self.closeSpinner(spinner: self.indicator)

@@ -111,11 +111,18 @@ class FavoriteTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !cellIsEditing {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
-            vc.theSetID = self.theSetIDs[indexPath.row]
-            vc.ifFromFavoriteTable = true
-            
-            self.show(vc, sender: self)
+            //Animation of push ViewController
+            UIView.animate(withDuration: 0.75, animations: { () -> Void in
+                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
+                //VC
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
+                vc.theSetID = self.theSetIDs[indexPath.row]
+                vc.ifFromFavoriteTable = true
+                
+                self.navigationController?.pushViewController(vc, animated: false)
+                //Animation
+                UIView.setAnimationTransition(UIViewAnimationTransition.curlDown, for: self.navigationController!.view!, cache: false)
+            })
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.endEditing(true)
