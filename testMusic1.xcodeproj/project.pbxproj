@@ -25,7 +25,6 @@
 		925D69881E7822870063BDAC /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69871E7822870063BDAC /* MenuVC.swift */; };
 		925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */; };
 		925EE7341E943EC000DF9927 /* CheckInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925EE7331E943EC000DF9927 /* CheckInternetConnection.swift */; };
-		925EE7361E9519A600DF9927 /* ViewControllerConnectionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925EE7351E9519A600DF9927 /* ViewControllerConnectionFunctions.swift */; };
 		9267793F1E8D6248003D24F3 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */; };
 		926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926779401E8D6688003D24F3 /* FavoriteTableVC.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
@@ -89,7 +88,6 @@
 		925D69871E7822870063BDAC /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCFunctions.swift; sourceTree = "<group>"; };
 		925EE7331E943EC000DF9927 /* CheckInternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInternetConnection.swift; path = "../../../Downloads/Reach-master/Reach-swift3.0/CheckInternetConnection.swift"; sourceTree = "<group>"; };
-		925EE7351E9519A600DF9927 /* ViewControllerConnectionFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerConnectionFunctions.swift; sourceTree = "<group>"; };
 		9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		926779401E8D6688003D24F3 /* FavoriteTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableVC.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
 				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
 				92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */,
-				925EE7351E9519A600DF9927 /* ViewControllerConnectionFunctions.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -536,7 +533,6 @@
 				92E2CDFE1E8A94C200F5623E /* LoginVC.swift in Sources */,
 				925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */,
 				926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */,
-				925EE7361E9519A600DF9927 /* ViewControllerConnectionFunctions.swift in Sources */,
 				9211F28D1E5B3B9600A9076C /* AppDelegate.swift in Sources */,
 				92E2CE001E8A94DF00F5623E /* ResetPasswordVC.swift in Sources */,
 				926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */,

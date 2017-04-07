@@ -32,6 +32,9 @@ class MenuVC: UIViewController {
         
         //If user's connetion is bad
         badConnection()
+        
+        //If no connection
+        loopCheck()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,28 +44,12 @@ class MenuVC: UIViewController {
         ref.child("Users").child(userID!).removeAllObservers()
     }
     
-    func deleteUser() {
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        do {
-            let results = try context.fetch(fetchRequest)
-            for result in results {
-                context.delete(result)
-            }
-            appDelegate.saveContext()
-        } catch {
-            print("error")
-        }
-    }
-    
     @IBAction func logOutAction(_ sender: RoundButton?) {
         if FIRAuth.auth()?.currentUser != nil {
             do {
                 try FIRAuth.auth()?.signOut()
-                
                 deleteUser()
+                NotificationCenter.default.removeObserver(self)
                 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                 self.present(vc!, animated: true, completion: nil)
@@ -85,6 +72,22 @@ class MenuVC: UIViewController {
         self.show(vc!, sender: self)
     }
     
+    func deleteUser() {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        do {
+            let results = try context.fetch(fetchRequest)
+            for result in results {
+                context.delete(result)
+            }
+            appDelegate.saveContext()
+        } catch {
+            print("error")
+        }
+    }
+    
     func badConnection() {
         //If bad connection is using
         if CheckConnection().connectionStatus().description.contains("WWAN") {
@@ -94,6 +97,39 @@ class MenuVC: UIViewController {
             alertController.addAction(defaultAction)
             
             self.present(alertController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension MenuVC {
+    func loopCheck() {
+        NotificationCenter.default.addObserver(self, selector:
+            #selector(self.networkStatusChanged(_:)), name:
+            NSNotification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
+        CheckConnection().monitorReachabilityChanges()
+    }
+    
+    func networkStatusChanged(_ notification: Notification) {
+        let status = CheckConnection().connectionStatus()
+        switch status {
+        case .unknown, .offline:
+            //Show error
+            let error = "Network error (such as timeout, interrupted" +
+            "connection or unreachable host) has occurred."
+            let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Try again", style:
+                .cancel, handler: { (_: UIAlertAction!) in
+                    //Try to get new gif vc is ViewController
+                    if self.navigationController?.topViewController is ViewController {
+                        let vc = self.navigationController?.topViewController as! ViewController
+                        vc.startTheShow()
+                    }
+                    self.networkStatusChanged(notification)
+            })
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        default: break
         }
     }
 }

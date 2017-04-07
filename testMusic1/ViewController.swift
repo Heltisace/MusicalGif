@@ -130,9 +130,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Initialization
         initialization()
-        
-        //If bad internet connection
-        loopCheck()
     }
     
     override func viewWillAppear(_ animated: Bool) {
