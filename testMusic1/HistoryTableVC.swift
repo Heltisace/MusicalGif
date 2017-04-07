@@ -12,6 +12,7 @@ import CoreData
 class HistoryTableVC: UITableViewController {
     
     var theSetIDs: [String] = []
+    var presentingSetIndex = 0
 
     let fetchRequest =
         NSFetchRequest<NSManagedObject>(entityName: "History")
@@ -65,7 +66,9 @@ class HistoryTableVC: UITableViewController {
             //VC
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
             vc.theSetID = self.theSetIDs[indexPath.row]
-            vc.ifFromFavoriteTable = true
+            self.presentingSetIndex = indexPath.row
+            vc.fromHistoryTable = true
+            vc.title = "History №" + String(self.presentingSetIndex+1)
             
             self.navigationController?.pushViewController(vc, animated: false)
             //Animation

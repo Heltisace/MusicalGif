@@ -15,6 +15,7 @@ class FavoriteTableVC: UITableViewController {
     
     var names: [String] = []
     var theSetIDs: [String] = []
+    var presentingSetIndex = 0
     
     var ref: FIRDatabaseReference!
     var userID: String?
@@ -27,29 +28,17 @@ class FavoriteTableVC: UITableViewController {
         ref = FIRDatabase.database().reference()
         userID = FIRAuth.auth()?.currentUser?.uid
         
-        ref.child("Users").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
-            self.theSetIDs.removeAll()
-            self.names.removeAll()
-            self.tableView.reloadData()
-            
-            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            
-            for dict in postDict {
-                self.theSetIDs.append(dict.key)
-                self.names.append(dict.value as! String)
-            }
-            
-            let combined = zip(self.names, self.theSetIDs).sorted {$0.0 < $1.0}
-            self.names = combined.map {$0.0}
-            self.theSetIDs = combined.map {$0.1}
-            
-            self.tableView.reloadData()
-        })
+        createNewObserver()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         ref.child("Users").child(userID!).removeAllObservers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        createNewObserver()
     }
 
     // MARK: - Table view data source
@@ -111,13 +100,15 @@ class FavoriteTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !cellIsEditing {
-            //Animation of push ViewController
+            //Animation of pushing to ViewController
             UIView.animate(withDuration: 0.75, animations: { () -> Void in
                 UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
                 //VC
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
                 vc.theSetID = self.theSetIDs[indexPath.row]
-                vc.ifFromFavoriteTable = true
+                self.presentingSetIndex = indexPath.row
+                vc.fromFavoriteTable = true
+                vc.title = self.names[indexPath.row]
                 
                 self.navigationController?.pushViewController(vc, animated: false)
                 //Animation
@@ -128,5 +119,26 @@ class FavoriteTableVC: UITableViewController {
             tableView.endEditing(true)
             cellIsEditing = false
         }
+    }
+    
+    func createNewObserver() {
+        ref.child("Users").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
+            self.theSetIDs.removeAll()
+            self.names.removeAll()
+            self.tableView.reloadData()
+            
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            
+            for dict in postDict {
+                self.theSetIDs.append(dict.key)
+                self.names.append(dict.value as! String)
+            }
+            
+            let combined = zip(self.names, self.theSetIDs).sorted {$0.0 < $1.0}
+            self.names = combined.map {$0.0}
+            self.theSetIDs = combined.map {$0.1}
+            
+            self.tableView.reloadData()
+        })
     }
 }

@@ -84,7 +84,7 @@ extension ViewController {
     
     //Check the set for existing in favorites
     func checkForExisting() {
-        if !ifFromFavoriteTable {
+        if !fromFavoriteTable && !fromHistoryTable {
             generateSetID()
             toHistoryCoreData()
         }
@@ -104,6 +104,12 @@ extension ViewController {
     
     //Add the set to favorite
     func addToFavoriteList(name: String) {
+        if fromFavoriteTable {
+            let n: Int! = self.navigationController?.viewControllers.count
+            let vc = self.navigationController?.viewControllers[n-2] as! FavoriteTableVC
+            vc.names[vc.presentingSetIndex] = name
+            self.title = name
+        }
         ref.child("Users").child(userID!).child(tempSetID).setValue(name)
     }
     
@@ -205,5 +211,51 @@ extension ViewController {
         } catch {
             print("error")
         }
+    }
+    
+    func getYourHistoryItem(whatToGet: String) {
+        let n: Int! = self.navigationController?.viewControllers.count
+        let vc = self.navigationController?.viewControllers[n-2] as! HistoryTableVC
+        
+        if whatToGet == "Next" {
+            if vc.presentingSetIndex != vc.theSetIDs.count-1 {
+                vc.presentingSetIndex+=1
+            } else {
+                vc.presentingSetIndex = 0
+            }
+        } else {
+            if vc.presentingSetIndex != 0 {
+                vc.presentingSetIndex-=1
+            } else {
+                vc.presentingSetIndex = vc.theSetIDs.count-1
+            }
+        }
+        
+        self.title = "History №" + String(vc.presentingSetIndex+1)
+        theSetID = vc.theSetIDs[vc.presentingSetIndex]
+        createUrlsWithSetID()
+    }
+    
+    func getYourFavoriteItem(whatToGet: String) {
+        let n: Int! = self.navigationController?.viewControllers.count
+        let vc = self.navigationController?.viewControllers[n-2] as! FavoriteTableVC
+        
+        if whatToGet == "Next" {
+            if vc.presentingSetIndex != vc.theSetIDs.count-1 {
+                vc.presentingSetIndex+=1
+            } else {
+                vc.presentingSetIndex = 0
+            }
+        } else {
+            if vc.presentingSetIndex != 0 {
+                vc.presentingSetIndex-=1
+            } else {
+                vc.presentingSetIndex = vc.theSetIDs.count-1
+            }
+        }
+        
+        self.title = vc.names[vc.presentingSetIndex]
+        theSetID = vc.theSetIDs[vc.presentingSetIndex]
+        createUrlsWithSetID()
     }
 }

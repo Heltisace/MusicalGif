@@ -49,7 +49,7 @@ extension ViewController {
     //Load a new song
     func generateNewSong() {
         DispatchQueue.global().sync {
-            if !ifFromFavoriteTable {
+            if !fromFavoriteTable && !fromHistoryTable {
                 var genre = ""
                 if preSetGenre == "The Best" {
                     genre = self.randomSongEngine.getRandomGenre()
@@ -89,7 +89,7 @@ extension ViewController {
             self.theGif.sd_cancelCurrentImageLoad()
             
             if !isVcClosed {
-                if !ifFromFavoriteTable {
+                if !fromFavoriteTable && !fromHistoryTable {
                     var gifTag = ""
                     if preSetGifTag == "The Best" {
                         gifTag = self.randomGifEngine.randomTag()

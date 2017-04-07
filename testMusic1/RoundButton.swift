@@ -35,7 +35,7 @@ class RoundButton: PressableButton {
     }
     override var clipsToBounds: Bool {
         didSet {
-            layer.cornerRadius = 10
+            layer.cornerRadius = 5
         }
     }
     func makeTheButtonRed() {

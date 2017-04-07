@@ -34,6 +34,13 @@ class MenuVC: UIViewController {
         badConnection()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("Users").child(userID!).removeAllObservers()
+    }
+    
     func deleteUser() {
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {

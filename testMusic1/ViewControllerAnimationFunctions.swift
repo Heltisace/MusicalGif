@@ -71,6 +71,7 @@ extension ViewController {
             }, completion: {_ in
                 //9
                 self.startMusicAndGif()
+                self.returnButtons()
             })
         }
     }
@@ -81,9 +82,6 @@ extension ViewController {
                 //8
                 self.songInfoView.alpha = 1
                 self.view.layoutIfNeeded()
-            }, completion: {_ in
-                //11
-                self.returnButtons()
             })
         }
     }
@@ -127,7 +125,7 @@ extension ViewController {
     //Return buttons back
     func returnButtons() {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: UIViewAnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.2, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 //12
                 self.openGifButton.alpha = 1
                 self.openSongButton.alpha = 1

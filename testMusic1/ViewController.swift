@@ -69,7 +69,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var gifURL = "Error"
     var songURL = "Error"
     var jsonSongURL = "Error"
-    var ifFromFavoriteTable = false
+    var fromFavoriteTable = false
+    var fromHistoryTable = false
     
     //Search settings
     var preSetGenre = "The Best"
@@ -105,12 +106,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if theSetID == "" {
-            //swipeControll
-            gifView.addGestureRecognizer(gestureRecognizer)
-        } else {
+        if theSetID != "" {
             createUrlsWithSetID()
         }
+        
+        //swipeControll
+        gifView.addGestureRecognizer(gestureRecognizer)
         
         //Don't use swipe back gesture
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -158,11 +159,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {
         //Counting moving
         let velocity = gestureRecognizer.velocity(in: self.theGif)
-        var deltaX = velocity.x / 30
+        let deltaX = velocity.x / 30
         
-        if (self.gifTrailing.constant - deltaX) < self.normalGifRight {
-            deltaX = 0
-        }
         //Gif way
         let newRightSpace = self.gifTrailing.constant - deltaX
         let newLeftSpace = self.gifLeading.constant + deltaX
@@ -173,6 +171,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if -newDegree > 45.0{
             newDegree = lastDegree
         }
+        if newDegree > 45.0 {
+            newDegree = lastDegree
+        }
         //Is swipe changed or ended
         if gestureRecognizer.state == .changed {
             setGifConstraints(left: newLeftSpace, right: newRightSpace, top: nil, bottom: nil)
@@ -181,9 +182,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         } else if gestureRecognizer.state == .ended {
             self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.gifViewWidth / 2)
+            print(self.gifTrailing.constant)
     
             //Change or no
             if shouldChangeGif {
+                //Where user swiped and what to do
+                var toGet = ""
+                if self.gifTrailing.constant < 0 {
+                    //Right
+                    toGet = "Next"
+                } else {
+                    //Left
+                    toGet = "Previous"
+                }
+                //If from some table to get value from there
+                if fromHistoryTable {
+                    getYourHistoryItem(whatToGet: toGet)
+                } else if fromFavoriteTable {
+                    getYourFavoriteItem(whatToGet: toGet)
+                }
+                
                 startTheShow()
             } else {
                 animateGifNotChanging()

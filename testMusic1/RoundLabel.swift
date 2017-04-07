@@ -23,7 +23,7 @@ class RoundLabel: UILabel {
     }
     override var clipsToBounds: Bool {
         didSet {
-            layer.cornerRadius = 10
+            //layer.cornerRadius = 10
         }
     }
 }
