@@ -18,6 +18,7 @@
 		9211F2AD1E5B3B9600A9076C /* testMusic1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F2AC1E5B3B9600A9076C /* testMusic1UITests.swift */; };
 		9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F2BA1E5B48F400A9076C /* MusicEngine.swift */; };
 		9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F2BC1E5B56D400A9076C /* RoundButton.swift */; };
+		92144FF61E985AF100D443E3 /* SpinnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92144FF51E985AF100D443E3 /* SpinnerButton.swift */; };
 		923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DA1E5E56A300D0AD20 /* RandomGif.swift */; };
 		923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */; };
 		923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DE1E5F40C200D0AD20 /* RoundGif.swift */; };
@@ -81,6 +82,7 @@
 		9211F2AE1E5B3B9600A9076C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9211F2BA1E5B48F400A9076C /* MusicEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicEngine.swift; sourceTree = "<group>"; };
 		9211F2BC1E5B56D400A9076C /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		92144FF51E985AF100D443E3 /* SpinnerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerButton.swift; sourceTree = "<group>"; };
 		923A50DA1E5E56A300D0AD20 /* RandomGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGif.swift; sourceTree = "<group>"; };
 		923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
 		923A50DE1E5F40C200D0AD20 /* RoundGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundGif.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				923A50DE1E5F40C200D0AD20 /* RoundGif.swift */,
 				926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */,
 				9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */,
+				92144FF51E985AF100D443E3 /* SpinnerButton.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
 				92E976F51E95B1F0004F3B73 /* HistoryTableViewCell.swift in Sources */,
+				92144FF61E985AF100D443E3 /* SpinnerButton.swift in Sources */,
 				926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,
 				92E2CE091E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift in Sources */,

@@ -129,20 +129,26 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func getAnswer(_ sender: UIButton?) {
+        //Start spinner
+        sender?.loadingIndicator(true)
         //Is field empty?
         if answerTextField.text! != "" {
             //Replace or delete all spaces
             var tempAnswer = answerTextField.text!
+            
             if tempAnswer.characters.last == " " {
                 tempAnswer.remove(at: tempAnswer.index(before: tempAnswer.endIndex))
             }
-            tempAnswer = tempAnswer.replacingOccurrences(of: " ", with: "%20")
             
+            tempAnswer = tempAnswer.replacingOccurrences(of: " ", with: "%20")
             //Working with gif or music?
+            
             if answerTextField.placeholder! == "Enter your gif tag here" {
                 //If genre is exist
+                
                 if gifEngine.getGifWithTag(tag: tempAnswer) != "Error" {
                     //Initialization
+                    
                     gifTag = tempAnswer
                     gifDropButton.setTitle(answerTextField.text!, for: .normal)
                     lastGifIndex = 2
@@ -154,9 +160,11 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
                 }
             } else {
                 //Intialization
+                
                 let jsonUrl = randomSong.getJsonUrlWithGenre(genre: tempAnswer)
                 let songJson = randomSong.getSongJson(jsonUrl: jsonUrl)
                 //If there is any gif with tag
+                
                 if randomSong.getTotalNumberOfSongs(data: songJson) != "0" {
                     //Initialization
                     musicGenre = tempAnswer
@@ -172,6 +180,7 @@ class SettingsVC: UIViewController, UITextFieldDelegate{
         } else {
             smthWrongAnimation()
         }
+        sender?.loadingIndicator(false)
     }
     
     @IBAction func cancelPopUp(_ sender: UIButton) {

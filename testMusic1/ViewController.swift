@@ -71,6 +71,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var jsonSongURL = "Error"
     var fromFavoriteTable = false
     var fromHistoryTable = false
+    var itemWasRemoved = false
     
     //Search settings
     var preSetGenre = "The Best"

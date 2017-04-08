@@ -16,9 +16,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    //Indication of work
-    var isWorking = false
-    
     //For CoreData
     let fetchRequest =
         NSFetchRequest<NSManagedObject>(entityName: "User")
@@ -71,60 +68,58 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginAction(_ sender: UIButton?) {
-        if isWorking == false{
-            isWorking = true
+        sender?.isEnabled = false
+        
+        if self.emailTextField.text == "" || self.passwordTextField.text == "" {
+            //Show error
+            let alertController = UIAlertController(title:
+                "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
             
-            if self.emailTextField.text == "" || self.passwordTextField.text == "" {
-                //Show error
-                let alertController = UIAlertController(title:
-                    "Error", message: "Please enter an email and password.", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-                
-                self.present(alertController, animated: true, completion: {
-                    self.isWorking = false
-                })
-            } else {
-                let email = self.emailTextField.text!
-                let password = self.passwordTextField.text!
-                
-                //Trying to auth
-                FIRAuth.auth()?.signIn(withEmail: email, password: password) { (_, error) in
-                    if error == nil {
-                        //Delete users
-                        let menuVc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-                        menuVc.deleteUser()
-                        
-                        guard let appDelegate =
-                            UIApplication.shared.delegate as? AppDelegate else {
-                                return
-                        }
-                        
-                        //Creating new variable in CoreData
-                        let entity = NSEntityDescription.entity(forEntityName: "User", in: self.context)!
-                        let dataTask = NSManagedObject(entity: entity, insertInto: self.context)
-                        
-                        //Setting data to variable
-                        dataTask.setValue(email, forKey: "email")
-                        dataTask.setValue(password, forKey: "password")
-                        
-                        //Save data with appDelegate function
-                        appDelegate.saveContext()
-                        
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
-                        self.present(vc!, animated: true, completion: nil)
-                        
-                    } else {
-                        //Show error
-                        let alertController = UIAlertController(title:
-                            "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                        alertController.addAction(defaultAction)
-                        
-                        self.present(alertController, animated: true, completion: {
-                            self.isWorking = false
-                        })
+            self.present(alertController, animated: true, completion: {
+                sender?.isEnabled = true
+            })
+        } else {
+            let email = self.emailTextField.text!
+            let password = self.passwordTextField.text!
+            
+            //Trying to auth
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (_, error) in
+                if error == nil {
+                    //Delete users
+                    let menuVc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
+                    menuVc.deleteUser()
+                    
+                    guard let appDelegate =
+                        UIApplication.shared.delegate as? AppDelegate else {
+                            return
                     }
+                    
+                    //Creating new variable in CoreData
+                    let entity = NSEntityDescription.entity(forEntityName: "User", in: self.context)!
+                    let dataTask = NSManagedObject(entity: entity, insertInto: self.context)
+                    
+                    //Setting data to variable
+                    dataTask.setValue(email, forKey: "email")
+                    dataTask.setValue(password, forKey: "password")
+                    
+                    //Save data with appDelegate function
+                    appDelegate.saveContext()
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
+                    self.present(vc!, animated: true, completion: nil)
+                    
+                } else {
+                    //Show error
+                    let alertController = UIAlertController(title:
+                        "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: {
+                        sender?.isEnabled = true
+                    })
                 }
             }
         }

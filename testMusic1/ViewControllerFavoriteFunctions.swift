@@ -116,6 +116,7 @@ extension ViewController {
     //Remove the set from favorite
     func removeFromFavoriteList() {
         ref.child("Users").child(userID!).child(theSetID).removeValue()
+        itemWasRemoved = true
     }
     
     //To generate the set ID with it's unique parts of urls
@@ -242,7 +243,9 @@ extension ViewController {
         
         if whatToGet == "Next" {
             if vc.presentingSetIndex != vc.theSetIDs.count-1 {
-                vc.presentingSetIndex+=1
+                if !itemWasRemoved {
+                    vc.presentingSetIndex+=1
+                }
             } else {
                 vc.presentingSetIndex = 0
             }
@@ -254,6 +257,7 @@ extension ViewController {
             }
         }
         
+        itemWasRemoved = false
         self.title = vc.names[vc.presentingSetIndex]
         theSetID = vc.theSetIDs[vc.presentingSetIndex]
         createUrlsWithSetID()

@@ -22,7 +22,6 @@ class MenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //Background
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
         
@@ -63,13 +62,24 @@ class MenuVC: UIViewController {
         }
     }
     
+    @IBAction func goToSetSettings(_ sender: RoundButton) {
+        if !logOutButton.isSelected {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC")
+            self.show(vc!, sender: self)
+        }
+    }
+    
     @IBAction func goToFavoriteTable(_ sender: RoundButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
-        self.show(vc!, sender: self)
+        if !logOutButton.isSelected {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
+            self.show(vc!, sender: self)
+        }
     }
     @IBAction func goToHistoryTable(_ sender: RoundButton) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
-        self.show(vc!, sender: self)
+        if !logOutButton.isSelected {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
+            self.show(vc!, sender: self)
+        }
     }
     
     func deleteUser() {
