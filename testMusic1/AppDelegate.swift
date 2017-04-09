@@ -18,10 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         DropDown.startListeningToKeyboard()
         FIRApp.configure()
         
+        let navigationBarAppearace = UINavigationBar.appearance()
+        
+        navigationBarAppearace.titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "Menlo", size: 20)!
+        ]
+//        navigationBarAppearace.titleTextAttributes = [
+//            NSForegroundColorAttributeName:UIColor.white
+//        ]
+//        navigationBarAppearace.tintColor = .white
+        navigationBarAppearace.barTintColor?.withAlphaComponent(0.2)
         return true
     }
 
@@ -52,8 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIInterfaceOrientationMask(rawValue: UInt(checkOrientation(viewController:
             self.window?.rootViewController)))
     }
-    
-    func checkOrientation(viewController:UIViewController?) -> Int {
+
+    func checkOrientation(viewController: UIViewController?) -> Int {
         if viewController == nil {
             return Int(UIInterfaceOrientationMask.all.rawValue)
         } else if viewController != nil {
@@ -62,9 +72,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return checkOrientation(viewController: viewController!.presentedViewController)
         }
     }
-    
+
     // MARK: - Core Data stack
-    
+
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -77,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -91,9 +101,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    
+
     // MARK: - Core Data Saving support
-    
+
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

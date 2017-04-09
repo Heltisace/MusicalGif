@@ -13,17 +13,17 @@ import SDWebImage
 class RandomGif {
     func randomTag() -> String {
         var funnyTags: [String] = ["animated", "fail", "animation", "whoops", "funny%20videos", "dancing", "music", "#"]
-        
+
         let randomIndex = Int(arc4random_uniform(UInt32(funnyTags.count)))
         let randomTag = String(funnyTags[randomIndex])!
-        
+
         return randomTag
     }
     //Get some random gif with preferences
     func getGifWithTag(tag: String) -> String {
         let stringUrl = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=\(tag)"
         var gif = ""
-        
+
         if let url = URL(string: stringUrl) {
             if let data = try? Data(contentsOf: url) {
                 let tempJson = JSON(data: data)
@@ -32,11 +32,11 @@ class RandomGif {
                         gif = theGif
                     } else {gif = "Error"}
                 } else {
-                    gif = "Error" 
+                    gif = "Error"
                 }
             } else {gif = "Error"}
         } else {gif = "Error"}
-        
+
         return gif
     }
 }

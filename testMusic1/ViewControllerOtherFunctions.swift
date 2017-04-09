@@ -11,6 +11,7 @@ import SDWebImage
 import NVActivityIndicatorView
 
 extension ViewController {
+    //Get and set new music and gif
     func startTheShow() {
         DispatchQueue.global().sync {
             //Prepear for changing
@@ -18,10 +19,10 @@ extension ViewController {
             likeTheSet.isEnabled = false
             gestureRecognizer.removeTarget(self, action: #selector(handlePan))
             processIsWorking = true
-            
+
             self.musicPrepear()
             self.loadSpinner()
-            
+
             self.animateGifChanging()
         }
     }
@@ -46,6 +47,7 @@ extension ViewController {
             }
         }
     }
+
     //Load a new song
     func generateNewSong() {
         DispatchQueue.global().sync {
@@ -57,26 +59,24 @@ extension ViewController {
                     genre = preSetGenre
                 }
                 let answer = self.randomSongEngine.generateRandomSong(
-                    musicEngine: self.musicEngine,
-                    randomSongEngine: self.randomSongEngine, genre: genre)
+                    musicEngine: self.musicEngine, genre: genre)
                 songURL = answer.first!
                 jsonSongURL = answer.last!
-                self.openSongButton.isEnabled = true
             } else {
-                songURL = self.randomSongEngine.generateSong(jsonUrl: jsonSongURL, musicEngine: self.musicEngine, randomSongEngine: self.randomSongEngine)
-                if songURL != "" {
-                    self.openSongButton.isEnabled = true
-                }
+                songURL = self.randomSongEngine.generateSong(jsonUrl: jsonSongURL, musicEngine: self.musicEngine)
+            }
+            if songURL != "" {
+                self.openSongButton.isEnabled = true
             }
         }
     }
-    
+
     func loadNewSong() {
         DispatchQueue.global().sync {
             self.randomSongEngine.loadRandomSong(musicEngine: self.musicEngine)
         }
     }
-    
+
     func loadSongInfo() {
         DispatchQueue.global().sync {
             self.randomSongEngine.setSongInfo(infoLabel: self.songInfoLabel)
@@ -87,7 +87,7 @@ extension ViewController {
         DispatchQueue.global().sync {
             self.doChangeOperation = true
             self.theGif.sd_cancelCurrentImageLoad()
-            
+
             if !isVcClosed {
                 if !fromFavoriteTable && !fromHistoryTable {
                     var gifTag = ""
@@ -97,16 +97,17 @@ extension ViewController {
                         gifTag = preSetGifTag
                     }
                     self.gifURL = self.randomGifEngine.getGifWithTag(tag: gifTag)
-                    if self.gifURL != "" {
-                        self.openGifButton.isEnabled = true
-                    }
                 }
             }
-                
+
+            if self.gifURL != "" {
+                self.openGifButton.isEnabled = true
+            }
+
             self.checkForExisting()
-            
+
             //Creating stream for synch
-            self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (image) in
+            self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (_) in
                 if self.doChangeOperation {
                     self.musicEngine.playTrack(viewController: self)
                     self.closeSpinner(spinner: self.indicator)

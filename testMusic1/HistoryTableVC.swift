@@ -10,17 +10,17 @@ import UIKit
 import CoreData
 
 class HistoryTableVC: UITableViewController {
-    
+
     var theSetIDs: [String] = []
     var presentingSetIndex = 0
 
     let fetchRequest =
         NSFetchRequest<NSManagedObject>(entityName: "History")
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         do {
             let results = try context.fetch(fetchRequest)
             for result in results {
@@ -32,7 +32,20 @@ class HistoryTableVC: UITableViewController {
             print("error")
         }
     }
-
+    
+    override func willMove(toParentViewController parent: UIViewController?)
+    {
+        super.willMove(toParentViewController: parent)
+        if parent == nil
+        {
+            UIView.animate(withDuration: 0.75, animations: { () -> Void in
+                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
+                //Animation
+                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
+            })
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,10 +62,10 @@ class HistoryTableVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return theSetIDs.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-        
+
         cell.historyLabel.text! = String(indexPath.row + 1)
 
         return cell
@@ -62,17 +75,17 @@ class HistoryTableVC: UITableViewController {
         //Animation of push ViewController
         UIView.animate(withDuration: 0.75, animations: { () -> Void in
             UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-            
+
             //VC
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
             vc.theSetID = self.theSetIDs[indexPath.row]
             self.presentingSetIndex = indexPath.row
             vc.fromHistoryTable = true
             vc.title = "History №" + String(self.presentingSetIndex+1)
-            
+
             self.navigationController?.pushViewController(vc, animated: false)
             //Animation
-            UIView.setAnimationTransition(UIViewAnimationTransition.curlDown, for: self.navigationController!.view!, cache: false)
+            UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
         })
     }
 }

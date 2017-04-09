@@ -1,0 +1,24 @@
+variable_name: 
+  min_length: 1
+  max_length: 40
+opt_in_rules:
+  - closure_spacing
+  - empty_count
+  - explicit_init
+  - force_unwrapping
+  - function_parameter_count
+  - line_length
+  - mark
+  - nimble_operator
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - statement_position
+  - trailing_whitespace
+  - private_outlet
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - mark
+  - function_parameter_count
+  - statement_position
+  - function_body_length

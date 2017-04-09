@@ -12,43 +12,43 @@ import SwiftSpinner
 import os.log
 
 class FavoriteTableVC: UITableViewController {
-    
+
     var names: [String] = []
     var theSetIDs: [String] = []
     var presentingSetIndex = 0
-    
+
     var ref: FIRDatabaseReference!
     var userID: String?
-    
+
     var cellIsEditing = false
     var goingToTheMain = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         ref = FIRDatabase.database().reference()
         userID = FIRAuth.auth()?.currentUser?.uid
-        
+
         ref.child("Users").child(userID!).observe(FIRDataEventType.value, with: { (snapshot) in
             self.theSetIDs.removeAll()
             self.names.removeAll()
             self.tableView.reloadData()
-            
+
             let postDict = snapshot.value as? [String : AnyObject] ?? [:]
-            
+
             for dict in postDict {
                 self.theSetIDs.append(dict.key)
                 self.names.append(dict.value as! String)
             }
-            
+
             let combined = zip(self.names, self.theSetIDs).sorted {$0.0 < $1.0}
             self.names = combined.map {$0.0}
             self.theSetIDs = combined.map {$0.1}
-            
+
             self.tableView.reloadData()
         })
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if !goingToTheMain {
@@ -56,6 +56,19 @@ class FavoriteTableVC: UITableViewController {
         }
     }
     
+    override func willMove(toParentViewController parent: UIViewController?)
+    {
+        super.willMove(toParentViewController: parent)
+        if parent == nil
+        {
+            UIView.animate(withDuration: 0.75, animations: { () -> Void in
+                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
+                //Animation
+                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
+            })
+        }
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         goingToTheMain = false
@@ -70,25 +83,25 @@ class FavoriteTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
-        
+
         cell.nameOfTheSet.text = names[indexPath.row]
 
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
-        let edit = UITableViewRowAction(style: .normal, title: "Edit") { action, index in
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { _, index in
             self.cellIsEditing = true
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteTableViewCell", for: index) as! FavoriteTableViewCell
-            
+
             cell.editTextField.alpha = 1
             cell.editTextField.becomeFirstResponder()
             cell.editTextField.text = self.names[index.row]
             cell.nameOfTheSet.alpha = 0
-            
+
             //Closure to set new favorite name
             cell.changeFavoriteName = {
                 self.cellIsEditing = false
@@ -98,13 +111,13 @@ class FavoriteTableVC: UITableViewController {
                     self.ref.child("Users").child(self.userID!).child(theSetID).setValue(newName)
                 }
             }
-            
+
             tableView.reloadRows(at: [index], with: .none)
         }
-        
+
         let lightBlue = UIColor(colorLiteralRed: 52 / 255, green: 152 / 255, blue: 230 / 255, alpha: 1)
         edit.backgroundColor = lightBlue
-        
+
         let delete = UITableViewRowAction(style: .normal, title:
         "Delete") { _, index in
             let theSetID = self.theSetIDs.remove(at: index.row)
@@ -112,12 +125,12 @@ class FavoriteTableVC: UITableViewController {
             self.ref.child("Users").child(self.userID!).child(theSetID).removeValue()
             tableView.reloadData()
         }
-        
+
         delete.backgroundColor = .red
-        
+
         return [delete, edit]
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !cellIsEditing {
             //Animation of pushing to ViewController
@@ -130,10 +143,11 @@ class FavoriteTableVC: UITableViewController {
                 self.presentingSetIndex = indexPath.row
                 vc.fromFavoriteTable = true
                 vc.title = self.names[indexPath.row]
-                
+
                 self.navigationController?.pushViewController(vc, animated: false)
                 //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.curlDown, for: self.navigationController!.view!, cache: false)
+                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for:
+                    self.navigationController!.view!, cache: false)
             })
         } else {
             tableView.deselectRow(at: indexPath, animated: true)

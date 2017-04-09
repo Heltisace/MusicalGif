@@ -14,14 +14,14 @@ class MusicEngine {
     init() {
         player = AVPlayer()
     }
-    
+
     func loadTrack(soundUrl: String) {
         if let url = NSURL(string: soundUrl) {
             player = AVPlayer(url: url as URL)
             player?.volume = 1.0
         }
     }
-    
+
     func playTrack(viewController: ViewController) {
         player?.play()
         //Loop or next
@@ -41,12 +41,12 @@ class MusicEngine {
             }
         })
     }
-    
+
     func stopPlaying() {
         player?.pause()
         player?.cancelPendingPrerolls()
     }
-    
+
     func deletePlayer() {
         player = nil
     }

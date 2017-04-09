@@ -30,4 +30,24 @@ class ColorLayer {
     func cgColorForRed(red: CGFloat, green: CGFloat, blue: CGFloat) -> AnyObject {
         return UIColor(red: red/255.0, green: green/255.0, blue: blue/255.0, alpha: 1.0).cgColor as AnyObject
     }
+    func createLayer(someView: UIView) {
+        let topColor = UIColor(red: (14/255.0), green: (48/255.0), blue: (70/255.0), alpha: 1)
+        let bottomColor = UIColor(red: (50/255.0), green: (130/255.0), blue: (210/255.0), alpha: 1)
+        let gradientColor: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLocations: [Float] = [0.0/1.0]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        
+        let width = someView.bounds.size.width
+        let height = someView.bounds.size.height
+        let x = someView.bounds.origin.x
+        let y = someView.bounds.origin.y
+        gradientLayer.frame = CGRect(x: x, y: y, width: width, height: height)
+        
+        gradientLayer.colors = gradientColor
+        gradientLayer.locations = gradientLocations as [NSNumber]
+        
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        someView.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

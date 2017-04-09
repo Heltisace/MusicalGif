@@ -523,72 +523,163 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="h45-lI-oVe">
-                                <rect key="frame" x="21" y="193.5" width="333" height="280"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NE4-BD-nxR">
+                                <rect key="frame" x="0.0" y="74" width="375" height="130"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93G-zE-WHI" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="333" height="55"/>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                        <state key="normal" title="Random Set">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="goToSetSettings:" destination="wSv-UD-h9G" eventType="touchUpInside" id="0aU-gW-3Zw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wp-jz-TRa" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="75" width="333" height="55"/>
-                                        <color key="backgroundColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                        <state key="normal" title="Favorite">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="goToFavoriteTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="5Jk-B3-U1D"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ka-Uy-h1o" userLabel="History" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="333" height="55"/>
-                                        <color key="backgroundColor" red="0.2470588235" green="0.67450980390000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                        <state key="normal" title="History">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="goToHistoryTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="jCi-4x-tLC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulj-sj-i5j" userLabel="Log Out" customClass="RoundButton" customModule="testMusic1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="225" width="333" height="55"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
-                                        <state key="normal" title="Log Out">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logOutAction:" destination="wSv-UD-h9G" eventType="touchUpInside" id="2Z9-pp-Yop"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RT-kT-tqk">
+                                        <rect key="frame" x="52" y="0.0" width="271.5" height="131.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Musical ">
+                                                <attributes>
+                                                    <font key="NSFont" size="65" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.80000000000000004" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="G">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="65" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.80000000000000004" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="I">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="65" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.80000000000000004" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="F">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="65" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.80000000000000004" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="8RT-kT-tqk" firstAttribute="centerX" secondItem="NE4-BD-nxR" secondAttribute="centerX" id="Ple-QW-8w1"/>
+                                    <constraint firstAttribute="height" constant="130" id="SLo-0V-6Nm"/>
+                                    <constraint firstItem="8RT-kT-tqk" firstAttribute="centerY" secondItem="NE4-BD-nxR" secondAttribute="centerY" id="Xkm-SW-jyx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWo-3m-fdB">
+                                <rect key="frame" x="0.0" y="204" width="375" height="433"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="h45-lI-oVe">
+                                        <rect key="frame" x="0.0" y="76.5" width="375" height="280"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93G-zE-WHI" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                <state key="normal" title="Random Set">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goToSetSettings:" destination="wSv-UD-h9G" eventType="touchUpInside" id="0aU-gW-3Zw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wp-jz-TRa" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="75" width="375" height="55"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                <state key="normal" title="Favorite">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goToFavoriteTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="5Jk-B3-U1D"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ka-Uy-h1o" userLabel="History" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="150" width="375" height="55"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                <state key="normal" title="History">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goToHistoryTable:" destination="wSv-UD-h9G" eventType="touchUpInside" id="jCi-4x-tLC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulj-sj-i5j" userLabel="Log Out" customClass="SimpleRoundButton" customModule="testMusic1" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="225" width="375" height="55"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                                <state key="normal" title="Log Out">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logOutAction:" destination="wSv-UD-h9G" eventType="touchUpInside" id="2Z9-pp-Yop"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="280" id="Vya-Zf-c3J"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="Vya-Zf-c3J"/>
+                                    <constraint firstAttribute="trailing" secondItem="h45-lI-oVe" secondAttribute="trailing" id="5j2-Tk-tgP"/>
+                                    <constraint firstItem="h45-lI-oVe" firstAttribute="centerY" secondItem="NWo-3m-fdB" secondAttribute="centerY" id="6ZE-xR-Uds"/>
+                                    <constraint firstItem="h45-lI-oVe" firstAttribute="leading" secondItem="NWo-3m-fdB" secondAttribute="leading" id="uRC-BB-kpn"/>
+                                    <constraint firstItem="h45-lI-oVe" firstAttribute="centerX" secondItem="NWo-3m-fdB" secondAttribute="centerX" id="v6E-hK-Vbs"/>
                                 </constraints>
-                            </stackView>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewz-0x-9G8">
+                                <rect key="frame" x="0.0" y="637" width="375" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © Heltisace 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-ae-xS8">
+                                        <rect key="frame" x="82.5" y="5.5" width="211" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="UbY-ae-xS8" firstAttribute="centerY" secondItem="ewz-0x-9G8" secondAttribute="centerY" id="mjR-xj-6Bu"/>
+                                    <constraint firstAttribute="height" constant="30" id="rZf-Ys-Um4"/>
+                                    <constraint firstItem="UbY-ae-xS8" firstAttribute="centerX" secondItem="ewz-0x-9G8" secondAttribute="centerX" id="sHX-jd-hfh"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-nv-7i9">
+                                <rect key="frame" x="0.0" y="-16" width="375" height="90"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h45-lI-oVe" firstAttribute="centerX" secondItem="cp7-he-3Ak" secondAttribute="centerX" id="0cn-02-07X"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h45-lI-oVe" secondAttribute="trailing" constant="5" id="2Pp-E7-BCS"/>
-                            <constraint firstItem="h45-lI-oVe" firstAttribute="centerY" secondItem="cp7-he-3Ak" secondAttribute="centerY" id="fcM-RN-jHQ"/>
-                            <constraint firstItem="h45-lI-oVe" firstAttribute="leading" secondItem="cp7-he-3Ak" secondAttribute="leadingMargin" constant="5" id="iW1-VW-hos"/>
+                            <constraint firstItem="mhS-nv-7i9" firstAttribute="leading" secondItem="cp7-he-3Ak" secondAttribute="leading" id="7zq-ms-wGW"/>
+                            <constraint firstAttribute="trailing" secondItem="NWo-3m-fdB" secondAttribute="trailing" id="DKs-HZ-Iqk"/>
+                            <constraint firstItem="NE4-BD-nxR" firstAttribute="leading" secondItem="cp7-he-3Ak" secondAttribute="leading" id="FKA-pO-zad"/>
+                            <constraint firstItem="NE4-BD-nxR" firstAttribute="top" secondItem="UCn-YD-Rez" secondAttribute="bottom" constant="10" id="GBv-YF-b6F"/>
+                            <constraint firstItem="mhS-nv-7i9" firstAttribute="top" secondItem="cp7-he-3Ak" secondAttribute="top" constant="-16" id="H91-TX-YGn"/>
+                            <constraint firstItem="ewz-0x-9G8" firstAttribute="leading" secondItem="cp7-he-3Ak" secondAttribute="leading" id="HmX-dC-xmU"/>
+                            <constraint firstAttribute="trailing" secondItem="mhS-nv-7i9" secondAttribute="trailing" id="LjP-6k-arJ"/>
+                            <constraint firstItem="NWo-3m-fdB" firstAttribute="top" secondItem="NE4-BD-nxR" secondAttribute="bottom" id="MwH-yG-PQw"/>
+                            <constraint firstItem="NWo-3m-fdB" firstAttribute="leading" secondItem="cp7-he-3Ak" secondAttribute="leading" id="Ne6-f7-hiA"/>
+                            <constraint firstAttribute="trailing" secondItem="NE4-BD-nxR" secondAttribute="trailing" id="PaZ-kr-VLn"/>
+                            <constraint firstAttribute="trailing" secondItem="ewz-0x-9G8" secondAttribute="trailing" id="RTV-YO-azj"/>
+                            <constraint firstItem="NE4-BD-nxR" firstAttribute="top" secondItem="mhS-nv-7i9" secondAttribute="bottom" id="WWt-Gw-ZJ4"/>
+                            <constraint firstItem="i99-Ag-gUF" firstAttribute="top" secondItem="ewz-0x-9G8" secondAttribute="bottom" id="Xou-wI-Nw4"/>
+                            <constraint firstItem="ewz-0x-9G8" firstAttribute="top" secondItem="NWo-3m-fdB" secondAttribute="bottom" id="hCK-bg-tJ8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="fBu-1U-uHS"/>
                     <connections>
+                        <outlet property="bottomView" destination="ewz-0x-9G8" id="2ue-8k-yWN"/>
                         <outlet property="favoriteButton" destination="4wp-jz-TRa" id="V0y-Qf-FwU"/>
+                        <outlet property="historyButton" destination="5ka-Uy-h1o" id="Duu-09-Vdt"/>
                         <outlet property="logOutButton" destination="Ulj-sj-i5j" id="CJc-pV-7u6"/>
+                        <outlet property="logoLabel" destination="8RT-kT-tqk" id="dof-gv-0et"/>
+                        <outlet property="logoView" destination="NE4-BD-nxR" id="Ia8-nt-mdp"/>
+                        <outlet property="menuView" destination="NWo-3m-fdB" id="QIU-8v-3wl"/>
                         <outlet property="randomSetButton" destination="93G-zE-WHI" id="abW-cf-jXq"/>
+                        <outlet property="topView" destination="mhS-nv-7i9" id="ynf-GF-Nb1"/>
                         <segue destination="WZw-5E-ArK" kind="show" id="xsn-IP-1wO"/>
                         <segue destination="PEo-ik-RyT" kind="show" id="85C-9Y-ohq"/>
                         <segue destination="1z2-if-pML" kind="show" id="hhb-yW-G71"/>
@@ -611,7 +702,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HWn-pa-d6i" id="bNK-qk-ZE2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THS-9l-Zih">
@@ -668,7 +759,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OzP-ey-Xpj" id="VWq-8a-Oif">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lR1-Rb-0J2">

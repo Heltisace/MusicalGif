@@ -10,5 +10,5 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var historyLabel: UILabel!
-    
+
 }

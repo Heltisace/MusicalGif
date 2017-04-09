@@ -9,26 +9,26 @@
 import UIKit
 import SwiftyJSON
 
-class RandomSong{
-    
+class RandomSong {
+
     var jsonUrl = ""
     var songJson: JSON?
     var trackURL = ""
     var songInfo = ""
-    
+
     //Creating a random song request
     func getJsonUrlWithGenre(genre: String) -> String {
         var url = ""
         DispatchQueue.global().sync {
             //Generation
             let randomOffset = getRandomGenreOffset(genre: genre)
-            
+
             url = "https://api.spotify.com/v1/search?type=track&limit=1&" +
             "offset=\(randomOffset)&q=genre:%22\(genre)%22&market=NL"
         }
         return url
     }
-    
+
     func getJsonUrlWithABC() -> String {
         //Array from a to z
         let filterArray = Array(97...122).map {String(UnicodeScalar($0))}
@@ -39,7 +39,7 @@ class RandomSong{
         //Generation
         let url = "https://api.spotify.com/v1/search?query=\(filter)&"
             + "offset=\(getRandomOffset)&limit=1&type=track&market=NL"
-        
+
         return url
     }
     func getRandomGenre() -> String {
@@ -53,31 +53,31 @@ class RandomSong{
         }
         return filter
     }
-    
+
     func getRandomGenreOffset(genre: String) -> String {
         var randomOffset = "0"
         DispatchQueue.global().sync {
             let url = "https://api.spotify.com/v1/search?type=track&limit=1&offset=\(0)&q=genre:%22\(genre)%22&market=NL"
             let tempData = getSongJson(jsonUrl: url)
             let maxOffset = getTotalNumberOfSongs(data: tempData)
-            
+
             randomOffset = String(arc4random_uniform(UInt32(maxOffset)!))
         }
         return randomOffset
     }
-    
+
     func getRandomABCOffset(letter: String) -> String {
         var randomOffset = "0"
         DispatchQueue.global().sync {
             let url = "https://api.spotify.com/v1/search?type=track&limit=1&offset=\(0)&q=\(letter)&market=NL"
             let tempData = getSongJson(jsonUrl: url)
             let maxOffset = getTotalNumberOfSongs(data: tempData)
-            
+
             randomOffset = String(arc4random_uniform(UInt32(maxOffset)!))
         }
         return randomOffset
     }
-    
+
     //Put json to variable
     func getSongJson(jsonUrl: String) -> JSON? {
         var songJson: JSON?
@@ -91,7 +91,7 @@ class RandomSong{
         }
         return songJson
     }
-    
+
     //Put json to variable 2
     func getSongJsonWithID(songID: String) -> JSON? {
         var songJson: JSON?
@@ -106,17 +106,17 @@ class RandomSong{
         }
         return songJson
     }
-    
+
     //Get the song url
     func getSongUrl(data: JSON) -> String {
         var trackUrl = ""
-        
+
         if let songUrl = data["tracks"]["items"][0]["preview_url"].string {
             trackUrl = songUrl
         } else {print("ERROR")}
         return trackUrl
     }
-    
+
     //Get the song name
     func getSongName(data: JSON) -> String {
         var name = ""
@@ -125,7 +125,7 @@ class RandomSong{
         } else {print("ERROR")}
         return name
     }
-    
+
     //Get the song artist
     func getSongArtist(data: JSON) -> String {
         var artist = ""
@@ -134,7 +134,7 @@ class RandomSong{
         } else {print("ERROR")}
         return artist
     }
-    
+
     func getTotalNumberOfSongs(data: JSON?) -> String {
         var total = "0"
         if let maxOffset = data?["tracks"]["total"].int {
@@ -145,40 +145,39 @@ class RandomSong{
         }
         return total
     }
-    
+
     //Load a random song
-    func generateRandomSong(musicEngine: MusicEngine, randomSongEngine: RandomSong, genre: String) -> [String] {
+    func generateRandomSong(musicEngine: MusicEngine, genre: String) -> [String] {
         //Stop playing previous song
         musicEngine.stopPlaying()
         //Generating a random song
         if genre != "" {
-            jsonUrl = randomSongEngine.getJsonUrlWithGenre(genre: genre)
+            jsonUrl = getJsonUrlWithGenre(genre: genre)
         } else {
-            jsonUrl = randomSongEngine.getJsonUrlWithABC()
+            jsonUrl = getJsonUrlWithABC()
         }
-        songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
+        songJson = self.getSongJson(jsonUrl: jsonUrl)
         if songJson != nil {
-            trackURL = randomSongEngine.getSongUrl(data: songJson!)
-            songInfo = randomSongEngine.getSongName(data: songJson!)
-                + " - "+randomSongEngine.getSongArtist(data: songJson!)
+            trackURL = getSongUrl(data: songJson!)
+            songInfo = getSongName(data: songJson!) + " - "  + getSongArtist(data: songJson!)
         } else {
             songInfo = "Error - Error"
             trackURL = "Error"
         }
-        
+
         return [trackURL, jsonUrl]
     }
-    
-    func generateSong(jsonUrl: String, musicEngine: MusicEngine, randomSongEngine: RandomSong) -> String {
+
+    func generateSong(jsonUrl: String, musicEngine: MusicEngine) -> String {
         //Stop playing previous song
         musicEngine.stopPlaying()
-        
-        songJson = randomSongEngine.getSongJson(jsonUrl: jsonUrl)
+
+        songJson = getSongJson(jsonUrl: jsonUrl)
         if songJson != nil {
-            trackURL = randomSongEngine.getSongUrl(data: songJson!)
+            trackURL = getSongUrl(data: songJson!)
             print(trackURL)
-            songInfo = randomSongEngine.getSongName(data: songJson!)
-                + " - "+randomSongEngine.getSongArtist(data: songJson!)
+            songInfo = getSongName(data: songJson!)
+                + " - "+getSongArtist(data: songJson!)
             print(songInfo)
         } else {
             songInfo = "Error - Error"
@@ -187,12 +186,12 @@ class RandomSong{
 
         return trackURL
     }
-    
+
     func loadRandomSong(musicEngine: MusicEngine) {
         //Loading the random song
         musicEngine.loadTrack(soundUrl: trackURL)
     }
-    
+
     func setSongInfo(infoLabel: UILabel) {
         //Set new song info
         infoLabel.text! = songInfo
