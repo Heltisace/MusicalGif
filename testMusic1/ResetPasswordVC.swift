@@ -12,12 +12,17 @@ import Firebase
 class ResetPasswordVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var resetPasswordButton: UIButton!
+    
+    let colorLayer = ColorLayer()
 
     var isWorking = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        colorLayer.grayLayer(view: self.view)
+        
         emailTextField.delegate = self
 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -80,7 +85,7 @@ class ResetPasswordVC: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        dismissKeyboard()
         resetPasswordAction(nil)
 
         return false

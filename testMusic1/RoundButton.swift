@@ -11,8 +11,8 @@ import SwiftyButton
 
 class RoundButton: PressableButton {
     func startSet() {
-        let lightBlue = UIColor(colorLiteralRed: 52 / 255, green: 152 / 255, blue: 219 / 255, alpha: 1)
-        let darkBlue = UIColor(colorLiteralRed: 40 / 255, green: 110 / 255, blue: 180 / 255, alpha: 1)
+        let lightBlue = UIColor(colorLiteralRed: 0.2, green: 0.735901, blue: 1.00104, alpha: 1)
+        let darkBlue = UIColor(colorLiteralRed: 0.1, green: 0.5, blue: 1.00104, alpha: 1)
 
         self.backgroundColor = lightBlue
         self.disabledColors = .init(button: lightBlue, shadow: darkBlue)
@@ -38,44 +38,4 @@ class RoundButton: PressableButton {
             layer.cornerRadius = 5
         }
     }
-    func makeTheButtonRed() {
-        let red = UIColor(colorLiteralRed: 255 / 255, green: 43 / 255, blue: 43 / 255, alpha: 1)
-        let darkRed = UIColor(colorLiteralRed: 148 / 255, green: 0 / 255, blue: 0 / 255, alpha: 1)
-
-        self.disabledColors = .init(button: red, shadow: darkRed)
-        self.colors = .init(button: red, shadow: darkRed)
-        self.backgroundColor = red
-    }
-    func makeTheButtonGreen() {
-        let green = UIColor(colorLiteralRed: 135 / 255, green: 240 / 255, blue: 0 / 255, alpha: 1)
-        let darkGreen = UIColor(colorLiteralRed: 77 / 255, green: 153 / 255, blue: 0 / 255, alpha: 1)
-
-        self.disabledColors = .init(button: green, shadow: darkGreen)
-        self.colors = .init(button: green, shadow: darkGreen)
-        self.backgroundColor = green
-    }
-//    func makeTheButtonLightBlue() {
-//        let blue = UIColor(colorLiteralRed: 135 / 255, green: 240 / 255, blue: 0 / 255, alpha: 1)
-//        let darkBlue = UIColor(colorLiteralRed: 77 / 255, green: 153 / 255, blue: 0 / 255, alpha: 1)
-//        
-//        self.disabledColors = .init(button: green, shadow: darkGreen)
-//        self.colors = .init(button: green, shadow: darkGreen)
-//        self.backgroundColor = green
-//    }
-//    func makeTheButtonBlue() {
-//        let blue = UIColor(colorLiteralRed: 135 / 255, green: 240 / 255, blue: 0 / 255, alpha: 1)
-//        let darkBlue = UIColor(colorLiteralRed: 77 / 255, green: 153 / 255, blue: 0 / 255, alpha: 1)
-//        
-//        self.disabledColors = .init(button: green, shadow: darkGreen)
-//        self.colors = .init(button: green, shadow: darkGreen)
-//        self.backgroundColor = green
-//    }
-//    func makeTheButtonDarkBlue() {
-//        let blue = UIColor(colorLiteralRed: 135 / 255, green: 240 / 255, blue: 0 / 255, alpha: 1)
-//        let darkBlue = UIColor(colorLiteralRed: 77 / 255, green: 153 / 255, blue: 0 / 255, alpha: 1)
-//        
-//        self.disabledColors = .init(button: green, shadow: darkGreen)
-//        self.colors = .init(button: green, shadow: darkGreen)
-//        self.backgroundColor = green
-//    }
 }

@@ -19,23 +19,24 @@
 		9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F2BA1E5B48F400A9076C /* MusicEngine.swift */; };
 		9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9211F2BC1E5B56D400A9076C /* RoundButton.swift */; };
 		92144FF61E985AF100D443E3 /* SpinnerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92144FF51E985AF100D443E3 /* SpinnerButton.swift */; };
+		922F11411E9D797D006CC0A9 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922F11401E9D797D006CC0A9 /* MyCell.swift */; };
+		922F11431E9D79C6006CC0A9 /* MyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922F11421E9D79C6006CC0A9 /* MyCell.xib */; };
 		923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DA1E5E56A300D0AD20 /* RandomGif.swift */; };
-		923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */; };
-		923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923A50DE1E5F40C200D0AD20 /* RoundGif.swift */; };
+		9247516D1E9FF30F00D0915E /* HistoryAndFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247516C1E9FF30F00D0915E /* HistoryAndFirebase.swift */; };
 		925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69841E78215B0063BDAC /* SettingsVC.swift */; };
 		925D69881E7822870063BDAC /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69871E7822870063BDAC /* MenuVC.swift */; };
 		925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */; };
 		925EE7341E943EC000DF9927 /* CheckInternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925EE7331E943EC000DF9927 /* CheckInternetConnection.swift */; };
+		9266800D1EA0C9AF004668CC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9266800C1EA0C9AF004668CC /* UIViewControllerExtension.swift */; };
 		9267793F1E8D6248003D24F3 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */; };
 		926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926779401E8D6688003D24F3 /* FavoriteTableVC.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
-		926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
 		926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */; };
+		9284BC511E9C387C00B3AA23 /* PopPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9284BC501E9C387C00B3AA23 /* PopPushAnimation.swift */; };
 		92E2CDFC1E8A94AA00F5623E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */; };
 		92E2CDFE1E8A94C200F5623E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFD1E8A94C200F5623E /* LoginVC.swift */; };
 		92E2CE001E8A94DF00F5623E /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */; };
-		92E2CE021E8A9C2400F5623E /* SimpleRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */; };
 		92E2CE041E8AA62500F5623E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */; };
 		92E2CE071E8B00AF00F5623E /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */; };
 		92E2CE091E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */; };
@@ -83,23 +84,24 @@
 		9211F2BA1E5B48F400A9076C /* MusicEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicEngine.swift; sourceTree = "<group>"; };
 		9211F2BC1E5B56D400A9076C /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		92144FF51E985AF100D443E3 /* SpinnerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerButton.swift; sourceTree = "<group>"; };
+		922F11401E9D797D006CC0A9 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		922F11421E9D79C6006CC0A9 /* MyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCell.xib; sourceTree = "<group>"; };
 		923A50DA1E5E56A300D0AD20 /* RandomGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGif.swift; sourceTree = "<group>"; };
-		923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundLabel.swift; sourceTree = "<group>"; };
-		923A50DE1E5F40C200D0AD20 /* RoundGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundGif.swift; sourceTree = "<group>"; };
+		9247516C1E9FF30F00D0915E /* HistoryAndFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryAndFirebase.swift; sourceTree = "<group>"; };
 		925D69841E78215B0063BDAC /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		925D69871E7822870063BDAC /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		925D69891E7867B20063BDAC /* SettingsVCFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCFunctions.swift; sourceTree = "<group>"; };
 		925EE7331E943EC000DF9927 /* CheckInternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInternetConnection.swift; sourceTree = "<group>"; };
+		9266800C1EA0C9AF004668CC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		9267793E1E8D6248003D24F3 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		926779401E8D6688003D24F3 /* FavoriteTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableVC.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
 		926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOtherFunctions.swift; sourceTree = "<group>"; };
+		9284BC501E9C387C00B3AA23 /* PopPushAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopPushAnimation.swift; sourceTree = "<group>"; };
 		92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		92E2CDFD1E8A94C200F5623E /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
-		92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRoundButton.swift; sourceTree = "<group>"; };
 		92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		92E2CE061E8B00AF00F5623E /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFavoriteFunctions.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
 				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
 				92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */,
+				9247516C1E9FF30F00D0915E /* HistoryAndFirebase.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -236,6 +239,15 @@
 			path = testMusic1UITests;
 			sourceTree = "<group>";
 		};
+		922F113F1E9D7949006CC0A9 /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				922F11401E9D797D006CC0A9 /* MyCell.swift */,
+				922F11421E9D79C6006CC0A9 /* MyCell.xib */,
+			);
+			name = DropDown;
+			sourceTree = "<group>";
+		};
 		925D69861E7822710063BDAC /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +283,7 @@
 				92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */,
 				923A50DA1E5E56A300D0AD20 /* RandomGif.swift */,
 				926AAB841E6202E000B86EC4 /* Spinner.swift */,
+				9266800C1EA0C9AF004668CC /* UIViewControllerExtension.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -302,13 +315,11 @@
 		92F66F7D1E5BB796005DCDD1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				922F113F1E9D7949006CC0A9 /* DropDown */,
 				9211F2BC1E5B56D400A9076C /* RoundButton.swift */,
-				92E2CE011E8A9C2400F5623E /* SimpleRoundButton.swift */,
-				923A50DC1E5F40B400D0AD20 /* RoundLabel.swift */,
-				923A50DE1E5F40C200D0AD20 /* RoundGif.swift */,
-				926AAB8A1E62F6DE00B86EC4 /* RoundView.swift */,
 				9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */,
 				92144FF51E985AF100D443E3 /* SpinnerButton.swift */,
+				9284BC501E9C387C00B3AA23 /* PopPushAnimation.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -434,6 +445,7 @@
 				92E2CE041E8AA62500F5623E /* GoogleService-Info.plist in Resources */,
 				9211F2941E5B3B9600A9076C /* Assets.xcassets in Resources */,
 				9211F2921E5B3B9600A9076C /* Main.storyboard in Resources */,
+				922F11431E9D79C6006CC0A9 /* MyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,17 +535,19 @@
 				9211F2BD1E5B56D400A9076C /* RoundButton.swift in Sources */,
 				925D69881E7822870063BDAC /* MenuVC.swift in Sources */,
 				92E976F71E95B22E004F3B73 /* HistoryTableVC.swift in Sources */,
-				926AAB8B1E62F6DE00B86EC4 /* RoundView.swift in Sources */,
 				925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */,
-				92E2CE021E8A9C2400F5623E /* SimpleRoundButton.swift in Sources */,
+				922F11411E9D797D006CC0A9 /* MyCell.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
 				92E976F51E95B1F0004F3B73 /* HistoryTableViewCell.swift in Sources */,
 				92144FF61E985AF100D443E3 /* SpinnerButton.swift in Sources */,
+				9247516D1E9FF30F00D0915E /* HistoryAndFirebase.swift in Sources */,
+				9284BC511E9C387C00B3AA23 /* PopPushAnimation.swift in Sources */,
 				926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */,
 				926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */,
 				92E2CE091E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift in Sources */,
 				92E2CDFC1E8A94AA00F5623E /* SignUpVC.swift in Sources */,
+				9266800D1EA0C9AF004668CC /* UIViewControllerExtension.swift in Sources */,
 				92E2CDFE1E8A94C200F5623E /* LoginVC.swift in Sources */,
 				925D69851E78215B0063BDAC /* SettingsVC.swift in Sources */,
 				926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */,
@@ -547,8 +561,6 @@
 				92F66F7F1E5CFB32005DCDD1 /* RandomSong.swift in Sources */,
 				923A50DB1E5E56A300D0AD20 /* RandomGif.swift in Sources */,
 				9203DFFE1E6A09AF0005ADD4 /* ViewControllerInitialization.swift in Sources */,
-				923A50DD1E5F40B400D0AD20 /* RoundLabel.swift in Sources */,
-				923A50DF1E5F40C200D0AD20 /* RoundGif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

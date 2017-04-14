@@ -14,7 +14,7 @@ class SettingsVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var genreDropButton: UIButton!
     @IBOutlet weak var gifDropButton: UIButton!
     @IBOutlet weak var iterationDropButton: UIButton!
-    @IBOutlet weak var continueButton: RoundButton!
+    @IBOutlet weak var continueButton: UIButton!
 
     //Constratints of pop up view
 
@@ -22,11 +22,11 @@ class SettingsVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var popUpLeft: NSLayoutConstraint!
 
     //Views
-    @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var gifInputView: UIView!
-    @IBOutlet weak var iterationInputView: UIView!
-    @IBOutlet weak var continueInputView: RoundView!
-    @IBOutlet weak var musicInputView: UIView!
+    @IBOutlet weak var iterationBottom: UIView!
+    @IBOutlet weak var iterationTitleView: UIView!
+    @IBOutlet weak var musicTitleView: UIView!
+    @IBOutlet weak var gifTitleView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var popUpBackground: UIView!
 
@@ -68,19 +68,7 @@ class SettingsVC: UIViewController, UITextFieldDelegate {
         //Delegate
         answerTextField.delegate = self
 
-        //Background
-        gifInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
-        musicInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
-        iterationInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
-        continueInputView.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
-
-        //Configure the continue button
-        continueButton.makeTheButtonGreen()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        colorLayer.setLayer(someView: viewContainer)
+        loadDesign()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,32 +83,23 @@ class SettingsVC: UIViewController, UITextFieldDelegate {
         super.willMove(toParentViewController: parent)
         if parent == nil
         {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }
 
     @IBAction func goToMainVC(_ sender: UIButton) {
-        //Animation of push ViewController
-        UIView.animate(withDuration: 0.75, animations: { () -> Void in
-            UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-
-            //VC
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "MainVC") as! ViewController
-
-            //Send information to ViewController
-            vc.preSetIteration = self.musicIteration
-            vc.preSetGenre = self.musicGenre
-            vc.preSetGifTag = self.gifTag
-
-            self.navigationController?.pushViewController(vc, animated: false)
-            //Animation
-            UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-        })
+        //VC
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainVC") as! ViewController
+        
+        //Send information to ViewController
+        vc.preSetIteration = self.musicIteration
+        vc.preSetGenre = self.musicGenre
+        vc.preSetGifTag = self.gifTag
+        
+        self.navigationController?.pushViewController(vc, animated: false)
+        //Animation
+        self.navigationController?.popPushAnimation(navigation: self.navigationController!)
     }
 
     @IBAction func showGenreDropDown(_ sender: UIButton) {

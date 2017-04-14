@@ -18,7 +18,7 @@ target 'testMusic1' do
   pod 'NVActivityIndicatorView'
   pod 'SwiftSpinner'
   
-  #Pressable buttons
+  #Buttons
   pod 'SwiftyButton'
   
   #Drop down list

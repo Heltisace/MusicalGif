@@ -14,11 +14,17 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    let colorLayer = ColorLayer()
 
     var isWorking = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpButton.backgroundColor = UIColor(white: 1, alpha: 0.4)
+        colorLayer.orangeLayer(view: self.view)
 
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -99,6 +105,7 @@ class SignUpVc: UIViewController, UITextFieldDelegate {
         } else if textField == passwordTextField {
             confirmPasswordTextField.becomeFirstResponder()
         } else {
+            dismissKeyboard()
             signUpAction(nil)
         }
         return false

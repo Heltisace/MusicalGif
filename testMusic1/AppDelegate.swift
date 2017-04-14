@@ -23,15 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         let navigationBarAppearace = UINavigationBar.appearance()
-        
+        navigationBarAppearace.tintColor = UIColor(colorLiteralRed: 0.2, green: 0.735901, blue: 1.00104, alpha: 1)
         navigationBarAppearace.titleTextAttributes = [
             NSFontAttributeName: UIFont(name: "Menlo", size: 20)!
         ]
-//        navigationBarAppearace.titleTextAttributes = [
-//            NSForegroundColorAttributeName:UIColor.white
-//        ]
-//        navigationBarAppearace.tintColor = .white
-        navigationBarAppearace.barTintColor?.withAlphaComponent(0.2)
         return true
     }
 

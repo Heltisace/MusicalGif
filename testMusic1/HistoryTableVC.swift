@@ -38,11 +38,7 @@ class HistoryTableVC: UITableViewController {
         super.willMove(toParentViewController: parent)
         if parent == nil
         {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }
     
@@ -72,20 +68,15 @@ class HistoryTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Animation of push ViewController
-        UIView.animate(withDuration: 0.75, animations: { () -> Void in
-            UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-
-            //VC
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
-            vc.theSetID = self.theSetIDs[indexPath.row]
-            self.presentingSetIndex = indexPath.row
-            vc.fromHistoryTable = true
-            vc.title = "History №" + String(self.presentingSetIndex+1)
-
-            self.navigationController?.pushViewController(vc, animated: false)
-            //Animation
-            UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-        })
+        //VC
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
+        vc.theSetID = self.theSetIDs[indexPath.row]
+        self.presentingSetIndex = indexPath.row
+        vc.fromHistoryTable = true
+        vc.title = "History №" + String(self.presentingSetIndex+1)
+        
+        self.navigationController?.pushViewController(vc, animated: false)
+        //Animation
+        self.navigationController?.popPushAnimation(navigation: self.navigationController!)
     }
 }

@@ -61,11 +61,7 @@ class FavoriteTableVC: UITableViewController {
         super.willMove(toParentViewController: parent)
         if parent == nil
         {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }
 
@@ -133,22 +129,15 @@ class FavoriteTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !cellIsEditing {
-            //Animation of pushing to ViewController
+            
             goingToTheMain = true
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                //VC
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as! ViewController
-                vc.theSetID = self.theSetIDs[indexPath.row]
-                self.presentingSetIndex = indexPath.row
-                vc.fromFavoriteTable = true
-                vc.title = self.names[indexPath.row]
-
-                self.navigationController?.pushViewController(vc, animated: false)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for:
-                    self.navigationController!.view!, cache: false)
-            })
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as!ViewController
+            vc.theSetID = self.theSetIDs[indexPath.row]
+            self.presentingSetIndex = indexPath.row
+            vc.fromFavoriteTable = true
+            vc.title = self.names[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: false)
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
             tableView.endEditing(true)

@@ -15,6 +15,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    let colorLayer = ColorLayer()
 
     //For CoreData
     let fetchRequest =
@@ -23,7 +26,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadDesign()
         do {
             //Results in CoreData
             let results = try context.fetch(fetchRequest)
@@ -47,12 +50,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     } else {
                         //Show error, delete user data and close spinner
                         SwiftSpinner.hide()
-
-                        let alertController = UIAlertController(title:
-                            "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                        alertController.addAction(defaultAction)
-
+                        
+                        let alertController = self.createAlert(error: (error?.localizedDescription)!)
                         self.present(alertController, animated: true, completion: nil)
                     }
                 }
@@ -76,11 +75,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         //If both text fields aren't empty
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             //Show error
-            let alertController = UIAlertController(title:
-                "Error", message: "Please enter an email and password.", preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-
+            let alertController = self.createAlert(error: "Please enter an email and password.")
             self.present(alertController, animated: true, completion: {
                 sender?.isEnabled = true
             })
@@ -117,11 +112,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
                 } else {
                     //Show error
-                    let alertController = UIAlertController(title:
-                        "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-
+                    let alertController = self.createAlert(error: (error?.localizedDescription)!)
                     self.present(alertController, animated: true, completion: {
                         sender?.isEnabled = true
                     })
@@ -144,7 +135,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else {
-            self.view.endEditing(true)
+            dismissKeyboard()
             loginAction(nil)
         }
         return false
@@ -152,5 +143,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+}
+
+extension LoginVC {
+    func loadDesign() {
+        colorLayer.bottomLightBlue(view: self.view)
+        loginButton.backgroundColor = UIColor(white: 1, alpha: 0.4)
+        emailTextField.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        passwordTextField.backgroundColor = UIColor(white: 1, alpha: 0.8)
     }
 }

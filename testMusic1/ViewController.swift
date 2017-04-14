@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var theGif: FLAnimatedImageView!
     @IBOutlet weak var songInfoLabel: UILabel!
     @IBOutlet weak var gifView: UIView!
-    @IBOutlet weak var insideGifView: RoundView!
+    @IBOutlet weak var insideGifView: UIView!
     @IBOutlet weak var openSongButton: PressableButton!
     @IBOutlet weak var openGifButton: PressableButton!
     @IBOutlet weak var viewInGifView: UIView!
@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var betweenButtons: NSLayoutConstraint!
 
     //Pop up variables
-    @IBOutlet weak var popUpView: RoundView!
+    @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var popUpBackground: UIView!
     @IBOutlet weak var answerTextField: UITextField!
     //Pop up Constraintns
@@ -112,12 +112,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         //swipeControll
         gifView.addGestureRecognizer(gestureRecognizer)
 
-        //Don't use swipe back gesture
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-
         //Gesture recognizer to close the view after click on background
         let gesture = UITapGestureRecognizer(target: self, action: #selector (closePopUpWithTap))
         self.popUpBackground.addGestureRecognizer(gesture)
+        
+        //Don't use swipe back gesture
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 
         //Pop up view
         answerTextField.delegate = self
@@ -129,12 +129,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         //Initialization
         initialization()
+        colorLayer.bothSideLightBlue(view: self.view)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "black_texture")!)
-
         startTheShow()
     }
 
@@ -157,11 +156,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.willMove(toParentViewController: parent)
         if parent == nil
         {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }
 
@@ -192,8 +187,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.view.layoutIfNeeded()
         } else if gestureRecognizer.state == .ended {
             self.shouldChangeGif = abs(self.gifTrailing.constant) > (self.gifViewWidth / 2)
-            print(self.gifTrailing.constant)
-
             //Change or no
             if shouldChangeGif {
                 //Where user swiped and what to do
@@ -284,6 +277,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
             removeFromFavoriteList()
         }
-
     }
 }

@@ -25,8 +25,8 @@ extension ViewController {
             normalRightButton = self.openGifTrailing.constant
             normalBetweenButtons = self.betweenButtons.constant
 
-            colorLayer.setLayer(someView: gifView)
-            colorLayer.setLayer(someView: songInfoView)
+            colorLayer.setLayer(view: gifView)
+            colorLayer.setLayer(view: songInfoView)
         }
     }
 }

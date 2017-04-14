@@ -15,11 +15,10 @@ class MenuVC: UIViewController {
     @IBOutlet weak var randomSetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
-    @IBOutlet weak var historyButton: SimpleRoundButton!
+    @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var logoLabel: UILabel!
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
 
     let fetchRequest =
@@ -30,30 +29,7 @@ class MenuVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Background
-        colorLayer.createLayer(someView: self.view)
-        topView.backgroundColor? = UIColor(white: 1, alpha: 0.85)
-        logoView.backgroundColor? = UIColor(white: 1, alpha: 0.85)
-        bottomView.backgroundColor? = UIColor(white: 1, alpha: 0.85)
-        
-        logoView.layer.shadowColor = UIColor.black.cgColor
-        logoView.layer.shadowOpacity = 1
-        logoView.layer.shadowOffset = CGSize.zero
-        logoView.layer.shadowRadius = 10
-        
-        bottomView.layer.shadowColor = UIColor.black.cgColor
-        bottomView.layer.shadowOpacity = 1
-        bottomView.layer.shadowOffset = CGSize.zero
-        bottomView.layer.shadowRadius = 10
-        randomSetButton.backgroundColor = randomSetButton.backgroundColor?.withAlphaComponent(0.2)
-        favoriteButton.backgroundColor = favoriteButton.backgroundColor?.withAlphaComponent(0.2)
-        logOutButton.backgroundColor = logOutButton.backgroundColor?.withAlphaComponent(0.2)
-        historyButton.backgroundColor = historyButton.backgroundColor?.withAlphaComponent(0.2)
-
-        
-        //Configure button
-        //logOutButton.makeTheButtonRed()
-        //randomSetButton.makeTheButtonGreen()
+        loadDesign()
 
         //If user's connetion is bad
         badConnection()
@@ -68,12 +44,12 @@ class MenuVC: UIViewController {
         let userID = FIRAuth.auth()?.currentUser?.uid
         ref.child("Users").child(userID!).removeAllObservers()
         
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     @IBAction func logOutAction(_ sender: RoundButton?) {
@@ -97,36 +73,24 @@ class MenuVC: UIViewController {
 
     @IBAction func goToSetSettings(_ sender: RoundButton) {
         if !logOutButton.isSelected {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC")
-                self.show(vc!, sender: self)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC")
+            self.navigationController?.pushViewController(vc!, animated: false)
         }
     }
 
     @IBAction func goToFavoriteTable(_ sender: RoundButton) {
         if !logOutButton.isSelected {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
-                self.show(vc!, sender: self)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
+            self.navigationController?.pushViewController(vc!, animated: false)
         }
     }
     @IBAction func goToHistoryTable(_ sender: RoundButton) {
         if !logOutButton.isSelected {
-            UIView.animate(withDuration: 0.75, animations: { () -> Void in
-                UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
-                self.show(vc!, sender: self)
-                //Animation
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-            })
+            self.navigationController?.popPushAnimation(navigation: self.navigationController!)
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
+            self.navigationController?.pushViewController(vc!, animated: false)
         }
     }
 
@@ -145,7 +109,9 @@ class MenuVC: UIViewController {
             print("error")
         }
     }
+}
 
+extension MenuVC {
     func badConnection() {
         //If bad connection is using
         if CheckConnection().connectionStatus().description.contains("WWAN") {
@@ -153,13 +119,11 @@ class MenuVC: UIViewController {
             let alertController = UIAlertController(title: "Warning", message: error, preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
-
+            
             self.present(alertController, animated: true, completion: nil)
         }
     }
-}
-
-extension MenuVC {
+    
     func loopCheck() {
         NotificationCenter.default.addObserver(self, selector:
             #selector(self.networkStatusChanged(_:)), name:
@@ -191,3 +155,21 @@ extension MenuVC {
         }
     }
 }
+
+extension MenuVC {
+    func loadDesign() {
+        //Background
+        colorLayer.topLightBlue(view: self.view)
+        colorLayer.bothSideLightBlue(view: logoView)
+        colorLayer.bottomLightBlue(view: bottomView)
+        
+        makeShadow(view: logoView)
+        makeShadow(view: bottomView)
+        
+        setBackgroundAlpha(view: randomSetButton, alpha: 0.2)
+        setBackgroundAlpha(view: favoriteButton, alpha: 0.2)
+        setBackgroundAlpha(view: logOutButton, alpha: 0.2)
+        setBackgroundAlpha(view: historyButton, alpha: 0.2)
+    }
+}
+
