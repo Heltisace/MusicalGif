@@ -8,7 +8,7 @@
 
 import UIKit
 
-//Pop-up view
+//Pop-up extension
 extension ViewController {
     //Close pop up view
     func closePopUpView() {

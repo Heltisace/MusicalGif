@@ -62,10 +62,7 @@ class MenuVC: UIViewController {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
                 self.present(vc!, animated: true, completion: nil)
             } catch let error as NSError {
-                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-
+                let alertController = self.createAlert(title: "Error", message: error.localizedDescription, button: "OK", action: nil)
                 present(alertController, animated: true, completion: nil)
             }
         }
@@ -111,15 +108,13 @@ class MenuVC: UIViewController {
     }
 }
 
+//Check internet connection extension
 extension MenuVC {
     func badConnection() {
         //If bad connection is using
         if CheckConnection().connectionStatus().description.contains("WWAN") {
             let error = "Your internet connection is slow. We recommend you to use a faster one."
-            let alertController = UIAlertController(title: "Warning", message: error, preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            
+            let alertController = self.createAlert(title: "Warning", message: error, button: "OK", action: nil)
             self.present(alertController, animated: true, completion: nil)
         }
     }
@@ -138,27 +133,23 @@ extension MenuVC {
             //Show error
             let error = "Network error (such as timeout, interrupted" +
             "connection or unreachable host) has occurred."
-            let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "Try again", style:
-                .cancel, handler: { (_: UIAlertAction!) in
-                    //Try to get new gif vc is ViewController
-                    if self.navigationController?.topViewController is ViewController {
-                        let vc = self.navigationController?.topViewController as! ViewController
-                        vc.startTheShow()
-                    }
-                    self.networkStatusChanged(notification)
+            let alertController = self.createAlert(title: "Error", message: error, button: "Try again", action: {
+                //Try to get new gif vc is ViewController
+                if self.navigationController?.topViewController is ViewController {
+                    let vc = self.navigationController?.topViewController as! ViewController
+                    vc.startTheShow()
+                }
+                self.networkStatusChanged(notification)
             })
-            alertController.addAction(defaultAction)
-
             self.present(alertController, animated: true, completion: nil)
         default: break
         }
     }
 }
 
+//Design
 extension MenuVC {
     func loadDesign() {
-        //Background
         colorLayer.topLightBlue(view: self.view)
         colorLayer.bothSideLightBlue(view: logoView)
         colorLayer.bottomLightBlue(view: bottomView)
@@ -172,4 +163,3 @@ extension MenuVC {
         setBackgroundAlpha(view: historyButton, alpha: 0.2)
     }
 }
-

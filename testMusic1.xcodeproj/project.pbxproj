@@ -213,9 +213,10 @@
 				9211F28C1E5B3B9600A9076C /* AppDelegate.swift */,
 				9211F2901E5B3B9600A9076C /* Main.storyboard */,
 				9211F2951E5B3B9600A9076C /* LaunchScreen.storyboard */,
-				92F66F7B1E5BB6DC005DCDD1 /* ViewControllers */,
+				92F66F7B1E5BB6DC005DCDD1 /* Views */,
 				92F66F7A1E5BB6D1005DCDD1 /* Helpers */,
 				92F66F7D1E5BB796005DCDD1 /* Models */,
+				92D1E4BF1EA139BE0050B510 /* Storage */,
 				92F66F7C1E5BB755005DCDD1 /* Resources */,
 			);
 			path = testMusic1;
@@ -256,6 +257,14 @@
 			name = MenuViewController;
 			sourceTree = "<group>";
 		};
+		92D1E4BF1EA139BE0050B510 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
 		92E2CDFA1E8A8EA900F5623E /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +297,7 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		92F66F7B1E5BB6DC005DCDD1 /* ViewControllers */ = {
+		92F66F7B1E5BB6DC005DCDD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				92E2CDFA1E8A8EA900F5623E /* Authorization */,
@@ -298,13 +307,12 @@
 				9204A9A41E717F6100321FC0 /* Table of favorites */,
 				9204A9A31E717F1400321FC0 /* MainViewController */,
 			);
-			name = ViewControllers;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		92F66F7C1E5BB755005DCDD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */,
 				9211F2931E5B3B9600A9076C /* Assets.xcassets */,
 				92E2CE031E8AA62500F5623E /* GoogleService-Info.plist */,
 				9211F2981E5B3B9600A9076C /* Info.plist */,

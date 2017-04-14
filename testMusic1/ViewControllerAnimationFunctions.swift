@@ -10,8 +10,8 @@ import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 
+//Animations extension
 extension ViewController {
-
     //Operations with constraints
     func setGifConstraints(left: CGFloat?, right: CGFloat?, top: CGFloat?, bottom: CGFloat?) {
         if left != nil {

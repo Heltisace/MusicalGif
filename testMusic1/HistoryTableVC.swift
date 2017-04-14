@@ -33,11 +33,9 @@ class HistoryTableVC: UITableViewController {
         }
     }
     
-    override func willMove(toParentViewController parent: UIViewController?)
-    {
+    override func willMove(toParentViewController parent: UIViewController?) {
         super.willMove(toParentViewController: parent)
-        if parent == nil
-        {
+        if parent == nil {
             self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }
@@ -62,7 +60,7 @@ class HistoryTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
 
-        cell.historyLabel.text! = String(indexPath.row + 1)
+        cell.historyLabel.text = String(indexPath.row + 1)
 
         return cell
     }

@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import SwiftSpinner
-import os.log
 
 class FavoriteTableVC: UITableViewController {
 
@@ -41,7 +40,8 @@ class FavoriteTableVC: UITableViewController {
                 self.names.append(dict.value as! String)
             }
 
-            let combined = zip(self.names, self.theSetIDs).sorted {$0.0 < $1.0}
+            let combined = zip(self.names,
+                               self.theSetIDs).sorted{$0.0 < $1.0}
             self.names = combined.map {$0.0}
             self.theSetIDs = combined.map {$0.1}
 
@@ -56,11 +56,9 @@ class FavoriteTableVC: UITableViewController {
         }
     }
     
-    override func willMove(toParentViewController parent: UIViewController?)
-    {
+    override func willMove(toParentViewController parent: UIViewController?) {
         super.willMove(toParentViewController: parent)
-        if parent == nil
-        {
+        if parent == nil {
             self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }
@@ -129,8 +127,8 @@ class FavoriteTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !cellIsEditing {
-            
             goingToTheMain = true
+            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "MainVC") as!ViewController
             vc.theSetID = self.theSetIDs[indexPath.row]
             self.presentingSetIndex = indexPath.row

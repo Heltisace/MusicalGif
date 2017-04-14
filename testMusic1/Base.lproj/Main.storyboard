@@ -535,7 +535,7 @@
                         <outlet property="popUpLeft" destination="59C-qq-iKZ" id="w5r-Qy-QRw"/>
                         <outlet property="popUpRight" destination="J9f-O7-r7L" id="5J9-rQ-nj5"/>
                         <outlet property="popUpView" destination="ebF-1j-NaM" id="Eqt-eN-0Xb"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="Qx7-cS-zDV"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMainSegue" id="Qx7-cS-zDV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEK-QW-78Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -716,9 +716,9 @@
                         <outlet property="logoView" destination="cR8-Gb-NZW" id="Epl-hj-fNt"/>
                         <outlet property="menuView" destination="NWo-3m-fdB" id="QIU-8v-3wl"/>
                         <outlet property="randomSetButton" destination="93G-zE-WHI" id="abW-cf-jXq"/>
-                        <segue destination="WZw-5E-ArK" kind="show" id="xsn-IP-1wO"/>
-                        <segue destination="PEo-ik-RyT" kind="show" id="85C-9Y-ohq"/>
-                        <segue destination="1z2-if-pML" kind="show" id="hhb-yW-G71"/>
+                        <segue destination="WZw-5E-ArK" kind="show" identifier="toSettingsSegue" id="xsn-IP-1wO"/>
+                        <segue destination="PEo-ik-RyT" kind="show" identifier="toFavoritesSegue" id="85C-9Y-ohq"/>
+                        <segue destination="1z2-if-pML" kind="show" identifier="toHistorySegue" id="hhb-yW-G71"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3l-3S-v6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1116,7 +1116,6 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Yh8-Nd-YZr" id="End-Fs-f2q"/>
-                        <outlet property="resetPasswordButton" destination="iOn-3e-00b" id="4N9-dM-55n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRC-a3-ET8" userLabel="First Responder" sceneMemberID="firstResponder"/>

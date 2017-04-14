@@ -9,7 +9,6 @@
 import Foundation
 import SystemConfiguration
 
-
 let ReachabilityStatusChangedNotification = "ReachabilityStatusChangedNotification"
 
 enum ReachabilityType: CustomStringConvertible {
@@ -24,7 +23,7 @@ enum ReachabilityType: CustomStringConvertible {
     }
 }
 
-enum ReachabilityStatus: CustomStringConvertible  {
+enum ReachabilityStatus: CustomStringConvertible {
     case offline
     case online(ReachabilityType)
     case unknown
@@ -53,14 +52,13 @@ public class CheckConnection {
             return .unknown
         }
         
-        var flags : SCNetworkReachabilityFlags = []
+        var flags: SCNetworkReachabilityFlags = []
         if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
             return .unknown
         }
         
         return ReachabilityStatus(reachabilityFlags: flags)
     }
-    
     
     func monitorReachabilityChanges() {
         let host = "google.com"

@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 import NVActivityIndicatorView
 
+//Load content extension
 extension ViewController {
     //Get and set new music and gif
     func startTheShow() {
@@ -82,6 +83,7 @@ extension ViewController {
             self.randomSongEngine.setSongInfo(infoLabel: self.songInfoLabel)
         }
     }
+    
     //Show image and play music if image is loaded
     func startMusicAndGif() {
         DispatchQueue.global().sync {

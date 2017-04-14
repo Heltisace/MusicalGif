@@ -78,11 +78,9 @@ class SettingsVC: UIViewController, UITextFieldDelegate {
         genreDown.hide()
     }
     
-    override func willMove(toParentViewController parent: UIViewController?)
-    {
+    override func willMove(toParentViewController parent: UIViewController?) {
         super.willMove(toParentViewController: parent)
-        if parent == nil
-        {
+        if parent == nil {
             self.navigationController?.popPushAnimation(navigation: self.navigationController!)
         }
     }

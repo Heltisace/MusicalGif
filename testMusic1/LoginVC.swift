@@ -51,7 +51,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         //Show error, delete user data and close spinner
                         SwiftSpinner.hide()
                         
-                        let alertController = self.createAlert(error: (error?.localizedDescription)!)
+                        let alertController = self.createAlert(title: "Error", message: (error?.localizedDescription)!, button: "OK", action: nil)
                         self.present(alertController, animated: true, completion: nil)
                     }
                 }
@@ -75,7 +75,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         //If both text fields aren't empty
         if self.emailTextField.text == "" || self.passwordTextField.text == "" {
             //Show error
-            let alertController = self.createAlert(error: "Please enter an email and password.")
+            let alertController = self.createAlert(title: "Error", message: "Please enter an email and password.", button: "OK", action: nil)
             self.present(alertController, animated: true, completion: {
                 sender?.isEnabled = true
             })
@@ -112,7 +112,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
                 } else {
                     //Show error
-                    let alertController = self.createAlert(error: (error?.localizedDescription)!)
+                    let alertController = self.createAlert(title: "Error", message: (error?.localizedDescription)!, button: "OK", action: nil)
                     self.present(alertController, animated: true, completion: {
                         sender?.isEnabled = true
                     })

@@ -12,11 +12,8 @@ import Firebase
 class ResetPasswordVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var resetPasswordButton: UIButton!
     
     let colorLayer = ColorLayer()
-
-    var isWorking = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,47 +27,43 @@ class ResetPasswordVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func resetPasswordAction(_ sender: UIButton?) {
-        if isWorking == false {
-            isWorking = true
-
-            if self.emailTextField.text == "" {
-                //Show error
-                let alertController = UIAlertController(title: "Oops!", message:
-                    "Please enter an email.", preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                alertController.addAction(defaultAction)
-
-                present(alertController, animated: true, completion: {
-                    self.isWorking = false
-                })
-            } else {
-                //Trying to reset user's password
-                FIRAuth.auth()?.sendPasswordReset(withEmail: self.emailTextField.text!, completion: { (error) in
-                    var title = ""
-                    var message = ""
-
-                    if error != nil {
-                        //Variables with error
-                        title = "Error!"
-                        message = (error?.localizedDescription)!
-                    } else {
-                        //Variables with success
-                        title = "Success!"
-                        message = "Password reset email sent."
-                        self.emailTextField.text = ""
-                        self.view.endEditing(true)
+        sender?.isEnabled = false
+        
+        if self.emailTextField.text == "" {
+            //Show error
+            let alertController = self.createAlert(title: "Oops!", message: "Please enter an email.", button: "OK", action: nil)
+            present(alertController, animated: true, completion: {
+                sender?.isEnabled = true
+            })
+        } else {
+            //Trying to reset user's password
+            FIRAuth.auth()?.sendPasswordReset(withEmail: self.emailTextField.text!, completion: { (error) in
+                var title = ""
+                var message = ""
+                
+                if error != nil {
+                    //Variables with error
+                    title = "Error!"
+                    message = (error?.localizedDescription)!
+                } else {
+                    //Variables with success
+                    title = "Success!"
+                    message = "Password reset email sent."
+                    self.emailTextField.text = ""
+                    self.view.endEditing(true)
+                }
+                
+                //Show message with varibales
+                let alertController = self.createAlert(title: title, message: message, button: "OK", action: {
+                    if title == "Success!" {
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
+                        self.present(vc!, animated: true, completion: nil)
                     }
-
-                    //Show message with varibales
-                    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-
-                    self.present(alertController, animated: true, completion: {
-                        self.isWorking = false
-                    })
                 })
-            }
+                self.present(alertController, animated: true, completion: {
+                    sender?.isEnabled = true
+                })
+            })
         }
     }
 
@@ -87,7 +80,6 @@ class ResetPasswordVC: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dismissKeyboard()
         resetPasswordAction(nil)
-
         return false
     }
 

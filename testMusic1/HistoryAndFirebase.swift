@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CoreData
 
+//Favorites and history extension
 extension ViewController {
     //Check the set for existing in favorites
     func checkForExisting() {

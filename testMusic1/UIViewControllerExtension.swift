@@ -9,10 +9,12 @@
 import UIKit
 
 extension UIViewController {
-    func createAlert(error:String) -> UIAlertController{
+    func createAlert(title: String, message: String, button: String, action: (() -> Void)?) -> UIAlertController {
         let alertController = UIAlertController(title:
-            "Error", message: error, preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: button, style: .cancel, handler: { (_: UIAlertAction!) in
+            action?()
+        })
         alertController.addAction(defaultAction)
         
         return alertController
