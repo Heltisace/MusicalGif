@@ -20,12 +20,11 @@ class MenuVC: UIViewController {
     @IBOutlet weak var logoView: UIView!
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var bottomView: UIView!
-
-    let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "User")
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    //Background
     let colorLayer = ColorLayer()
+    //CoreData
+    let coreDataFunctions = CoreDataFunctions()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +51,11 @@ class MenuVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
-    @IBAction func logOutAction(_ sender: RoundButton?) {
+    @IBAction func logOutAction(_ sender: UIButton?) {
         if FIRAuth.auth()?.currentUser != nil {
             do {
                 try FIRAuth.auth()?.signOut()
-                deleteUser()
+                coreDataFunctions.deleteUser()
                 NotificationCenter.default.removeObserver(self)
 
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Login")
@@ -68,7 +67,7 @@ class MenuVC: UIViewController {
         }
     }
 
-    @IBAction func goToSetSettings(_ sender: RoundButton) {
+    @IBAction func goToSetSettings(_ sender: UIButton) {
         if !logOutButton.isSelected {
             self.navigationController?.popPushAnimation(navigation: self.navigationController!)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingsVC")
@@ -76,34 +75,18 @@ class MenuVC: UIViewController {
         }
     }
 
-    @IBAction func goToFavoriteTable(_ sender: RoundButton) {
+    @IBAction func goToFavoriteTable(_ sender: UIButton) {
         if !logOutButton.isSelected {
             self.navigationController?.popPushAnimation(navigation: self.navigationController!)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "FavoriteVC")
             self.navigationController?.pushViewController(vc!, animated: false)
         }
     }
-    @IBAction func goToHistoryTable(_ sender: RoundButton) {
+    @IBAction func goToHistoryTable(_ sender: UIButton) {
         if !logOutButton.isSelected {
             self.navigationController?.popPushAnimation(navigation: self.navigationController!)
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "HistoryVC")
             self.navigationController?.pushViewController(vc!, animated: false)
-        }
-    }
-
-    func deleteUser() {
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        do {
-            let results = try context.fetch(fetchRequest)
-            for result in results {
-                context.delete(result)
-            }
-            appDelegate.saveContext()
-        } catch {
-            print("error")
         }
     }
 }

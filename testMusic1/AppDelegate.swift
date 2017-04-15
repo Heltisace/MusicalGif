@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         DropDown.startListeningToKeyboard()
         FIRApp.configure()
+        
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor(colorLiteralRed: 0.2, green: 0.735901, blue: 1.00104, alpha: 1)
         navigationBarAppearace.titleTextAttributes = [

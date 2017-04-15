@@ -16,7 +16,6 @@ extension ViewController {
     func startTheShow() {
         DispatchQueue.global().sync {
             //Prepear for changing
-            doChangeOperation = false
             likeTheSet.isEnabled = false
             gestureRecognizer.removeTarget(self, action: #selector(handlePan))
             processIsWorking = true
@@ -66,7 +65,7 @@ extension ViewController {
             } else {
                 songURL = self.randomSongEngine.generateSong(jsonUrl: jsonSongURL, musicEngine: self.musicEngine)
             }
-            if songURL != "" {
+            if songURL != "Error" {
                 self.openSongButton.isEnabled = true
             }
         }
@@ -87,7 +86,6 @@ extension ViewController {
     //Show image and play music if image is loaded
     func startMusicAndGif() {
         DispatchQueue.global().sync {
-            self.doChangeOperation = true
             self.theGif.sd_cancelCurrentImageLoad()
 
             if !isVcClosed {
@@ -101,8 +99,7 @@ extension ViewController {
                     self.gifURL = self.randomGifEngine.getGifWithTag(tag: gifTag)
                 }
             }
-
-            if self.gifURL != "" {
+            if self.gifURL != "Error" {
                 self.openGifButton.isEnabled = true
             }
 
@@ -110,11 +107,9 @@ extension ViewController {
 
             //Creating stream for synch
             self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (_) in
-                if self.doChangeOperation {
-                    self.musicEngine.playTrack(viewController: self)
-                    self.closeSpinner(spinner: self.indicator)
-                    self.processIsWorking = false
-                }
+                self.musicEngine.playTrack(viewController: self)
+                self.closeSpinner(spinner: self.indicator)
+                self.processIsWorking = false
             }
         }
     }

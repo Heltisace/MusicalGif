@@ -18,46 +18,41 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     
     let colorLayer = ColorLayer()
-
-    //For CoreData
-    let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "User")
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //CoreData
+    let coreDataFunctions = CoreDataFunctions()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDesign()
-        do {
-            //Results in CoreData
-            let results = try context.fetch(fetchRequest)
-            if let result = results.first {
-                //Full screen spinner
-                SwiftSpinner.useContainerView(self.view)
-                SwiftSpinner.show("Connecting to server...")
-
-                //Get user's data from Core Data
-                let email = result.value(forKey: "email")! as! String
-                let password = result.value(forKey: "password")! as! String
-
-                //Trying to auth
-                FIRAuth.auth()?.signIn(withEmail: email, password: password) { (_, error) in
-                    if error == nil {
-                        //Go to menu and close spinner
-                        let nc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
-                        self.present(nc!, animated: true, completion: {
-                            SwiftSpinner.hide()
-                        })
-                    } else {
-                        //Show error, delete user data and close spinner
+        
+        //Results in CoreData
+        let results = coreDataFunctions.getUser()
+        if let result = results?.first {
+            //Full screen spinner
+            SwiftSpinner.useContainerView(self.view)
+            SwiftSpinner.show("Connecting to server...")
+            
+            //Get user's data from Core Data
+            let email = result.value(forKey: "email")! as! String
+            let password = result.value(forKey: "password")! as! String
+            
+            //Trying to auth
+            FIRAuth.auth()?.signIn(withEmail: email, password: password) { (_, error) in
+                if error == nil {
+                    //Go to menu and close spinner
+                    let nc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
+                    self.present(nc!, animated: true, completion: {
                         SwiftSpinner.hide()
-                        
-                        let alertController = self.createAlert(title: "Error", message: (error?.localizedDescription)!, button: "OK", action: nil)
-                        self.present(alertController, animated: true, completion: nil)
-                    }
+                    })
+                } else {
+                    //Show error, delete user data and close spinner
+                    SwiftSpinner.hide()
+                    
+                    let alertController = self.createAlert(title: "Error", message: (error?.localizedDescription)!, button: "OK", action: nil)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
-        } catch {
-            print("error")
         }
 
         //Delegating text fields
@@ -87,26 +82,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             //Trying to auth
             FIRAuth.auth()?.signIn(withEmail: email, password: password) { (_, error) in
                 if error == nil {
-                    //Delete users
-                    let menuVc = self.storyboard?.instantiateViewController(withIdentifier: "MenuVC") as! MenuVC
-                    menuVc.deleteUser()
-
-                    guard let appDelegate =
-                        UIApplication.shared.delegate as? AppDelegate else {
-                            return
-                    }
-
-                    //Creating new variable in CoreData
-                    let entity = NSEntityDescription.entity(forEntityName: "User", in: self.context)!
-                    let dataTask = NSManagedObject(entity: entity, insertInto: self.context)
-
-                    //Setting data to variable
-                    dataTask.setValue(email, forKey: "email")
-                    dataTask.setValue(password, forKey: "password")
-
-                    //Save data with appDelegate function
-                    appDelegate.saveContext()
-
+                    //Delete user and add a new
+                    self.coreDataFunctions.deleteUser()
+                    self.coreDataFunctions.addUser(email: email, password: password)
+                    
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNC")
                     self.present(vc!, animated: true, completion: nil)
 

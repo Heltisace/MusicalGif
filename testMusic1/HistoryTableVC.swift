@@ -14,22 +14,18 @@ class HistoryTableVC: UITableViewController {
     var theSetIDs: [String] = []
     var presentingSetIndex = 0
 
-    let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "History")
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let coreDataFunctions = CoreDataFunctions()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        do {
-            let results = try context.fetch(fetchRequest)
-            for result in results {
+        
+        let results = coreDataFunctions.getHistory()
+        if results != nil {
+            for result in results! {
                 let info = result.value(forKey: "setID")
                 theSetIDs.insert(info as! String, at: 0)
             }
             self.tableView.reloadData()
-        } catch {
-            print("error")
         }
     }
     

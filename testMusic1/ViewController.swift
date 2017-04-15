@@ -20,8 +20,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var songInfoLabel: UILabel!
     @IBOutlet weak var gifView: UIView!
     @IBOutlet weak var insideGifView: UIView!
-    @IBOutlet weak var openSongButton: PressableButton!
-    @IBOutlet weak var openGifButton: PressableButton!
+    @IBOutlet weak var openSongButton: RoundButton!
+    @IBOutlet weak var openGifButton: RoundButton!
     @IBOutlet weak var viewInGifView: UIView!
     @IBOutlet weak var songInfoView: UIView!
     @IBOutlet weak var likeTheSet: UIBarButtonItem!
@@ -92,14 +92,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var lastDegree: CGFloat = 0.0
 
     //Variables for changing gif opearation
-    var doChangeOperation = true
     var isVcClosed = false
     var processIsWorking = false
 
     //Core data
-    let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "History")
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let coreDataFunctions = CoreDataFunctions()
 
     override func viewDidLoad() {
         super.viewDidLoad()

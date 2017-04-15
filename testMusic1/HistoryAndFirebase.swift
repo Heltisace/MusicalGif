@@ -16,7 +16,7 @@ extension ViewController {
     func checkForExisting() {
         if !fromFavoriteTable && !fromHistoryTable {
             generateSetID()
-            toHistoryCoreData()
+            coreDataFunctions.addToHistory(theSetID: theSetID)
         }
         
         ref.child("Users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -111,37 +111,6 @@ extension ViewController {
         
         let songID = theSetID[firstIndex...secondIndex]
         jsonSongURL = "https://api.spotify.com/v1/\(songID)"
-    }
-    
-    func toHistoryCoreData() {
-        //Get AppDelegate
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return
-        }
-        
-        do {
-            var results = try context.fetch(fetchRequest)
-            while results.count > 19 {
-                //Delte and save data with appDelegate function
-                context.delete(results.first!)
-                appDelegate.saveContext()
-                //Get new results
-                results = try context.fetch(fetchRequest)
-            }
-            
-            //Creating new variable in CoreData
-            let entity = NSEntityDescription.entity(forEntityName: "History", in: self.context)!
-            let dataTask = NSManagedObject(entity: entity, insertInto: self.context)
-            
-            //Setting data to variable
-            dataTask.setValue(theSetID, forKey: "setID")
-            
-            //Save data with appDelegate function
-            appDelegate.saveContext()
-        } catch {
-            print("error")
-        }
     }
     
     func getYourHistoryItem(whatToGet: String) {

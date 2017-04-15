@@ -175,10 +175,8 @@ class RandomSong {
         songJson = getSongJson(jsonUrl: jsonUrl)
         if songJson != nil {
             trackURL = getSongUrl(data: songJson!)
-            print(trackURL)
             songInfo = getSongName(data: songJson!)
                 + " - "+getSongArtist(data: songJson!)
-            print(songInfo)
         } else {
             songInfo = "Error - Error"
             trackURL = "Error"

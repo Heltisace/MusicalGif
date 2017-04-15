@@ -32,8 +32,9 @@
 		926779411E8D6688003D24F3 /* FavoriteTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926779401E8D6688003D24F3 /* FavoriteTableVC.swift */; };
 		926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926AAB841E6202E000B86EC4 /* Spinner.swift */; };
 		926B5F0E1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */; };
-		926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */; };
+		926B5F101E646D23002EC0EA /* ViewControllerChangeFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926B5F0F1E646D23002EC0EA /* ViewControllerChangeFunctions.swift */; };
 		9284BC511E9C387C00B3AA23 /* PopPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9284BC501E9C387C00B3AA23 /* PopPushAnimation.swift */; };
+		92C619FC1EA21E68001BD947 /* CoreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C619FB1EA21E68001BD947 /* CoreDataFunctions.swift */; };
 		92E2CDFC1E8A94AA00F5623E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */; };
 		92E2CDFE1E8A94C200F5623E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFD1E8A94C200F5623E /* LoginVC.swift */; };
 		92E2CE001E8A94DF00F5623E /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */; };
@@ -97,8 +98,9 @@
 		926779401E8D6688003D24F3 /* FavoriteTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableVC.swift; sourceTree = "<group>"; };
 		926AAB841E6202E000B86EC4 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAnimationFunctions.swift; sourceTree = "<group>"; };
-		926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerOtherFunctions.swift; sourceTree = "<group>"; };
+		926B5F0F1E646D23002EC0EA /* ViewControllerChangeFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerChangeFunctions.swift; sourceTree = "<group>"; };
 		9284BC501E9C387C00B3AA23 /* PopPushAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopPushAnimation.swift; sourceTree = "<group>"; };
+		92C619FB1EA21E68001BD947 /* CoreDataFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataFunctions.swift; sourceTree = "<group>"; };
 		92E2CDFB1E8A94AA00F5623E /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		92E2CDFD1E8A94C200F5623E /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		92E2CDFF1E8A94DF00F5623E /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
@@ -160,7 +162,7 @@
 				9211F28E1E5B3B9600A9076C /* ViewController.swift */,
 				9203DFFD1E6A09AF0005ADD4 /* ViewControllerInitialization.swift */,
 				926B5F0D1E645E98002EC0EA /* ViewControllerAnimationFunctions.swift */,
-				926B5F0F1E646D23002EC0EA /* ViewControllerOtherFunctions.swift */,
+				926B5F0F1E646D23002EC0EA /* ViewControllerChangeFunctions.swift */,
 				92E2CE081E8BE83500F5623E /* ViewControllerFavoriteFunctions.swift */,
 				9247516C1E9FF30F00D0915E /* HistoryAndFirebase.swift */,
 			);
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				92E2CE051E8B00AF00F5623E /* CoreData.xcdatamodeld */,
+				92C619FB1EA21E68001BD947 /* CoreDataFunctions.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -291,8 +294,6 @@
 				9211F2BA1E5B48F400A9076C /* MusicEngine.swift */,
 				92F66F7E1E5CFB32005DCDD1 /* RandomSong.swift */,
 				923A50DA1E5E56A300D0AD20 /* RandomGif.swift */,
-				926AAB841E6202E000B86EC4 /* Spinner.swift */,
-				9266800C1EA0C9AF004668CC /* UIViewControllerExtension.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -325,8 +326,10 @@
 			children = (
 				922F113F1E9D7949006CC0A9 /* DropDown */,
 				9211F2BC1E5B56D400A9076C /* RoundButton.swift */,
-				9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */,
 				92144FF51E985AF100D443E3 /* SpinnerButton.swift */,
+				9203DFFB1E69F91C0005ADD4 /* ColorLayer.swift */,
+				926AAB841E6202E000B86EC4 /* Spinner.swift */,
+				9266800C1EA0C9AF004668CC /* UIViewControllerExtension.swift */,
 				9284BC501E9C387C00B3AA23 /* PopPushAnimation.swift */,
 			);
 			name = Models;
@@ -546,6 +549,7 @@
 				925D698A1E7867B20063BDAC /* SettingsVCFunctions.swift in Sources */,
 				922F11411E9D797D006CC0A9 /* MyCell.swift in Sources */,
 				9211F28F1E5B3B9600A9076C /* ViewController.swift in Sources */,
+				92C619FC1EA21E68001BD947 /* CoreDataFunctions.swift in Sources */,
 				9211F2BB1E5B48F400A9076C /* MusicEngine.swift in Sources */,
 				92E976F51E95B1F0004F3B73 /* HistoryTableViewCell.swift in Sources */,
 				92144FF61E985AF100D443E3 /* SpinnerButton.swift in Sources */,
@@ -561,7 +565,7 @@
 				926AAB851E6202E000B86EC4 /* Spinner.swift in Sources */,
 				9211F28D1E5B3B9600A9076C /* AppDelegate.swift in Sources */,
 				92E2CE001E8A94DF00F5623E /* ResetPasswordVC.swift in Sources */,
-				926B5F101E646D23002EC0EA /* ViewControllerOtherFunctions.swift in Sources */,
+				926B5F101E646D23002EC0EA /* ViewControllerChangeFunctions.swift in Sources */,
 				92E2CE071E8B00AF00F5623E /* CoreData.xcdatamodeld in Sources */,
 				925EE7341E943EC000DF9927 /* CheckInternetConnection.swift in Sources */,
 				9203DFFC1E69F91C0005ADD4 /* ColorLayer.swift in Sources */,
