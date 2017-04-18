@@ -73,6 +73,7 @@ extension ViewController {
     }
 }
 
+//Like with double touch on the gif
 extension ViewController {
     func doubleTapped() {
         if likeTheSet.image == UIImage(named: "unliked") {

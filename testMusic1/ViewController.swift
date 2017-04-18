@@ -62,6 +62,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     //Global variables
     var indicator: NVActivityIndicatorView?
     let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+    //Double click
+    let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
     var shouldChangeGif = false
     var gifURL = "Error"
     var songURL = "Error"
@@ -107,7 +109,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         //Double click
-        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
         gifView.addGestureRecognizer(tap)
 

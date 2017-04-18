@@ -18,6 +18,7 @@ extension ViewController {
             //Prepear for changing
             likeTheSet.isEnabled = false
             gestureRecognizer.removeTarget(self, action: #selector(handlePan))
+            tap.removeTarget(self, action: #selector(doubleTapped))
             processIsWorking = true
 
             self.musicPrepear()
@@ -107,9 +108,13 @@ extension ViewController {
 
             //Creating stream for synch
             self.theGif.sd_setImage(with: URL(string: self.gifURL)) { (_) in
+                //Play the song and show the gif
                 self.musicEngine.playTrack(viewController: self)
                 self.closeSpinner(spinner: self.indicator)
                 self.processIsWorking = false
+                //Add gestures
+                self.tap.addTarget(self, action: #selector(self.doubleTapped))
+                self.gestureRecognizer.addTarget(self, action: #selector(self.handlePan))
             }
         }
     }

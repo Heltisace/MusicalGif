@@ -170,8 +170,6 @@ extension ViewController {
                 self.openGifTrailing.constant = self.normalRightButton
                 self.betweenButtons.constant = self.normalBetweenButtons
                 self.view.layoutIfNeeded()
-            }, completion: { _ in
-                self.gestureRecognizer.addTarget(self, action: #selector(self.handlePan))
             })
         }
     }
