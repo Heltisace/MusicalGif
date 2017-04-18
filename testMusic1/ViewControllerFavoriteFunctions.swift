@@ -72,3 +72,28 @@ extension ViewController {
         })
     }
 }
+
+extension ViewController {
+    func doubleTapped() {
+        if likeTheSet.image == UIImage(named: "unliked") {
+            likeTheSet.image = UIImage(named: "liked")
+            likeTheSet.isEnabled = false
+            let likeImage = UIImageView()
+            likeImage.image = UIImage(named: "100x100liked")
+            likeImage.tintColor = UIColor(colorLiteralRed: 0.2, green: 0.735901, blue: 1.00104, alpha: 1)
+            likeImage.frame = CGRect(x: theGif.frame.width/2-50, y: theGif.frame.height/2-100, width: 100, height: 100)
+            likeImage.alpha = 0
+            gifView.addSubview(likeImage)
+            UIView.animate(withDuration: 0.1, delay: 0.1, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                likeImage.alpha = 1
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.1, delay: 0.1, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    likeImage.alpha = 0
+                }, completion: { _ in
+                    self.tempSetID = self.theSetID
+                    self.openPopViewIfNeeded()
+                })
+            })
+        }
+    }
+}

@@ -105,6 +105,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if theSetID != "" {
             createUrlsWithSetID()
         }
+        
+        //Double click
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        gifView.addGestureRecognizer(tap)
 
         //swipeControll
         gifView.addGestureRecognizer(gestureRecognizer)
