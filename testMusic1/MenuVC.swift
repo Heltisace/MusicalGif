@@ -114,7 +114,7 @@ extension MenuVC {
         switch status {
         case .unknown, .offline:
             //Show error
-            let error = "Network error (such as timeout, interrupted" +
+            let error = "Network error (such as timeout, interrupted " +
             "connection or unreachable host) has occurred."
             let alertController = self.createAlert(title: "Error", message: error, button: "Try again", action: {
                 //Try to get new gif vc is ViewController
